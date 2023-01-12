@@ -23,7 +23,7 @@ import lombok.NonNull;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "StudentId")
+	@Column(name = "studentId")
 	private int studentId;
 	
 	@Column(name = "name")
@@ -37,15 +37,7 @@ public class User {
 	@NonNull
 	@Column(name = "password")
 	private String password;
-	
-	@Column(name = "role")
-	private String role;
-	
-	@Column(name = "enabled")
-	private boolean enabled;
-	
-	@Column(name = "imagegurl")
-	private String imageurl;
+
   @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 private List<Course> courses=new ArrayList<>();
 		

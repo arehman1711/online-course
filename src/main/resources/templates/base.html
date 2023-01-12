@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
   <a class="navbar-brand" href="#">Online Course Management System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,8 +21,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-uppercase">
     
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+     <li class="nav-item active">
+        <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       
       <li class="nav-item">
@@ -35,8 +35,8 @@
         
       
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Signup</a>
+     <li class="nav-item">
+       <a class="nav-link" th:href="@{/signup}" href="#">Signup</a>
       </li>
     </ul>
    
