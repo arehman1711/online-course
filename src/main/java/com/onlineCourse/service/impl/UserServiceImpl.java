@@ -1,8 +1,8 @@
-package com.onlinecourse.service.impl;
+package com.onlineCourse.service.impl;
 
-import com.onlinecourse.dao.UserRepository;
-import com.onlinecourse.entities.User;
-import com.onlinecourse.service.interfaces.UserService;
+import com.onlineCourse.repository.UserRepository;
+import com.onlineCourse.entities.User;
+import com.onlineCourse.service.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

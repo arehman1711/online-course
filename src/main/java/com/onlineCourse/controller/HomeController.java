@@ -1,14 +1,14 @@
-package com.onlinecourse.controller;
+package com.onlineCourse.controller;
 
 
-import com.onlinecourse.dao.UserRepository;
-import com.onlinecourse.service.interfaces.UserService;
+import com.onlineCourse.repository.UserRepository;
+import com.onlineCourse.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.onlinecourse.entities.User;
+import com.onlineCourse.entities.User;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -17,10 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class HomeController {
-
-/*	public HomeController(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}*/
 
 	@Autowired
 	private UserRepository userRepository;

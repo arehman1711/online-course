@@ -1,4 +1,4 @@
-package com.onlinecourse.entities;
+package com.onlineCourse.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

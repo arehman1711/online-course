@@ -1,7 +1,7 @@
-package com.onlinecourse.dao;
+package com.onlineCourse.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.onlinecourse.entities.User;
+import com.onlineCourse.entities.User;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
