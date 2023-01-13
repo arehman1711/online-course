@@ -17,8 +17,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.ToString;
+@ToString
+@Getter
 @NoArgsConstructor
 @Data
 @Entity
@@ -27,26 +30,28 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "studentId")
-	private int studentId;
+	@Column(name = "id")
+	private Integer id;
 
 	@Column(name = "name")
 	@Size(min = 10, max = 200, message = "Name must be between 10 and 200 characters")
 	private String name;
 
-	@NotNull(message = "Name cannot be null")
+	@NotNull(message = "Email is Mandatory.")
 	@Email(message = "Email should be valid")
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "role")
-	private String role;
+/*	@Column(name = "role")
+	private String role;*/
+	
+
 
 	@NotNull(message = "Password cannot be null")
 	@Column(name = "password")
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Course> courses = new ArrayList<>();;
+	//@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//private List<Course> courses = new ArrayList<>();;
 
 }

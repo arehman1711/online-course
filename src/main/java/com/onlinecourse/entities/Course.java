@@ -8,8 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+@Getter
 @NoArgsConstructor
 @Data
 @Entity
@@ -21,7 +22,7 @@ public class Course {
 	private int courseId;
 	
 	@Column(name = "role")
-	private String name;
+	private String role;
 	
 	@Column(name = "duration")
 	private String duration;

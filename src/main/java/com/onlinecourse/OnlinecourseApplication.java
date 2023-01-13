@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@EnableJpaRepositories(basePackages = { "com.onlinecourse.dao.*"})
+@EnableJpaRepositories(basePackages = { "com.onlinecourse.dao"})
 @ComponentScan(basePackages = { "com.onlinecourse.*" })
 @EntityScan(basePackages = { "com.onlinecourse.entities" })   
 @Slf4j
@@ -22,6 +22,7 @@ public class OnlinecourseApplication {
 			log.info("Application Starting...");
 			SpringApplication.run(OnlinecourseApplication.class, args);
 			log.info("Application Started Successfully.");
+		//} catch (SilentExitException ex) {
 		} catch (Exception ex) {
 			log.error("Failed to start application" + ex);
 		}
