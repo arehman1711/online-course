@@ -1,11 +1,6 @@
 package com.onlineCourse.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,11 +9,17 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.context.annotation.Lazy;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @ToString
 @Getter
 @NoArgsConstructor
 @Data
 @Entity
+@Lazy(value = false)
 @Table(name = "user")
 public class User {
 	
@@ -36,16 +37,18 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-/*	@Column(name = "role")
-	private String role;*/
-	
+	@Column(name = "role")
+	private String role = "user";
 
-
-	@NotNull(message = "Password cannot be null")
+	@NotNull(message = "Password cannot be Empty.")
 	@Column(name = "password")
 	private String password;
 
-	//@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	//private List<Course> courses = new ArrayList<>();;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(
+			name = "course_enrollment",
+			joinColumns = @JoinColumn(name = "student_id"),
+			inverseJoinColumns = @JoinColumn(name = "course_id"))
+	private List<Course> courseList = new ArrayList<>();
 
 }

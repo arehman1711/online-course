@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     public boolean isValidUser(User user) {
         User dbUser = userRepository.getUserByEmail(user.getEmail());
         log.info("DB USER : " +  dbUser);
-        if(user.getPassword().equals(dbUser.getPassword())){
+        if(dbUser!=null && user.getPassword().equals(dbUser.getPassword())){
            return true;
         }
         return false;

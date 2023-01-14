@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})"> 
-  <head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
     <meta charset="UTF-8" />
     <title>this is a home page Document</title>
-  </head>
-  <body>
-  <section class="banner d-flex justify-content-center align-items-center">
-  <div>
-  
- 
-      <h1  class="font-weight-bold">Courses</h1>
-      <p> study any topic, anytime</p>
-      <button class="btn bg-info btn-lg text-white">Get Start</button>
-       </div>
-  </section>
-  </body>
+</head>
+<body>
+<section class="banner d-flex justify-content-center align-items-center">
+
+        <tr th:each="course: ${courseList}">
+            <td th:text="${course.id}" />
+            <td th:text="${course.courseName}" />
+            <td th:text="${course.courseDescription}" />
+            <td th:text="${course.duration}" />
+            <td th:text="${course.trainer}" />
+        </tr>
+
+    <th:block th:each="course : ${courseList}">
+        <tr>
+            <td th:text="${course.id}" />
+            <td th:text="${course.courseName}" />
+            <td th:text="${course.courseDescription}" />
+            <td th:text="${course.duration}" />
+            <td th:text="${course.trainer}" />
+        </tr>
+    </th:block>
+
+</section>
+</body>
 </html>
 
 
