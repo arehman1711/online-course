@@ -29,3 +29,16 @@ body{
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
 }
+
+.form {
+    margin-top: 25px;
+    padding-top: 25px
+}
+
+.heading {
+    align: center
+}
+
+
+
+

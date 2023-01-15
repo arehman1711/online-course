@@ -5,26 +5,44 @@
     <title>this is a home page Document</title>
 </head>
 <body>
-<section class="banner d-flex justify-content-center align-items-center">
 
-        <tr th:each="course: ${courseList}">
-            <td th:text="${course.id}" />
-            <td th:text="${course.courseName}" />
-            <td th:text="${course.courseDescription}" />
-            <td th:text="${course.duration}" />
-            <td th:text="${course.trainer}" />
-        </tr>
+<section class="banner">
 
-    <th:block th:each="course : ${courseList}">
-        <tr>
-            <td th:text="${course.id}" />
-            <td th:text="${course.courseName}" />
-            <td th:text="${course.courseDescription}" />
-            <td th:text="${course.duration}" />
-            <td th:text="${course.trainer}" />
-        </tr>
-    </th:block>
+    <div class = "">
+        <h3 class="text-info" >List Of Available Courses</h3>
+    </div>
 
+    <div class=" d-flex justify-content-center align-items-center">
+
+        <table border = "1">
+            <!-- Table Header -->
+            <tr>
+                <td>Id</td>
+                <td>Course Name</td>
+                <td>Description</td>
+                <td>Day(s)</td>
+                <td>Trainer</td>
+                <td>Enrollment</td>
+            </tr>
+            <!-- Table Data Section -->
+
+            <th:block th:each="course : ${courseList}">
+                <tr>
+                    <td th:text="${course.id}" />
+                    <!--<td th:text="${course.courseName}" />-->
+                    <td>
+                        <a th:href="@{/coursedetail}" th:text="${course.courseName}"></a>
+                    </td>
+                    <td th:text="${course.courseDescription}" />
+                    <td th:text="${course.duration}" />
+                    <td th:text="${course.trainer}" />
+                    <td> <a class="nav-link" th:href="@{/coursedetail}">Enroll</a> </td>
+
+                </tr>
+                </tr>
+            </th:block>
+        </table>
+    </div>
 </section>
 </body>
 </html>

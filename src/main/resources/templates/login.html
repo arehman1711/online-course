@@ -5,14 +5,12 @@
     <title>this is a home page</title>
 </head>
 <body>
-<section>
+<section class="banner">
         <div id="login">
-
-            <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
-                            <form action="#" th:action="@{/do_login}" method="post" th:object="${user}">
+                            <form class="form" action="#" th:action="@{/do_login}" method="post" th:object="${user}">
                                 <h3 class="text-center text-info">Login</h3>
                                 <label for="email_field">Your Email:</label>
                                 <input
@@ -40,7 +38,11 @@
                                 />
                                 <div class="form-group">
                                     <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                    <input type="submit" name="submit" class="btn bg-info btn-md" value="submit">
+
+                                    <div class="container text-center">
+                                        <button type="submit" class="btn bg-info  text-white">
+                                            submit
+                                        </button>
                                 </div>
                                 <div id="register-link" class="text-right">
                                     <a th:href="@{/signup}" class="text-info">Register here</a>
@@ -50,7 +52,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 </section>
 </body>

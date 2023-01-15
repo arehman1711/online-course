@@ -13,6 +13,8 @@ import com.onlineCourse.entities.User;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.http.HttpSession;
+
 @Data
 @Controller
 @Slf4j
@@ -51,7 +53,7 @@ public class HomeController {
 
 	// hanlder for registering user
 	@RequestMapping(value = "/do_register", method = RequestMethod.POST)
-	public String registerUser(@ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
+	public String registerUser(HttpSession session, @ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
 		if (!agreement) {
 			log.info("You have not agreed the terms and conditions");
 			return "signup";
@@ -62,22 +64,31 @@ public class HomeController {
 		if(isDuplicateUser){
 			return "signup";
 		}
-		User result = userRepository.save(user);
-	    model.addAttribute("user ", result);
+		User dbuser = userRepository.save(user);
+		session.setAttribute("user", dbuser);
+	    model.addAttribute("user ", dbuser);
 		return "courses";
 	}
 	@RequestMapping(value = "/do_login", method = RequestMethod.POST)
-	public String loginUser(@ModelAttribute("user") User user, Model model) {
+	public String loginUser(HttpSession session, @ModelAttribute("user") User user, Model model) {
 
 		log.info("USER " + user);
 		boolean isValidUser = userService.isValidUser(user);
 
 		if(isValidUser){
+			model.addAttribute("user ", user);
+			session.setAttribute("user", user);
+			session.setAttribute("name", user.getName());
 			return courseController.courses(model);
 		}
-		model.addAttribute("user ", user);
 		return "login";
-
 	}
+
+	@GetMapping(value = "/logout")
+	public String logout(HttpSession session, Model model) {
+		session.invalidate();
+		return "home";
+	}
+
 
 }

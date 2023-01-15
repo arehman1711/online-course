@@ -5,16 +5,28 @@
     <title>this is a home page</title>
 </head>
 <body>
-<section>
+<section class="banner">
     <div id="login">
-
-        <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form action="#" th:action="@{/do_register}" method="post" th:object="${user}">
+                        <form class="form" action="#" th:action="@{/do_register}" method="post" th:object="${user}">
                             <h3 class="text-center text-info">Signup</h3>
-                            <label for="email_field">Your Email:</label>
+                            <!--name field -->
+                            <label for="name_field">Your Name</label>
+                            <input
+                                    name="name"
+                                    type="text"
+                                    class="form-control"
+                                    id="name_field"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter here"
+                                    required
+                                    th:field="*{name}"
+                            />
+
+                            <!--email field -->
+                            <label for="email_field">Your Email</label>
                             <input
                                     name="email"
                                     type="email"
@@ -26,7 +38,11 @@
 
                                     required
                             />
-                            <label for="password_field">Your Password:</label>
+                            <!-- </div>-->
+
+                            <!--password field -->
+                            <!--<div class="form-group">-->
+                            <label for="password_field">Your Password</label>
                             <input
                                     name="password"
                                     type="password"
@@ -38,19 +54,32 @@
                                     th:field="*{password}"
 
                             />
-                            <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                <input type="submit" name="submit" class="btn bg-info btn-md" value="submit">
-                            </div>
-                            <div id="register-link" class="text-right">
-                                <a th:href="@{/signup}" class="text-info">Register here</a>
 
+
+                            <!-- </div>-->
+                            <!-- Term and conition agreement -->
+                            <div class="form-group form-check">
+
+                                <input type="checkbox"
+                                       name="agreement"
+                                       class="form-check-input"
+                                       id="agreement"
+                                       required
+                                />
+                                <label for="agreement"> Accept term and conditions</label>
+                            </div>
+                            <div class="container text-center">
+                                <button type="submit" class="btn bg-info  text-white">
+                                    submit
+                                </button>
+                                <button type="Reset" class="btn bg-warning text-white">
+                                    Reset
+                                </button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </section>
 </body>

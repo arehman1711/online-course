@@ -16,11 +16,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean isValidUser(User user) {
-        User dbUser = userRepository.getUserByEmail(user.getEmail());
+        User dbUser = getUserByEmail(user.getEmail());
         log.info("DB USER : " +  dbUser);
         if(dbUser!=null && user.getPassword().equals(dbUser.getPassword())){
+            user.setId(dbUser.getId());
+            user.setName(dbUser.getName());
+            user.setRole(dbUser.getRole());
            return true;
         }
         return false;
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
     }
 }

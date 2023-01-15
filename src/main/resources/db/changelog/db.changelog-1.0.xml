@@ -26,7 +26,7 @@
         <insert tableName="Course">
             <column name="id" value="3"/>
             <column name="course_name" value="Hibernate"/>
-            <column name="course_description" value="Hibernate is a Java framework that simplifies the development of Java application to interact with the database."/>
+            <column name="course_description" value="Hibernate is a Java framework that simplifies the interact with the database."/>
             <column name="duration" value="15"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
@@ -34,7 +34,7 @@
         <insert tableName="Course">
             <column name="id" value="4"/>
             <column name="course_name" value="Spring Data JPA"/>
-            <column name="course_description" value="JPA is used to examine, control and persist data between Java objects and relational databases"/>
+            <column name="course_description" value="JPA is used to examine, control and persist data between Java objects and RDB."/>
             <column name="duration" value="10"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
@@ -58,7 +58,7 @@
         <insert tableName="Course">
             <column name="id" value="7"/>
             <column name="course_name" value="Thymleaf"/>
-            <column name="course_description" value="Thymleaf is server-side Java-based template engine for both web and standalone environments, capable of processing HTML, XML, JavaScript, CSS."/>
+            <column name="course_description" value="Thymleaf is template engine capable of processing HTML, XML, JavaScript, CSS."/>
             <column name="duration" value="10"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
@@ -82,7 +82,7 @@
         <insert tableName="Course">
             <column name="id" value="10"/>
             <column name="course_name" value="HTML/CSS/Bootstrap/JQuery"/>
-            <column name="course_description" value="Open source front-end development framework for the creation of websites and web apps."/>
+            <column name="course_description" value="Open source front-end framework for the creation of websites and web apps."/>
             <column name="duration" value="3"/>
             <column name="trainer" value="Khushhal"/>
         </insert>

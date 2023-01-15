@@ -19,27 +19,36 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto text-uppercase">
-    
-     <li class="nav-item active">
-        <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/courses}" href="/courses" >courses</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/login}" href="/login">Login</a>
-      </li>
-     
-        
-      
 
-     <li class="nav-item">
-       <a class="nav-link" th:href="@{/signup}" href="#">Signup</a>
-      </li>
+      <span align="center"  th:if="${session.user}" th:text="'Hello, ' + ${#session.getAttribute('name')} + '!'"></span>
+
+    <ul class="navbar-nav ml-auto text-uppercase">
+
+        <li class="nav-item active">
+            <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+      
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/courses}" href="/courses" >courses</a>
+        </li>
+
+        <li class="nav-item" th:if="${session.user}">
+            <a class="nav-link" th:href="@{/mycourses}" href="/mycoruses">My Courses</a>
+        </li>
+
+        <li class="nav-item" th:if="${session.user}">
+            <a class="nav-link" th:href="@{/logout}" href="/logout">Logout</a>
+        </li>
+
+        <li class="nav-item" th:if="!${session.user}" >
+           <a class="nav-link" th:href="@{/signup}" href="#">Signup</a>
+        </li>
+
+        <li class="nav-item" th:if="!${session.user}" >
+            <a class="nav-link" th:href="@{/login}" href="/login">Login</a>
+        </li>
+
     </ul>
-   
   </div>
 </nav>
 <!-- End navbar -->

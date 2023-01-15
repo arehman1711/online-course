@@ -2,6 +2,7 @@ package com.onlineCourse.controller;
 
 
 import com.onlineCourse.entities.Course;
+import com.onlineCourse.repository.CourseRepository;
 import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.service.interfaces.UserService;
@@ -25,7 +26,8 @@ public class CourseController {
 
 	@Autowired
 	private UserRepository userRepository;
-
+  @Autowired
+	private CourseRepository courseRepository;
 	@Autowired
 	private UserService userService;
 
@@ -41,23 +43,40 @@ public class CourseController {
 		return "courses";
 	}
 
-	// hanlder for registering user
-	@RequestMapping(value = "/do_xyz", method = RequestMethod.POST)
-	public String registerUser(@ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
-		if (!agreement) {
-			log.info("You have not agreed the terms and conditions");
-			return "courses";
-		}
-		log.info("USER " + user);
-		boolean isDuplicateUser = userService.isValidUser(user);
+	@GetMapping("/coursedetail")
+	public String enroll(@ModelAttribute("user") Course course,  Model model) {
+		//log.info("Course : " + course);
+		//log.info("User : " + user);
 
-		if(isDuplicateUser){
-			return "sig";
-		}
-		User result = userRepository.save(user);
-	    model.addAttribute("user ", result);
-		return "courses";
+		//model.addAttribute("user ",user);
+		List<Course> courseList = courseService.getCourseList();
+		log.info("courseList : " + courseList);
+		model.addAttribute("title", "Courses");
+		model.addAttribute("courseList", courseList);
+		return "coursedetail" ;
+
 	}
+	@RequestMapping(value = "/mycourse", method = RequestMethod.POST)
+	public String enrolluser(@ModelAttribute("user") User user,  Model model) {
+
+		log.info(" USER : " +  user);
+
+		return courses(model);
+	}
+
+	//@RequestMapping(value = "/enroll", method = RequestMethod.POST)
+/*	public String enrolluser(@ModelAttribute("user") User user,  Model model) {
+
+		log.info(" USER : " +  user);
+
+		return courses(model);
+	}*/
+
+	//mycourses - User
+
+	//courseDetail - Course
+
+
 
 
 }
