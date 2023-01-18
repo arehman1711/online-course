@@ -53,6 +53,10 @@
   </div>
 </nav>
 <!-- End navbar -->
+<!-- Alert Section-->
+<div class="alert-new alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+<div class="alert-new alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+<!-- Main Content-->
   <div th:replace="${content}"></div>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->

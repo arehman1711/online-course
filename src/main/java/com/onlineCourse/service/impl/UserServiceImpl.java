@@ -27,7 +27,14 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    @Override
+    public boolean isUserAlreadyExists(String email) {
+        User dbUser = getUserByEmail(email);
+        if(dbUser!=null){
+            return true;
+        }
+        return false;
+    }
+
     public User getUserByEmail(String email) {
         return userRepository.getUserByEmail(email);
     }

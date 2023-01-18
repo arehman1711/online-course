@@ -12,6 +12,7 @@ import com.onlineCourse.entities.User;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
@@ -55,18 +56,22 @@ public class HomeController {
 	@RequestMapping(value = "/do_register", method = RequestMethod.POST)
 	public String registerUser(HttpSession session, @ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
 		if (!agreement) {
-			log.info("You have not agreed the terms and conditions");
+			log.info("You have not agreed the terms and conditions.");
+			model.addAttribute("error", "You have not agreed the terms and conditions.");
 			return "signup";
 		}
 		log.info("USER " + user);
-		boolean isDuplicateUser = userService.isValidUser(user);
+		boolean isDuplicateUser = userService.isUserAlreadyExists(user.getEmail());
 
 		if(isDuplicateUser){
+			model.addAttribute("error", "User already exists in database.");
 			return "signup";
 		}
-		User dbuser = userRepository.save(user);
-		session.setAttribute("user", dbuser);
-	    model.addAttribute("user ", dbuser);
+		userRepository.save(user);
+		session.setAttribute("user", user);
+	    model.addAttribute("user ", user);
+		session.setAttribute("name", user.getName());
+		model.addAttribute("success", "Welcome "+ user.getName() + "!");
 		return "courses";
 	}
 	@RequestMapping(value = "/do_login", method = RequestMethod.POST)
@@ -79,16 +84,18 @@ public class HomeController {
 			model.addAttribute("user ", user);
 			session.setAttribute("user", user);
 			session.setAttribute("name", user.getName());
+			model.addAttribute("success", "Welcome "+ user.getName() + "!");
 			return courseController.courses(model);
 		}
+		model.addAttribute("error", "Invalid email/password.");
 		return "login";
 	}
 
 	@GetMapping(value = "/logout")
 	public String logout(HttpSession session, Model model) {
 		session.invalidate();
+		model.addAttribute("success", "Logged out successfully.");
 		return "home";
 	}
-
 
 }
