@@ -42,9 +42,11 @@ public class UserController {
             session.setAttribute("user", user);
             session.setAttribute("name", user.getName());
             model.addAttribute("success", "Profile updated successfully.");
+            log.info("Profile updated successfully.");
             return "home";
         }
         model.addAttribute("error", "Email update not allowed.");
+        log.info("Email update not allowed.");
         return "profile";
     }
 
@@ -55,6 +57,7 @@ public class UserController {
         userRepository.deleteById(sessionUser.getId());
         session.invalidate();
         model.addAttribute("success", "Profile deleted successfully.");
+        log.info("Profile deleted successfully.");
         return "home";
     }
 }

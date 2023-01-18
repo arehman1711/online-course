@@ -13,7 +13,7 @@ body{
 }
 .my-card{
         padding:20px;
-        background:#ffffff;
+        background:#    ;
 }
 
 #login .container #login-row #login-column #login-box {
@@ -98,6 +98,10 @@ cursor:pointer;
     /* margin-bottom: 1rem; */
     border: 1px solid transparent;
     border-radius: 0.25rem;
+}
+
+.delete-link {
+    color:red;
 }
 
 

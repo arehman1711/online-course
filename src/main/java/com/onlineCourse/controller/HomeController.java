@@ -65,6 +65,7 @@ public class HomeController {
 
 		if(isDuplicateUser){
 			model.addAttribute("error", "User already exists in database.");
+			log.info("User already exists in database.");
 			return "signup";
 		}
 		User dbUser = userRepository.save(user);
@@ -72,6 +73,7 @@ public class HomeController {
 	    model.addAttribute("user", dbUser);
 		session.setAttribute("name", dbUser.getName());
 		model.addAttribute("success", "Welcome "+ dbUser.getName() + "!");
+		log.info("Welcome "+ dbUser.getName() + "!");
 		return "courses";
 	}
 	@RequestMapping(value = "/do_login", method = RequestMethod.POST)
@@ -86,8 +88,10 @@ public class HomeController {
 			session.setAttribute("user", user);
 			session.setAttribute("name", user.getName());
 			model.addAttribute("success", "Welcome "+ user.getName() + "!");
+			log.info("Welcome "+ user.getName() + "!");
 			return courseController.courses(model);
 		}
+		log.info("Invalid email/password.");
 		model.addAttribute("error", "Invalid email/password.");
 		return "login";
 	}
@@ -96,6 +100,7 @@ public class HomeController {
 	public String logout(HttpSession session, Model model) {
 		session.invalidate();
 		model.addAttribute("success", "Logged out successfully.");
+		log.info("Logged out successfully.");
 		return "home";
 	}
 
