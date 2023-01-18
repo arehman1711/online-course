@@ -14,7 +14,7 @@
 <body>
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-  <a class="navbar-brand" href="#">Online Course Management System</a>
+  <a class="navbar-brand" th:href="@{/}" >Online Course Management System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -35,6 +35,10 @@
 
         <li class="nav-item" th:if="${session.user}">
             <a class="nav-link" th:href="@{/mycourse}" href="/mycourse">My Course</a>
+        </li>
+
+        <li class="nav-item" th:if="${session.user}">
+            <a class="nav-link" th:href="@{/profile}" href="/profile">Profile</a>
         </li>
 
         <li class="nav-item" th:if="${session.user}">

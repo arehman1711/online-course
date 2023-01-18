@@ -66,7 +66,6 @@ public class CourseController {
 	}
 	@GetMapping("/mycourse")
 	public String enrolluser(@ModelAttribute("user") User user,  Model model) {
-
 		log.info(" USER : " +  user);
 		return courses(model);
 	}

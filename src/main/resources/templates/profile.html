@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8"/>
+    <title>this is a home page</title>
+</head>
+<body>
+<section class="banner">
+    <div id="login">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form class="form" action="#" th:action="@{/update-profile}" method="post" th:object="${user}">
+                            <h3 class="text-center text-info">My Profile</h3>
+
+                            <!--email field -->
+                            <label for="email_field">Email</label>
+                            <input
+                                    name="email"
+                                    type="email"
+                                    class="form-control"
+                                    id="email_field"
+                                    th:readOnly="*{email}"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter here"
+                                    th:field="*{email}"
+                                    required
+                            />
+                            <!--name field -->
+                            <label for="name_field">Name</label>
+                            <input
+                                    name="name"
+                                    type="text"
+                                    class="form-control"
+                                    id="name_field"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter here"
+                                    required
+                                    th:field="*{name}"
+                            />
+
+                            <!-- </div>-->
+
+                            <!--password field -->
+                            <!--<div class="form-group">-->
+                            <label for="password_field">Password</label>
+                            <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control"
+                                    id="password_field"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter here"
+                                    required
+                                    th:field="*{password}"
+
+                            />
+                            <br>
+                            <div class="container text-center">
+                                <button type="Submit" class="btn bg-info  text-white">
+                                    Update
+                                </button>
+                                <button type="Reset" class="btn bg-warning text-white">
+                                    Reset
+                                </button>
+                            </div>
+
+                            <div id="register-link" class="text-right">
+                                <a th:href="@{/delete-profile}" class="text-info">Delete Profile</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+</body>
+</html>
+
+

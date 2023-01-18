@@ -67,20 +67,21 @@ public class HomeController {
 			model.addAttribute("error", "User already exists in database.");
 			return "signup";
 		}
-		userRepository.save(user);
-		session.setAttribute("user", user);
-	    model.addAttribute("user ", user);
-		session.setAttribute("name", user.getName());
-		model.addAttribute("success", "Welcome "+ user.getName() + "!");
+		User dbUser = userRepository.save(user);
+		session.setAttribute("user", dbUser);
+	    model.addAttribute("user", dbUser);
+		session.setAttribute("name", dbUser.getName());
+		model.addAttribute("success", "Welcome "+ dbUser.getName() + "!");
 		return "courses";
 	}
 	@RequestMapping(value = "/do_login", method = RequestMethod.POST)
 	public String loginUser(HttpSession session, @ModelAttribute("user") User user, Model model) {
 
-		log.info("USER " + user);
+		log.info("USER : " + user);
 		boolean isValidUser = userService.isValidUser(user);
 
 		if(isValidUser){
+			log.info("Session User :  " + user);
 			model.addAttribute("user ", user);
 			session.setAttribute("user", user);
 			session.setAttribute("name", user.getName());
