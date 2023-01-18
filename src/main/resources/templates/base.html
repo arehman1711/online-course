@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
 <head>
+    <script src="http://localhost:35729/livereload.js"></script>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +34,7 @@
         </li>
 
         <li class="nav-item" th:if="${session.user}">
-            <a class="nav-link" th:href="@{/mycourses}" href="/mycoruses">My Courses</a>
+            <a class="nav-link" th:href="@{/mycourse}" href="/mycourse">My Course</a>
         </li>
 
         <li class="nav-item" th:if="${session.user}">

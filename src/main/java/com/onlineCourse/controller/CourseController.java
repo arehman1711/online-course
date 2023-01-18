@@ -43,8 +43,16 @@ public class CourseController {
 		return "courses";
 	}
 
-	@GetMapping("/coursedetail")
-	public String enroll(@ModelAttribute("user") Course course,  Model model) {
+	@PostMapping("/search")
+	public String search( @RequestParam(value = "searchText") String searchText, Model model) {
+		log.info("Search Criteria : " + searchText);
+		List<Course> courseList = courseService.search(searchText);
+		log.info("courseList : " + courseList);
+		model.addAttribute("title", "Courses");
+		model.addAttribute("courseList", courseList);
+		return "courses";
+	}
+	@GetMapping("/coursedetail")	public String enroll(@ModelAttribute("user") Course course,  Model model) {
 		//log.info("Course : " + course);
 		//log.info("User : " + user);
 
@@ -56,11 +64,10 @@ public class CourseController {
 		return "coursedetail" ;
 
 	}
-	@RequestMapping(value = "/mycourse", method = RequestMethod.POST)
+	@GetMapping("/mycourse")
 	public String enrolluser(@ModelAttribute("user") User user,  Model model) {
 
 		log.info(" USER : " +  user);
-
 		return courses(model);
 	}
 

@@ -20,4 +20,9 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getCourseList() {
         return courseRepository.findAll();
     }
+
+    @Override
+    public List<Course> search(String searchText) {
+        return courseRepository.findByCourseNameContainingIgnoreCase(searchText);
+    }
 }

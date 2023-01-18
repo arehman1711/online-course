@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CourseService {
     List<Course> getCourseList();
+    List<Course> search(String searchText);
 
 }
