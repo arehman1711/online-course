@@ -111,6 +111,14 @@
             <column name="trainer" value="Khushhal"/>
         </insert>
 
+        <insert tableName="Course">
+            <column name="id" value="14"/>
+            <column name="course_name" value="SLF4J"/>
+            <column name="course_description" value="SLF4J library is used for logging in Java Projects."/>
+            <column name="duration" value="2"/>
+            <column name="trainer" value="Khushhal"/>
+        </insert>
+
     </changeSet>
 
     <changeSet author="online course" id="2">
