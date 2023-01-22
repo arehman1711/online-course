@@ -26,6 +26,7 @@ public class UserController {
 
     @GetMapping(value = "/profile")
     public String profile(HttpSession session, Model model) {
+        model.addAttribute("title", "Profile");
         User sessionUser = (User) session.getAttribute("user");
         model.addAttribute("user", sessionUser);
         return "profile";
@@ -60,4 +61,5 @@ public class UserController {
         log.info("Profile deleted successfully.");
         return "home";
     }
+
 }

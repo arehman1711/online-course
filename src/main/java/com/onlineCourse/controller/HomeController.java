@@ -1,6 +1,8 @@
 package com.onlineCourse.controller;
 
 
+import com.onlineCourse.entities.ContactUs;
+import com.onlineCourse.repository.ContactUsRepository;
 import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,6 @@ import com.onlineCourse.entities.User;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,6 +26,9 @@ public class HomeController {
 	private UserRepository userRepository;
 
 	@Autowired
+	private ContactUsRepository contactUsRepository;
+
+	@Autowired
 	private UserService userService;
 
 	@Autowired
@@ -32,7 +36,7 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home(Model model) {
-		model.addAttribute("title", "Home-online Course Management");
+		model.addAttribute("title", "Home");
 		log.info("Enter in Home!");
 		return "home";
 
@@ -40,13 +44,13 @@ public class HomeController {
 
 	@GetMapping("/signup")
 	public String signup(Model model) {
-		model.addAttribute("title", "Register-online Course Management");
+		model.addAttribute("title", "Sign Up");
 		model.addAttribute("user", new User());
 		return "signup";
 	}
 	@GetMapping("/login")
 	public String login(Model model) {
-		model.addAttribute("title", "login-online Course Management");
+		model.addAttribute("title", "Login");
 		model.addAttribute("user", new User());
 		return "login";
 	}
@@ -72,8 +76,9 @@ public class HomeController {
 		session.setAttribute("user", dbUser);
 	    model.addAttribute("user", dbUser);
 		session.setAttribute("name", dbUser.getName());
-		model.addAttribute("success", "Welcome "+ dbUser.getName() + "!");
-		log.info("Welcome "+ dbUser.getName() + "!");
+		model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
+		model.addAttribute("success", "User registered successfully.");
+		log.info("User "+ dbUser.getName() + " successfully Registered.");
 		return "courses";
 	}
 	@RequestMapping(value = "/do_login", method = RequestMethod.POST)
@@ -87,7 +92,7 @@ public class HomeController {
 			model.addAttribute("user ", user);
 			session.setAttribute("user", user);
 			session.setAttribute("name", user.getName());
-			model.addAttribute("success", "Welcome "+ user.getName() + "!");
+			model.addAttribute("info", "Welcome "+ user.getName() + "!");
 			log.info("Welcome "+ user.getName() + "!");
 			return courseController.courses(model);
 		}
@@ -102,6 +107,22 @@ public class HomeController {
 		model.addAttribute("success", "Logged out successfully.");
 		log.info("Logged out successfully.");
 		return "home";
+	}
+
+	@GetMapping(value = "/contactus")
+	public String contactus(Model model) {
+		model.addAttribute("contactUs", new ContactUs());
+		model.addAttribute("title", "Contact US");
+		log.info("loading Contact us..!");
+		return "contactus";
+	}
+
+	@RequestMapping(value = "/submit-contactus", method = RequestMethod.POST)
+	public String submitContactus(@ModelAttribute("contactUs") ContactUs contactUs, Model model) {
+		contactUsRepository.save(contactUs);
+		model.addAttribute("success", "Message sent successfully.");
+		log.info("Message sent successfully.");
+		return "contactus";
 	}
 
 }
