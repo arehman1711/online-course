@@ -52,7 +52,8 @@ public class CourseController {
 		model.addAttribute("courseList", courseList);
 		return "courses";
 	}
-	@GetMapping("/coursedetail")	public String enroll(@ModelAttribute("user") Course course,  Model model) {
+	@GetMapping("/coursedetail")
+	public String courseDetail(@ModelAttribute("user") Course course,  Model model) {
 		//log.info("Course : " + course);
 		//log.info("User : " + user);
 
@@ -70,19 +71,16 @@ public class CourseController {
 		return courses(model);
 	}
 
-	//@RequestMapping(value = "/enroll", method = RequestMethod.POST)
-/*	public String enrolluser(@ModelAttribute("user") User user,  Model model) {
+	@RequestMapping(value = "/enroll", method = RequestMethod.POST)
+	public String enrolluser(@ModelAttribute("course") Course course,  Model model) {
 
-		log.info(" USER : " +  user);
+		log.info("Course : " +  course);
 
 		return courses(model);
-	}*/
+	}
 
 	//mycourses - User
 
 	//courseDetail - Course
-
-
-
 
 }
