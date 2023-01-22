@@ -72,8 +72,9 @@ public class CourseController {
 	}
 
 	@RequestMapping(value = "/enroll", method = RequestMethod.POST)
-	public String enrolluser(@ModelAttribute("course") Course course,  Model model) {
+	public String enrolluser(@ModelAttribute("enrolledCourse") Course course, @RequestParam(value = "courseId", defaultValue = "0") Integer courseId,  Model model) {
 
+		log.info("courseId : " +  courseId);
 		log.info("Course : " +  course);
 
 		return courses(model);

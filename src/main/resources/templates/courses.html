@@ -23,7 +23,7 @@
                 <th>Description</th>
                 <th>Day(s)</th>
                 <th>Trainer</th>
-                <th>Enrollment</th>
+                <th th:if="${session.user}">Enrollment</th>
             </tr>
             <!-- Table Data Section -->
 
@@ -37,7 +37,15 @@
                     <td th:text="${course.courseDescription}" />
                     <td th:text="${course.duration}" />
                     <td th:text="${course.trainer}" />
-                    <td> <a class="nav-link" th:href="@{/coursedetail}">Enroll</a> </td>
+                    <div th:if="${session.user}" >
+                        <form  id="enroll" class="form" action="#" th:action="@{enroll}" method="post"   th:object="${enrolledCourse}">
+                            <div th:object="${course}" >
+                           <!-- <input type="hidden" id="courseId" name="courseId" th:text="{course.id}">-->
+                                <td>  <a href="#" onclick="document.getElementById('enroll').submit();">Enroll</a> </td>
+                            </div>
+                        </form>
+                    </div>
+
 
                 </tr>
                 </tr>
