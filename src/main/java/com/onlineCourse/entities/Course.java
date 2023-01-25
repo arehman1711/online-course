@@ -2,20 +2,27 @@ package com.onlineCourse.entities;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.context.annotation.Lazy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
 @NoArgsConstructor
-@Data
 @Entity
 @Lazy(value = false)
 @Table(name="COURSE")
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "id",
+		scope= Course.class)
 public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,11 +39,24 @@ public class Course {
 
 	@Column(name = "trainer")
 	private String trainer;
-
-	@ManyToMany(mappedBy = "courseList")
+	@ManyToMany(cascade = {
+			CascadeType.PERSIST,
+			CascadeType.MERGE}, fetch = FetchType.EAGER,
+			mappedBy = "courseList")
 	private List<User> enrolledUsers = new ArrayList<>();
 
 	@Transient
 	private boolean isEnrolled;
 
+	@Override
+	public String toString() {
+		return "Course{" +
+				"id=" + id +
+				", courseName='" + courseName + '\'' +
+				", courseDescription='" + courseDescription + '\'' +
+				", duration=" + duration +
+				", trainer='" + trainer + '\'' +
+				", isEnrolled=" + isEnrolled +
+				'}';
+	}
 }

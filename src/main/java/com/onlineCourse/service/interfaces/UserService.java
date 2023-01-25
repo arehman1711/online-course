@@ -8,4 +8,6 @@ public interface UserService {
     boolean isUserAlreadyExists(String email);
 
     User getUserByEmail(String email);
+
+    User enroll(User sessionUser);
 }

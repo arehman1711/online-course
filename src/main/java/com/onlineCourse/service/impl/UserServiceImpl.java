@@ -39,4 +39,9 @@ public class UserServiceImpl implements UserService {
     public User getUserByEmail(String email) {
         return userRepository.getUserByEmail(email);
     }
+
+    @Override
+    public User enroll(User sessionUser) {
+        return userRepository.save(sessionUser);
+    }
 }

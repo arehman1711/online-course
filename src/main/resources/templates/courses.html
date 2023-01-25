@@ -38,11 +38,12 @@
                     <td th:text="${course.duration}" />
                     <td th:text="${course.trainer}" />
                     <div th:if="${session.user}" >
-                        <form  id="enroll" class="form" action="#" th:action="@{enroll}" method="post"   th:object="${enrolledCourse}">
-                            <div th:object="${course}" >
-                           <!-- <input type="hidden" id="courseId" name="courseId" th:text="{course.id}">-->
+                        <form  id="enroll" class="form" action="#" th:action="@{/enroll}" method="post"   th:object="${enrolledCourse}">
+                           <!-- <div th:object="${course}">-->
+                               <!-- <input type="hidden" id="id" name="id" th:value="${course.id}">
+                                <input type="hidden" id="courseName" name="courseName" th:value="${course.courseName}">-->
                                 <td>  <a href="#" onclick="document.getElementById('enroll').submit();">Enroll</a> </td>
-                            </div>
+                           <!-- </div>-->
                         </form>
                     </div>
 

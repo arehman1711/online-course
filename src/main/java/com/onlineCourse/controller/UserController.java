@@ -1,5 +1,6 @@
 package com.onlineCourse.controller;
 
+import com.onlineCourse.entities.Course;
 import com.onlineCourse.entities.User;
 import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.service.interfaces.UserService;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @Slf4j

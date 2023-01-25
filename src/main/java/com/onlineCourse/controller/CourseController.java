@@ -16,6 +16,7 @@ import com.onlineCourse.entities.User;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,17 +67,22 @@ public class CourseController {
 
 	}
 	@GetMapping("/mycourse")
-	public String enrolluser(@ModelAttribute("user") User user,  Model model) {
+	public String mycourse(@ModelAttribute("user") User user,  Model model) {
 		log.info(" USER : " +  user);
 		return courses(model);
 	}
 
 	@RequestMapping(value = "/enroll", method = RequestMethod.POST)
-	public String enrolluser(@ModelAttribute("enrolledCourse") Course course, @RequestParam(value = "courseId", defaultValue = "0") Integer courseId,  Model model) {
-
-		log.info("courseId : " +  courseId);
-		log.info("Course : " +  course);
-
+	public String enrolluser(HttpSession session, @ModelAttribute("enrolledCourse") Course course, @RequestParam(value = "id", defaultValue = "0") Integer courseId, Model model) {
+		log.info("Course for Enrollment : " +  course);
+		User sessionUser = (User) session.getAttribute("user");
+		List<Course> courseList = new ArrayList<>();
+		courseList.add(course);
+		sessionUser.setCourseList(courseList);
+		User user = userService.enroll(sessionUser);
+		//log.info("User Data after Enrollment : " +  course);
+		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for " + course.getCourseName());
+		log.info("success", sessionUser.getName() + " successfully enrolled for " + course.getCourseName());
 		return courses(model);
 	}
 

@@ -121,7 +121,7 @@
 
     </changeSet>
 
-    <changeSet author="online course" id="2">
+    <changeSet author="online course" id="2 ">
         <insert tableName="User">
             <column name="id" value="1"/>
             <column name="name" value="Admin"/>

@@ -5,22 +5,24 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.*;
 import org.springframework.context.annotation.Lazy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@ToString
 @Getter
+@Setter
 @NoArgsConstructor
-@Data
 @Entity
 @Lazy(value = false)
 @Table(name = "user")
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "id",
+		scope= User.class)
 public class User {
 	
 	@Id
@@ -44,11 +46,23 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = {
+			CascadeType.PERSIST,
+			CascadeType.MERGE}, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "course_enrollment",
 			joinColumns = @JoinColumn(name = "student_id"),
 			inverseJoinColumns = @JoinColumn(name = "course_id"))
 	private List<Course> courseList = new ArrayList<>();
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", email='" + email + '\'' +
+				", role='" + role + '\'' +
+				", password='" + password + '\'' +
+				'}';
+	}
 }
