@@ -18,7 +18,29 @@
                         <!-- Course Head -->
                         <div class="course-head overlay">
                             <img th:src="@{${'image/courses/course'+ course.imageId + '.jpg'}}" alt="#"/>
-                            <a href="course-single.html" class="btn white primary">Register Now</a>
+
+                            <span th:if="!${session.user}"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
+
+                            <span th:if="${session.user}">
+                                <div th:switch="${session.user.role}">
+                                    <span th:case="'admin'">
+                                        <form  id="manage-course" class="form" action="#" th:action="@{/init-manage-course}" method="post"   th:object="${course}">
+                                            <a href="#" onclick="document.getElementById('manage-course').submit();"  class="btn white primary">Manage Course</a>
+                                        </form>
+                                    </span>
+
+                                    <span th:case="'user'"><a th:href="@{/enroll}" class="btn white primary">Enroll Now</a></span>
+                                    <span th:case="*"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
+                                </div>
+                            </span>
+
+<!--
+
+                            <span th:if="!${session.user}"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
+                            <span th:if="${session.user}"><a th:href="@{/enroll}" class="btn white primary">Enroll Now</a></span>
+                            <span th:if="${session.user}"><a th:href="@{/init-update-course}"  class="btn white primary">Update Course</a></span>
+-->
+
                         </div>
                         <!-- Course Body -->
                         <div class="course-body">

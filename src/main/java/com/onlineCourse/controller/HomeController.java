@@ -46,7 +46,7 @@ public class HomeController {
 	public String signup(Model model) {
 		model.addAttribute("title", "Sign Up");
 		model.addAttribute("user", new User());
-		return "signup";
+		return "sign-up";
 	}
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -62,7 +62,7 @@ public class HomeController {
 		if (!agreement) {
 			log.info("You have not agreed the terms and conditions.");
 			model.addAttribute("error", "You have not agreed the terms and conditions.");
-			return "signup";
+			return "sign-up";
 		}
 		log.info("USER " + user);
 		boolean isDuplicateUser = userService.isUserAlreadyExists(user.getEmail());
@@ -70,7 +70,7 @@ public class HomeController {
 		if(isDuplicateUser){
 			model.addAttribute("error", "User already exists in database.");
 			log.info("User already exists in database.");
-			return "signup";
+			return "sign-up";
 		}
 		User dbUser = userRepository.save(user);
 		session.setAttribute("user", dbUser);
@@ -114,7 +114,7 @@ public class HomeController {
 		model.addAttribute("contactUs", new ContactUs());
 		model.addAttribute("title", "Contact US");
 		log.info("loading Contact us..!");
-		return "contactus";
+		return "contact-us";
 	}
 
 	@RequestMapping(value = "/submit-contactus", method = RequestMethod.POST)
@@ -122,7 +122,7 @@ public class HomeController {
 		contactUsRepository.save(contactUs);
 		model.addAttribute("success", "Message sent successfully.");
 		log.info("Message sent successfully.");
-		return "contactus";
+		return "home";
 	}
 
 }

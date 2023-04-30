@@ -25,7 +25,7 @@ import java.util.List;
 		scope= Course.class)
 public class Course {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id")
 	private int id;
 
@@ -39,11 +39,6 @@ public class Course {
 
 	@Column(name = "trainer")
 	private String trainer;
-	@ManyToMany(cascade = {
-			CascadeType.PERSIST,
-			CascadeType.MERGE}, fetch = FetchType.EAGER,
-			mappedBy = "courseList")
-	private List<User> enrolledUsers = new ArrayList<>();
 
 	@Transient
 	private boolean isEnrolled;

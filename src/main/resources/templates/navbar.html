@@ -14,43 +14,101 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <span align="center"  th:if="${session.user}" th:text="'Hello, ' + ${#session.getAttribute('name')} + '!'"></span>
+            <!--Guest Section-->
+            <div class="collapse navbar-collapse navbar-right" th:if="!${session.user}">
+                <ul class="navbar-nav ml-auto text-uppercase">
+                    <li class="nav-item active">
+                        <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
 
-            <ul class="navbar-nav ml-auto text-uppercase">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/courses}" href="/courses" >courses</a>
+                    </li>
 
-                <li class="nav-item active">
-                    <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" th:href="@{/signup}" href="#">Signup</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/courses}" href="/courses" >courses</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}" href="/login">Login</a>
+                    </li>
 
-                <li class="nav-item" th:if="${session.user}">
-                    <a class="nav-link" th:href="@{/mycourse}" href="/mycourse">My Course</a>
-                </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" th:href="@{/contactus}" href="/contactus">Contact US</a>
+                    </li>
+                </ul>
+            </div>
 
-                <li class="nav-item" th:if="${session.user}">
-                    <a class="nav-link" th:href="@{/profile}" href="/profile">Profile</a>
-                </li>
 
-                <li class="nav-item" th:if="${session.user}">
-                    <a class="nav-link" th:href="@{/logout}" href="/logout">Logout</a>
-                </li>
+            <div  class="collapse navbar-collapse navbar-right"  th:if="${session.user}">
+                <span align="center" th:text="'Hello, ' + ${#session.getAttribute('name')} + '!'"></span>
 
-                <li class="nav-item" th:if="!${session.user}" >
-                    <a class="nav-link" th:href="@{/signup}" href="#">Signup</a>
-                </li>
 
-                <li class="nav-item" th:if="!${session.user}" >
-                    <a class="nav-link" th:href="@{/login}" href="/login">Login</a>
-                </li>
+                <span  class="collapse navbar-collapse navbar-right"  th:switch="${session.user.role}">
 
-                <li class="nav-item" >
-                    <a class="nav-link" th:href="@{/contactus}" href="/contactus">Contact US</a>
-                </li>
+                    <!--User Section-->
+                    <span  class="collapse navbar-collapse navbar-right"   th:case="'user'">
+                        <ul class="navbar-nav ml-auto text-uppercase">
+                            <li class="nav-item active">
+                                <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
 
-            </ul>
+                            <li class="nav-item">
+                                <a th:href="@{/}" class="nav-link" href="#">Search <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/courses}" href="/courses" >courses</a>
+                            </li>
+
+                            <li class="nav-item" >
+                                <a class="nav-link" th:href="@{/mycourse}" href="/mycourse">My Course</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/profile}" href="/profile">Profile</a>
+                            </li>
+
+                            <li class="nav-item" >
+                                <a class="nav-link" th:href="@{/logout}" href="/logout">Logout</a>
+                            </li>
+
+                            <li class="nav-item" >
+                                <a class="nav-link" th:href="@{/contactus}" href="/contactus">Contact US</a>
+                            </li>
+                        </ul>
+                    </span>
+
+                    <!--Admin Section-->
+                    <span  class="collapse navbar-collapse navbar-right"   th:case="'admin'">
+                        <ul class="navbar-nav ml-auto text-uppercase">
+                            <li class="nav-item active">
+                                <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a th:href="@{/}" class="nav-link" href="#">Search <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/init-add-course}" >Add Course</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/courses}" >Manage Course</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/profile}" href="/profile">Profile</a>
+                            </li>
+
+                            <li class="nav-item" >
+                                <a class="nav-link" th:href="@{/logout}" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </span>
+                </span>
+            </div>
         </div>
     </nav>
 </div>

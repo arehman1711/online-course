@@ -1,6 +1,7 @@
 package com.onlineCourse.controller;
 
 
+import com.onlineCourse.entities.ContactUs;
 import com.onlineCourse.entities.Course;
 import com.onlineCourse.repository.CourseRepository;
 import com.onlineCourse.repository.UserRepository;
@@ -41,7 +42,7 @@ public class CourseController {
 		log.info("courseList : " + courseList);
 		model.addAttribute("title", "Courses");
 		model.addAttribute("courseList", courseList);
-		return "courses";
+		return "courses/courses";
 	}
 
 	@PostMapping("/search")
@@ -51,7 +52,7 @@ public class CourseController {
 		log.info("courseList : " + courseList);
 		model.addAttribute("title", "Courses");
 		model.addAttribute("courseList", courseList);
-		return "courses";
+		return "courses/courses";
 	}
 	@GetMapping("/coursedetail")
 	public String courseDetail(@ModelAttribute("user") Course course,  Model model) {
@@ -63,7 +64,7 @@ public class CourseController {
 		log.info("courseList : " + courseList);
 		model.addAttribute("title", "Courses");
 		model.addAttribute("courseList", courseList);
-		return "coursedetail" ;
+		return "courses/course-detail" ;
 
 	}
 	@GetMapping("/mycourse")
@@ -82,8 +83,32 @@ public class CourseController {
 		User user = userService.enroll(sessionUser);
 		//log.info("User Data after Enrollment : " +  course);
 		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for " + course.getCourseName());
-		log.info("success", sessionUser.getName() + " successfully enrolled for " + course.getCourseName());
+		log.info("success" +  sessionUser.getName() + " successfully enrolled for " + course.getCourseName());
 		return courses(model);
+	}
+
+	@GetMapping(value = "/init-add-course")
+	public String initAddCourse(Model model) {
+		model.addAttribute("course", new Course());
+		model.addAttribute("title", "Add Course");
+		log.info("loading init-add-course..!");
+		return "courses/add-course";
+	}
+
+	@RequestMapping(value = "/submit-add-course", method = RequestMethod.POST)
+	public String submitAddCourse(@ModelAttribute("course") Course course, Model model) {
+		Course dbCourse = courseRepository.save(course);
+		model.addAttribute("success", dbCourse.getCourseName() + " added successfully.");
+		log.info("success - " + course.getCourseName() + " added successfully. Course =  : " + dbCourse);
+		return initAddCourse(model);
+	}
+
+	@RequestMapping(value = "/init-manage-course", method = RequestMethod.POST)
+	public String initManageCourse(@ModelAttribute("course") Course course, Model model) {
+		model.addAttribute("course", course);
+		model.addAttribute("title", "Add Course");
+		log.info("loading init-manage-course..! course=" + course);
+		return "courses/manage-course";
 	}
 
 	//mycourses - User
