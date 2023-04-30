@@ -40,8 +40,12 @@
                                         </form>
                                     </span>
 
-                                    <span th:case="'user'"><a th:href="@{/enroll}" class="btn white primary">Enroll Now</a></span>
-                                    <span th:case="*"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
+                                    <span th:case="'user'">
+
+                                        <a th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
+
+                                    </span>
+
                                 </div>
                             </span>
 

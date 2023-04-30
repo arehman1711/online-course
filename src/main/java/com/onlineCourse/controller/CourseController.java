@@ -4,6 +4,7 @@ package com.onlineCourse.controller;
 import com.onlineCourse.entities.ContactUs;
 import com.onlineCourse.entities.Course;
 import com.onlineCourse.repository.CourseRepository;
+import com.onlineCourse.repository.EnrollmentRepository;
 import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.service.interfaces.UserService;
@@ -26,9 +27,11 @@ import java.util.List;
 @Slf4j
 public class CourseController {
 
+/*	@Autowired
+	private EnrollmentRepository enrollmentRepository;*/
 	@Autowired
 	private UserRepository userRepository;
-  @Autowired
+  	@Autowired
 	private CourseRepository courseRepository;
 	@Autowired
 	private UserService userService;
@@ -73,17 +76,16 @@ public class CourseController {
 		return courses(model);
 	}
 
-	@RequestMapping(value = "/enroll", method = RequestMethod.POST)
-	public String enrolluser(HttpSession session, @ModelAttribute("enrolledCourse") Course course, @RequestParam(value = "id", defaultValue = "0") Integer courseId, Model model) {
-		log.info("Course for Enrollment : " +  course);
+	@RequestMapping(value = "/enroll/{id}", method = RequestMethod.GET)
+	public String enrollUser(HttpSession session,@PathVariable("id") int courseId, Model model) {
+		log.info("Course for Enrollment : " +  courseId);
 		User sessionUser = (User) session.getAttribute("user");
-		List<Course> courseList = new ArrayList<>();
-		courseList.add(course);
-		sessionUser.setCourseList(courseList);
-		User user = userService.enroll(sessionUser);
-		//log.info("User Data after Enrollment : " +  course);
-		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for " + course.getCourseName());
-		log.info("success" +  sessionUser.getName() + " successfully enrolled for " + course.getCourseName());
+/*
+		enrollmentRepository.insertWithQuery(sessionUser.getId(), courseId);
+*/
+
+		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
+		log.info("success" +  sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
 		return courses(model);
 	}
 
