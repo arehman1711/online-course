@@ -1,0 +1,498 @@
+@media (min-width: 991px) and (max-width: 1280px) {
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.section-title {
+	padding: 0 90px;
+}
+.topbar::before, .topbar::after{
+	display:none;
+}
+.topbar .topbar-left {
+	float: none;
+	text-align: center;
+}
+.topbar .topbar-right {
+	float: none;
+	position: relative;
+	text-align: center;
+}
+.topbar .login-register {
+	margin-right: 0;
+	display: inline-block;
+}
+.topbar .button {
+	position: relative;
+	right: 0;
+	display: inline-block;
+	top: 0;
+}
+.header .nav li {
+	float: left;
+	position: relative;
+	margin-right: 10px;
+}
+.header .nav li .dropdown {
+	width: 212px;
+}
+.home-slider, .home-slider .single-slider {
+	height: 500px;
+}
+.home-slider .slider-title {
+	font-size: 45px;
+	padding: 25px;
+}
+.home-slider .slider-text{
+	padding:25px;
+}
+.home-slider .slider-content {
+	margin: 91px 0 0;
+}
+.course-search {
+	background: #fff;
+	padding: 25px 0 40px 0;
+}
+.course-search .form-inner {
+	top: 0;
+	margin: 0;
+	box-shadow: none;
+	padding: 0;
+}
+.course-search .form-group{
+	margin-top: 15px;
+}
+.course-search .form-group .btn {
+	display: block;
+	width: 100%;
+}
+.courses .course-body,.courses .course-meta {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.features .single-feature {
+	padding: 0 30px;
+}
+.image-gallery #gallery-menu li {
+	padding: 12px 20px;
+}
+.testimonials .video-box.overlay {
+	position: relative;
+	width: ;
+	width: 100%;
+	height: 400px;
+}
+.register-today .course-countdown {
+	margin: 0 0 50px;
+}
+.event-img{
+	display:none;
+}
+.testimonials .testimonial-slider {
+	padding: 100px 70px;
+}
+.testimonials .single-testimonial img {
+	display: inline-block;
+}
+.testimonials .single-testimonial {
+	text-align: center;
+}
+.testimonials .owl-controls .owl-dots {
+	text-align: center;
+}
+.cta .cta-image {
+	position: relative;
+	right: 0;
+	top: 0;
+}
+.cta .text-content h2 {
+	font-size: 24px;
+}
+.latest-news .news-content {
+	position: relative;
+	width: 100%;
+	padding: 15px;
+}
+.clients .client-slider {
+	margin-top: 30px;
+}
+.faqs .faq-image{
+	display:none;
+}
+.single-events .project-info {
+  padding: 10px 0 20px;
+}
+.single-events .project-info .single-info {
+  margin-top: 10px;
+}
+.single-events .social {
+	margin-top: 10px;
+}
+}
+
+@media only screen and (max-width: 767px){
+.topbar .single-widget {
+	margin: 0;
+	border: none;
+	padding: 0;
+}
+.topbar .top-widget {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.topbar .topbar-right,.header .navbar {
+  display: none;
+}
+.slicknav_menu {
+	display: block;
+	background: transparent;
+}
+.slicknav_nav {
+	position: absolute;
+	top: 174%;
+	width: 100%;
+	background: #20232E;
+	z-index: 33;
+	left: 0;
+	padding: 20px 0;
+}
+.slicknav_nav li a i {
+	margin-right: 10px;
+}
+.slicknav_nav .slicknav_arrow {
+	display: none;
+}
+.slicknav_nav ul {
+	border-top: 1px solid rgba(255, 255, 255, 0.49);
+}
+.slicknav_menu {
+	padding: 0;
+	margin: 0;
+}
+.slicknav_btn {
+	margin: 0;
+	background: #05C46B;
+	border-radius: 0px;
+}
+.slicknav_nav a:hover{
+	color:#05C46B;
+}
+.slicknav_btn:hover{
+	background:#20232E;
+	color:#fff;
+}
+.slicknav_nav .slicknav_item a i {
+}
+.slicknav_nav .slicknav_item .dropdown {
+}
+.slicknav_nav .dropdown li i {
+  display: ;
+  margin-left: 10px;
+}
+.pagination li a {
+	padding: 8px 19px;
+}
+.header .logo{
+	margin:0;
+}
+.header-inner.overlay {
+	padding: 20px 0;
+}
+.section-title {
+	padding: 0;
+}
+.courses .single-course {
+	margin: 0 10px 10px 10px;
+}
+.courses .course-info{
+	display:none;
+}
+.topbar::before, .topbar::after{
+	display:none;
+}
+.topbar .topbar-left {
+	float: none;
+	text-align: center;
+}
+.topbar .login-register {
+	margin-right: 0;
+	display: inline-block;
+}
+.topbar .button {
+	position: relative;
+	right: 0;
+	display: inline-block;
+	top: 0;
+}
+.header .nav li {
+	float: left;
+	position: relative;
+	margin-right: 10px;
+}
+.header .nav li .dropdown {
+	width: 212px;
+}
+.home-slider, .home-slider .single-slider {
+	height: 450px;
+}
+.home-slider .slider-title span {
+	font-size: 15px;
+}
+.home-slider .slider-title {
+	font-size: 30px;
+	padding: 15px;
+}
+.home-slider .slider-text {
+	padding: 15px;
+	font-size: 14px;
+}
+.home-slider .slider-content {
+	margin: 43px 0 0;
+}
+.home-slider .button .btn {
+	padding: 12px 20px;
+	font-size: 13px;
+	margin-right: 10px;
+}
+.course-search {
+	background: #fff;
+	padding: 25px 0 40px 0;
+}
+.course-search .form-inner {
+	top: 0;
+	margin: 0;
+	box-shadow: none;
+	padding: 0;
+}
+.course-search .form-group{
+	margin-top: 15px;
+}
+.course-search .form-group .btn {
+	display: block;
+	width: 100%;
+}
+.courses .course-body,.courses .course-meta {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.features .single-feature {
+	padding: 0 30px;
+}
+.image-gallery #gallery-menu li {
+	padding-right: 25px;
+	padding-left: 25px;
+}
+.testimonials .video-box.overlay {
+	position: relative;
+	width: ;
+	width: 100%;
+	height: 400px;
+}
+.register-today .course-countdown {
+	margin: 0 0 50px;
+}
+.event-img{
+	display:none;
+}
+.testimonials .testimonial-slider {
+	padding: 100px 20px;
+}
+.register-today .coming-course h2 {
+	font-size: 45px;
+}
+.testimonials .single-testimonial img {
+	display: inline-block;
+}
+.testimonials .single-testimonial {
+	text-align: center;
+}
+.testimonials .owl-controls .owl-dots {
+	text-align: center;
+}
+.cta .cta-image {
+	position: relative;
+	right: 0;
+	top: 0;
+}
+.cta .text-content h2 {
+	font-size: 24px;
+}
+.cta .button .btn {
+	font-size: 13px;
+	padding: 12px 20px;
+	margin-right: 10px;
+}
+.cta .cta-image{
+	display:none;
+}
+.latest-news .news-content {
+	position: relative;
+	width: 100%;
+	padding: 15px;
+}
+.clients .client-slider {
+	margin-top: 30px;
+}
+.faqs .faq-image{
+	display:none;
+}
+.single-events .project-info {
+  padding: 10px 0 20px;
+}
+.single-events .project-info .single-info {
+  margin-top: 10px;
+}
+.single-events .social {
+	margin-top: 10px;
+}
+
+.breadcrumbs h2 {
+  text-align: center;
+  color: ;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+.breadcrumbs .bread-list {
+  padding: 5px 22px;
+  float: none;
+  display: inline-block;
+}
+.breadcrumbs {
+  text-align: center;
+  padding: 30px 0;
+}
+.about-us .button .btn {
+	padding: 12px 22px;
+}
+
+.fun-facts .single-fact {
+  text-align: center;
+}
+.fun-facts .icon {
+  float: none;
+}
+.fun-facts .icon:before {
+  display: none !important;
+  content: "";
+}
+.fun-facts .icon::after {
+  display: none;
+}
+.fun-facts .fact-info {
+  margin: ;
+  margin-top: 10px;
+}
+.teacher-details {
+	margin-top: 20px;
+}
+.courses.single .nav-tabs li {
+	display: block;
+}
+.courses.single .course-info{
+	display:block !important;
+}
+.courses.single .single-info {
+	display: block;
+	width: 100%;
+	margin: 0;
+}
+.courses.single .course-single-gallery .single-gallery,
+.courses.single .course-single-gallery {
+	height: 225px;
+	width: 100%;
+}
+.single-info {
+  text-align: ;
+}
+.single-events .project-info .single-info {
+  text-align: left;
+  float: ;
+  display: block;
+  padding: 0 10px;
+  margin: 10px 0 0;
+}
+.single-events .project-info .single-info:last-child {
+  margin: inherit;
+  margin-top: 10px;
+}
+
+.single-events .project-info .single-info b {
+	float:right;
+}
+.single-events .project-info .single-info span {
+	padding-top: ;
+	float: left;
+	margin-top: 5px;
+}
+.single-events .project-info .single-info p {
+	overflow: hidden;
+}
+.image-gallery .gallery-nav {
+	margin: 20px 0 50px;
+}
+.image-gallery .gallery-nav li {
+	margin-top: 10px !important;
+	padding: 10px 22px;
+}
+.single-events .book-now .button, .single-events .social {
+	float: none;
+}
+.news-single .news-title {
+	font-size: 20px;
+}
+.news-single .meta-left, .news-single .meta-right {
+	float: none;
+	margin-top: 15px;
+	display: block;
+}
+.news-single .image-gallery .single-image {
+	margin-bottom: 20px;
+}
+.news-single .image-gallery .col-12:last-child .single-image {
+	margin-bottom: 0px;
+}
+.news-single blockquote {
+	padding: 20px;
+}
+.news-single .social-share {
+	float: none;
+	overflow: hidden;
+}
+.news-single .prev-next {
+	float: none;
+	margin-top: 20px;
+	display: block;
+}
+.news-single .single-comments .head {
+  width: 100%;
+  display: block;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.news-single .single-comments .body {
+  float: none;
+  width: 100%;
+}
+.main-sidebar .subscribe {
+	padding: 20px;
+}
+.news-single .social-share li a {
+	padding: 8px 18px;
+}
+.news-single .social-share li span {
+	padding-left: 5px;
+	display: none;
+}
+.news-single .single-comments .comment-list {
+  padding: 0;
+  margin-top: ;
+  padding-top: 30px;
+}
+.register-today .cdown span {
+	font-size: 38px;
+}
+.register-today .cdown p {
+	font-size: 13px;
+}
+}

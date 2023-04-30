@@ -17,14 +17,14 @@
                     <div class="single-course">
                         <!-- Course Head -->
                         <div class="course-head overlay">
-                            <img src="image/courses/course1.jpg" alt="#">
+                            <img th:src="@{${'image/courses/course'+ course.imageId + '.jpg'}}" alt="#"/>
                             <a href="course-single.html" class="btn white primary">Register Now</a>
                         </div>
                         <!-- Course Body -->
                         <div class="course-body">
                             <div class="name-price">
                                 <div class="teacher-info">
-                                    <img src="image/teacher/trainer1.jpg" alt="#">
+                                    <img th:src="@{${'/image/teachers/author'+ course.imageId + '.jpg'}}" alt="#"/>
                                     <h4 class="title" th:text="${course.trainer}"></h4>
                                 </div>
                                 <span class="price">$350</span>

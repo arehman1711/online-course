@@ -48,6 +48,9 @@ public class Course {
 	@Transient
 	private boolean isEnrolled;
 
+	@Transient
+	private String imageId;
+
 	@Override
 	public String toString() {
 		return "Course{" +
