@@ -10,8 +10,16 @@
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
-                            <form class="form" action="#" th:action="@{/submit-add-course}" method="post" th:object="${course}">
+                            <form class="form" action="#" th:action="@{/submit-manage-course}" method="post" th:object="${course}">
                                 <h3 class="text-center text-info">Manage Course</h3>
+
+                                <input
+                                        type="hidden"
+                                        id="id"
+                                        required
+                                        th:field="*{id}"
+                                />
+
                                 <!--courseName field -->
                                 <label for="courseName">Course Name</label>
                                 <input
@@ -60,7 +68,7 @@
                                 </div>
 
                                 <div id="register-link" class="text-right">
-                                    <a th:href="@{/delete-course}" class="delete-link">Delete Course</a>
+                                    <a th:href="@{/delete-course/{id}(id = ${course.id})}" class="delete-link">Delete Course</a>
                                 </div>
 
                             </form>

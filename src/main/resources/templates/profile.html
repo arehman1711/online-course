@@ -13,6 +13,13 @@
                         <form class="form" action="#" th:action="@{/update-profile}" method="post" th:object="${user}">
                             <h3 class="text-center text-info">My Profile</h3>
 
+                            <input
+                                    type="hidden"
+                                    id="id"
+                                    required
+                                    th:field="*{id}"
+                            />
+
                             <!--email field -->
                             <label for="email_field">Email</label>
                             <input

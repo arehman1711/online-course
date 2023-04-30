@@ -98,7 +98,7 @@ public class CourseController {
 	@RequestMapping(value = "/submit-add-course", method = RequestMethod.POST)
 	public String submitAddCourse(@ModelAttribute("course") Course course, Model model) {
 		Course dbCourse = courseRepository.save(course);
-		model.addAttribute("success", dbCourse.getCourseName() + " added successfully.");
+		model.addAttribute("success", dbCourse.getCourseName() + " added successfully. You can continue to add more..!");
 		log.info("success - " + course.getCourseName() + " added successfully. Course =  : " + dbCourse);
 		return initAddCourse(model);
 	}
@@ -106,9 +106,37 @@ public class CourseController {
 	@RequestMapping(value = "/init-manage-course", method = RequestMethod.POST)
 	public String initManageCourse(@ModelAttribute("course") Course course, Model model) {
 		model.addAttribute("course", course);
-		model.addAttribute("title", "Add Course");
+		model.addAttribute("title", "Manage Course");
 		log.info("loading init-manage-course..! course=" + course);
 		return "courses/manage-course";
+	}
+
+	@RequestMapping(value = "/submit-manage-course", method = RequestMethod.POST)
+	public String submitManageCourse(@ModelAttribute("course") Course course, Model model) {
+		log.info("course=" + course);
+		if(course.getId()>0){
+			Course dbCourse = courseRepository.save(course);
+			model.addAttribute("success", dbCourse.getCourseName() + " updated successfully.");
+			return courses(model);
+		}
+		model.addAttribute("error", course.getCourseName() + " update failed.");
+		return courses(model);
+	}
+
+	@RequestMapping(value = "/delete-course/{id}", method = RequestMethod.GET)
+	public String deleteCourse(@PathVariable("id") int id, Model model) {
+		log.info("Id=" + id);
+		if(id>0){
+			try {
+				courseRepository.deleteById(id);
+				model.addAttribute("success", "course with " + id + " deleted successfully.");
+			} catch (Exception e) {
+				log.error("Error : " + e.getLocalizedMessage());
+				model.addAttribute("error", "course with id : " + id + " delete failed with exception.");			}
+			return courses(model);
+		}
+		model.addAttribute("error", "course with id : " + id + " delete failed.");
+		return courses(model);
 	}
 
 	//mycourses - User

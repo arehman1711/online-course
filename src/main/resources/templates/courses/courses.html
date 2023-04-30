@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>this is a home page Document</title>
+    <script>
+        function submitForm(id) {
+            let form = "document.getElementsByTagName('form')[id-1];
+            form.submit();
+        }
+    </script>
 </head>
 <body>
 
@@ -17,15 +23,20 @@
                     <div class="single-course">
                         <!-- Course Head -->
                         <div class="course-head overlay">
-                            <img th:src="@{${'image/courses/course'+ course.imageId + '.jpg'}}" alt="#"/>
+                            <img th:src="@{${'/image/courses/course'+ course.imageId + '.jpg'}}" alt="#"/>
 
                             <span th:if="!${session.user}"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
 
                             <span th:if="${session.user}">
                                 <div th:switch="${session.user.role}">
                                     <span th:case="'admin'">
-                                        <form  id="manage-course" class="form" action="#" th:action="@{/init-manage-course}" method="post"   th:object="${course}">
-                                            <a href="#" onclick="document.getElementById('manage-course').submit();"  class="btn white primary">Manage Course</a>
+                                        <form th:id="*{id}" class="form" th:action="@{/init-manage-course}" method="post"   th:object="${course}">
+                                            <input type="hidden"  name="id" th:value=*{id} />
+                                            <input type="hidden" name="courseName" th:value="*{courseName}" />
+                                            <input type="hidden" name="courseDescription"th:value="*{courseDescription}" />
+                                            <input type="hidden" name="duration" th:value=*{duration} />
+                                            <input type="hidden" name="trainer" th:value="*{trainer}" />
+                                            <a  th:onclick="submitForm([[${course.id}]])"  class="a btn white primary">Manage Course</a>
                                         </form>
                                     </span>
 
@@ -83,57 +94,6 @@
 
 </section>
 <!-- New Design End -->
-
-<section class="banner">
-    <br>
-    <div class = "">
-        <h3 class="heading text-info" >List Of Available Courses</h3>
-    </div>
-    <br>
-
-    <div class=" d-flex justify-content-center align-items-center">
-        <!-- Table Starts -->
-        <table border = "1">
-            <!-- Table Header -->
-            <tr>
-                <th>Id</th>
-                <th>Course Name</th>
-                <th>Description</th>
-                <th>Day(s)</th>
-                <th>Trainer</th>
-                <th th:if="${session.user}">Enrollment</th>
-            </tr>
-            <!-- Table Data Section -->
-
-            <th:block th:each="course : ${courseList}">
-                <tr>
-                    <td th:text="${course.id}" />
-                    <!--<td th:text="${course.courseName}" />-->
-                    <td>
-                        <a th:href="@{/coursedetail}" th:text="${course.courseName}"></a>
-                    </td>
-                    <td th:text="${course.courseDescription}" />
-                    <td th:text="${course.duration}" />
-                    <td th:text="${course.trainer}" />
-                    <div th:if="${session.user}" >
-                        <form  id="enroll" class="form" action="#" th:action="@{/enroll}" method="post"   th:object="${enrolledCourse}">
-                           <!-- <div th:object="${course}">-->
-                               <!-- <input type="hidden" id="id" name="id" th:value="${course.id}">
-                                <input type="hidden" id="courseName" name="courseName" th:value="${course.courseName}">-->
-                                <td>  <a href="#" onclick="document.getElementById('enroll').submit();">Enroll</a> </td>
-                           <!-- </div>-->
-                        </form>
-                    </div>
-
-
-                </tr>
-                </tr>
-            </th:block>
-        </table>
-        <!-- Table Starts -->
-
-    </div>
-</section>
 </body>
 </html>
 
