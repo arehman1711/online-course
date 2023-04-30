@@ -8,3 +8,4 @@ target/*
 .settings/org.eclipse.jdt.apt.core.prefs
 *.prefs
 *.class
+*.log

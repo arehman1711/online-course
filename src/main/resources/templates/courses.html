@@ -6,6 +6,62 @@
 </head>
 <body>
 
+<!-- New Design Starts -->
+<section class="banner courses archive section">
+    <!-- Courses -->
+        <div class="container">
+            <div class="row">
+                <th:block th:each="course : ${courseList}">
+                    <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single Course -->
+                    <div class="single-course">
+                        <!-- Course Head -->
+                        <div class="course-head overlay">
+                            <img src="image/courses/course1.jpg" alt="#">
+                            <a href="course-single.html" class="btn white primary">Register Now</a>
+                        </div>
+                        <!-- Course Body -->
+                        <div class="course-body">
+                            <div class="name-price">
+                                <div class="teacher-info">
+                                    <img src="image/teacher/trainer1.jpg" alt="#">
+                                    <h4 class="title" th:text="${course.trainer}"></h4>
+                                </div>
+                                <span class="price">$350</span>
+                            </div>
+                            <h4 class="c-title"><a th:href="@{/coursedetail}" th:text="${course.courseName}"></a></h4>
+                            <p th:text="${course.courseDescription}"></p>
+                        </div>
+                        <!-- Course Meta -->
+                        <div class="course-meta">
+                            <!-- Rattings -->
+                            <ul class="rattings">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star-half-o"></i></li>
+                                <li class="point"><span>4.5</span></li>
+                            </ul>
+                            <!-- Course Info -->
+                            <div class="course-info">
+                                <span><i class="fa fa-users"></i>2.4k Enrolled</span>
+                                <span><i class="fa fa-calendar-o" th:text="${course.duration}" ></i> Days </span>
+                                <span><i class="fa fa-clock-o" ></i>09:30 - 12:00</span>
+                            </div>
+                        </div>
+                        <!--/ End Course Meta -->
+                    </div>
+                    <!--/ End Single Course -->
+                </div>
+                </th:block>
+            </div>
+        </div>
+    <!--/ End Courses -->
+
+</section>
+<!-- New Design End -->
+
 <section class="banner">
     <br>
     <div class = "">
@@ -14,7 +70,7 @@
     <br>
 
     <div class=" d-flex justify-content-center align-items-center">
-
+        <!-- Table Starts -->
         <table border = "1">
             <!-- Table Header -->
             <tr>
@@ -52,6 +108,8 @@
                 </tr>
             </th:block>
         </table>
+        <!-- Table Starts -->
+
     </div>
 </section>
 </body>
