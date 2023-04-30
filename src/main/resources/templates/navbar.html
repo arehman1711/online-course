@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!--Guest Section-->
-            <div class="collapse navbar-collapse navbar-right" th:if="!${session.user}">
+            <div class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right" th:if="!${session.user}">
                 <ul class="navbar-nav ml-auto text-uppercase">
                     <li class="nav-item active">
                         <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -40,14 +40,14 @@
             </div>
 
 
-            <div  class="collapse navbar-collapse navbar-right"  th:if="${session.user}">
+            <div  class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right"  th:if="${session.user}">
                 <span align="center" th:text="'Hello, ' + ${#session.getAttribute('name')} + '!'"></span>
 
 
-                <span  class="collapse navbar-collapse navbar-right"  th:switch="${session.user.role}">
+                <span  class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right"  th:switch="${session.user.role}">
 
                     <!--User Section-->
-                    <span  class="collapse navbar-collapse navbar-right"   th:case="'user'">
+                    <span  class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right"   th:case="'user'">
                         <ul class="navbar-nav ml-auto text-uppercase">
                             <li class="nav-item active">
                                 <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -80,7 +80,7 @@
                     </span>
 
                     <!--Admin Section-->
-                    <span  class="collapse navbar-collapse navbar-right"   th:case="'admin'">
+                    <span  class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right"   th:case="'admin'">
                         <ul class="navbar-nav ml-auto text-uppercase">
                             <li class="nav-item active">
                                 <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>

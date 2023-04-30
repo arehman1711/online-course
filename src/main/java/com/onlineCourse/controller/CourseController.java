@@ -129,13 +129,13 @@ public class CourseController {
 		if(id>0){
 			try {
 				courseRepository.deleteById(id);
-				model.addAttribute("success", "course with " + id + " deleted successfully.");
+				model.addAttribute("success", "Course with " + id + " deleted successfully.");
 			} catch (Exception e) {
 				log.error("Error : " + e.getLocalizedMessage());
-				model.addAttribute("error", "course with id : " + id + " delete failed with exception.");			}
+				model.addAttribute("error", "Course with id : " + id + " delete failed with exception.");			}
 			return courses(model);
 		}
-		model.addAttribute("error", "course with id : " + id + " delete failed.");
+		model.addAttribute("error", "Course with id : " + id + " delete failed.");
 		return courses(model);
 	}
 
