@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="online course - user" id="2 ">
+        <insert tableName="User">
+            <column name="id" value="1"/>
+            <column name="name" value="Admin"/>
+            <column name="email" value="admin@gmail.com"/>
+            <column name="role" value="admin"/>
+            <column name="password" value="abcd"/>
+        </insert>
+        <insert tableName="User">
+            <column name="id" value="2"/>
+            <column name="name" value="User"/>
+            <column name="email" value="user@gmail.com"/>
+            <column name="role" value="user"/>
+            <column name="password" value="abcd"/>
+        </insert>
+        <insert tableName="User">
+            <column name="id" value="3"/>
+            <column name="name" value="Shayan"/>
+            <column name="email" value="Shayan@gmail.com"/>
+            <column name="role" value="user"/>
+            <column name="password" value="abcd"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

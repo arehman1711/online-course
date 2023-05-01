@@ -4,22 +4,26 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet author="online course" id="1">
+    <changeSet author="online course - course" id="1">
        <!-- <validCheckSum>ANY</validCheckSum>-->
 
         <insert tableName="Course">
             <column name="id" value="1"/>
             <column name="course_name" value="Java"/>
-            <column name="course_description" value="Programming language for used in software development."/>
+            <column name="course_description" value="Java is programming language used in software development."/>
             <column name="duration" value="25"/>
+            <column name="price" value="500"/>
+            <column name="rating" value="4.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
         <insert tableName="Course">
             <column name="id" value="2"/>
             <column name="course_name" value="Springboot"/>
-            <column name="course_description" value="Framework for developing web applications."/>
+            <column name="course_description" value="Springboot is framework for developing java based web applications."/>
             <column name="duration" value="20"/>
+            <column name="price" value="0"/>
+            <column name="rating" value="5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
@@ -28,6 +32,8 @@
             <column name="course_name" value="Hibernate"/>
             <column name="course_description" value="Hibernate is a Java framework that simplifies the interact with the database."/>
             <column name="duration" value="15"/>
+            <column name="price" value="500"/>
+            <column name="rating" value="4"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
@@ -36,6 +42,8 @@
             <column name="course_name" value="Spring Data JPA"/>
             <column name="course_description" value="JPA is used to examine, control and persist data between Java objects and RDB."/>
             <column name="duration" value="10"/>
+            <column name="price" value="600"/>
+            <column name="rating" value="4.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
@@ -43,15 +51,19 @@
             <column name="id" value="5"/>
             <column name="course_name" value="Lombok"/>
             <column name="course_description" value="Lombok is a java library that is used to minimize/remove boilerplate code."/>
-            <column name="duration" value="1"/>
+            <column name="duration" value="5"/>
+            <column name="price" value="0"/>
+            <column name="rating" value="3.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
         <insert tableName="Course">
             <column name="id" value="6"/>
             <column name="course_name" value="Liquibase"/>
-            <column name="course_description" value="Liquibase is used DB change management."/>
-            <column name="duration" value="3"/>
+            <column name="course_description" value="Liquibase is used in DB change management to maintain DB Changelogs."/>
+            <column name="duration" value="21"/>
+            <column name="price" value="200"/>
+            <column name="rating" value="4.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
@@ -60,14 +72,18 @@
             <column name="course_name" value="Thymleaf"/>
             <column name="course_description" value="Thymleaf is template engine capable of processing HTML, XML, JavaScript, CSS."/>
             <column name="duration" value="10"/>
+            <column name="price" value="500"/>
+            <column name="rating" value="4"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
         <insert tableName="Course">
             <column name="id" value="8"/>
             <column name="course_name" value="Maven"/>
-            <column name="course_description" value="Maven is a build and dependency management tool."/>
+            <column name="course_description" value="Maven is a build and dependency management tool to manage projects."/>
             <column name="duration" value="10"/>
+            <column name="price" value="900"/>
+            <column name="rating" value="5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
@@ -75,7 +91,9 @@
             <column name="id" value="9"/>
             <column name="course_name" value="MySQL"/>
             <column name="course_description" value="Relational database management system based on the Structured Query Language."/>
-            <column name="duration" value="5"/>
+            <column name="duration" value="10"/>
+            <column name="price" value="999"/>
+            <column name="rating" value="5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
@@ -83,23 +101,29 @@
             <column name="id" value="10"/>
             <column name="course_name" value="HTML/CSS/Bootstrap/JQuery"/>
             <column name="course_description" value="Open source front-end framework for the creation of websites and web apps."/>
-            <column name="duration" value="3"/>
+            <column name="duration" value="9"/>
+            <column name="price" value="500"/>
+            <column name="rating" value="4.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
         <insert tableName="Course">
             <column name="id" value="11"/>
             <column name="course_name" value="JAVAX Validation API"/>
-            <column name="course_description" value="Standard mechanism to validate JavaBeans."/>
-            <column name="duration" value="3"/>
+            <column name="course_description" value="JAVAX Validation API is a standard mechanism to validate JavaBeans."/>
+            <column name="duration" value="7"/>
+            <column name="price" value="200"/>
+            <column name="rating" value="3.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
         <insert tableName="Course">
             <column name="id" value="12"/>
             <column name="course_name" value="JUnit Basics"/>
-            <column name="course_description" value="JUnit is unit testing open-source framework for Java."/>
-            <column name="duration" value="3"/>
+            <column name="course_description" value="JUnit is unit testing open-source framework for java based applications."/>
+            <column name="duration" value="15"/>
+            <column name="price" value="800"/>
+            <column name="rating" value="5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
@@ -108,27 +132,21 @@
             <column name="course_name" value="Github Basics"/>
             <column name="course_description" value="GitHub is storing, tracking, and collaborating toll used in software development."/>
             <column name="duration" value="2"/>
+            <column name="price" value="600"/>
+            <column name="rating" value="4.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
         <insert tableName="Course">
             <column name="id" value="14"/>
             <column name="course_name" value="SLF4J"/>
-            <column name="course_description" value="SLF4J library is used for logging in Java Projects."/>
+            <column name="course_description" value="SLF4J library is used for logging in Java Projects which makes logging easy."/>
             <column name="duration" value="2"/>
+            <column name="price" value="999"/>
+            <column name="rating" value="4.5"/>
             <column name="trainer" value="Khushhal"/>
         </insert>
 
-    </changeSet>
-
-    <changeSet author="online course" id="2 ">
-        <insert tableName="User">
-            <column name="id" value="1"/>
-            <column name="name" value="Admin"/>
-            <column name="email" value="admin@email.com"/>
-            <column name="role" value="admin"/>
-            <column name="password" value="admin@123"/>
-        </insert>
     </changeSet>
 
 </databaseChangeLog>

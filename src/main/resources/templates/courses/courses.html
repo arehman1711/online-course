@@ -36,31 +36,22 @@
                                             <input type="hidden" name="courseDescription"th:value="*{courseDescription}" />
                                             <input type="hidden" name="duration" th:value=*{duration} />
                                             <input type="hidden" name="trainer" th:value="*{trainer}" />
+                                            <input type="hidden" name="rating" th:value="*{rating}" />
+                                            <input type="hidden" name="price" th:value="*{price}" />
                                             <a  th:onclick="submitForm([[${course.id}]])"  class="a btn white primary">Manage Course</a>
                                         </form>
                                     </span>
 
                                     <span th:case="'user'">
-                                       <!--
+
                                         <a th:if="${course.isEnrolled == false}" th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
                                         <a th:if="${course.isEnrolled == true}" href="#" class="btn enrolled-btn white primary">Already Enrolled</a>
-                                        -->
-                                        <a th:if="${course.id != 2}" th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
-                                        <a th:if="${course.id == 2}" href="#" class="btn enrolled-btn white primary">Already Enrolled</a>
-
+                                        
                                     </span>
-
                                 </div>
                             </span>
-
-<!--
-
-                            <span th:if="!${session.user}"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
-                            <span th:if="${session.user}"><a th:href="@{/enroll}" class="btn white primary">Enroll Now</a></span>
-                            <span th:if="${session.user}"><a th:href="@{/init-update-course}"  class="btn white primary">Update Course</a></span>
--->
-
                         </div>
+
                         <!-- Course Body -->
                         <div class="course-body">
                             <div class="name-price">
@@ -68,8 +59,8 @@
                                     <img th:src="@{${'/image/teachers/author'+ course.imageId + '.jpg'}}" alt="#"/>
                                     <h4 class="title" th:text="${course.trainer}"></h4>
                                 </div>
-                                <span th:if="${course.id != 3}" class="price">₹350/-</span>
-                                <span th:if="${course.id == 3}" class="price">FREE</span>
+                                <span th:if="${course.price != 0}" class="price" th:text="${'₹'+course.price+'/-'}"></span>
+                                <span th:if="${course.price == 0}" class="price">FREE</span>
                             </div>
                             <h4 class="c-title"><a th:href="@{/coursedetail}" th:text="${course.courseName}"></a></h4>
                             <p th:text="${course.courseDescription}"></p>
@@ -79,11 +70,12 @@
                             <!-- Rattings -->
                             <ul class="rattings">
                                 <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star-half-o"></i></li>
-                                <li class="point"><span>4.5</span></li>
+                                <li th:if = "${course.rating >= 2}"><i class="fa fa-star"></i></li>
+                                <li th:if = "${course.rating >= 3}"><i class="fa fa-star"></i></li>
+                                <li th:if = "${course.rating >= 4}"><i class="fa fa-star"></i></li>
+                                <li th:if = "${course.rating >= 5}"><i class="fa fa-star"></i></li>
+                                <li th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}"><i class="fa fa-star-half-o"></i></li>
+                                <li class="point" th:text="${course.rating}"><span></span></li>
                             </ul>
                             <!-- Course Info -->
                             <div class="course-info">

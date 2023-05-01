@@ -26,7 +26,7 @@ public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id")
-	private int id;
+	private Integer id;
 
 	@Column(name = "courseName")
 	private String courseName;
@@ -34,11 +34,13 @@ public class Course {
 	@Column(name = "courseDescription")
 	private String courseDescription;
 	@Column(name = "duration")
-	private int duration;
+	private Integer duration;
 
 	@Column(name = "price")
-	private int price;
+	private Integer price = 0;
 
+	@Column(name = "rating")
+	private Double rating = 4.5;
 	@Column(name = "trainer")
 	private String trainer;
 

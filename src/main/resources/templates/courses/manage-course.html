@@ -14,6 +14,7 @@
                                 <h3 class="text-center text-info">Manage Course</h3>
 
                                 <input type="hidden" id="id" required th:field="*{id}" />
+                                <input type="hidden" id="rating" required th:field="*{rating}" />
 
                                 <!--courseName field -->
                                 <label for="courseName">Course Name</label>
@@ -55,6 +56,16 @@
                                         placeholder="Enter here"
                                         required
                                         th:field="*{trainer}"
+                                />
+
+                                <label for="price">Price </label>
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        id="price"
+                                        placeholder="Enter here"
+                                        required
+                                        th:field="*{price}"
                                 />
 
                                 <br>

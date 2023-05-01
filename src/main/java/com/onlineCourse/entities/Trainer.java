@@ -17,8 +17,8 @@ import javax.validation.constraints.Size;
 @Data
 @Entity
 @Lazy(value = false)
-@Table(name = "instructor")
-public class Instructor {
+@Table(name = "trainer")
+public class Trainer {
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
