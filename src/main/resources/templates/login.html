@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8"/>
+    <title>this is a home page</title>
+</head>
+<body>
+    <section class="banner">
+        <div id="login">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form class="form" action="#" th:action="@{/do_login}" method="post" th:object="${user}">
+                                <h3 class="text-center text-info">Login</h3>
+                                <label for="email_field">Your Email:</label>
+                                <input
+                                        name="email"
+                                        type="email"
+                                        class="form-control"
+                                        id="email_field"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter here"
+                                        th:field="*{email}"
+
+                                        required
+                                />
+                                <label for="password_field">Your Password:</label>
+                                <input
+                                        name="password"
+                                        type="password"
+                                        class="form-control"
+                                        id="password_field"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter here"
+                                        required
+                                        th:field="*{password}"
+
+                                />
+                                <div class="form-group">
+                                    <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+
+                                    <div class="container text-center">
+                                        <button type="submit" class="btn bg-info  text-white">
+                                            submit
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="register-link" class="text-right">
+                                   <a th:href="@{/signup}" class="text-info">Not a Member? Register here</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+</body>
+</html>
+
+

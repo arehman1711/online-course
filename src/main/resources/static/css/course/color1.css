@@ -1,0 +1,26 @@
+.topbar .single-widget::before,.topbar .single-widget p i,.topbar .social li:hover a,.topbar .login-register li a i,.header .logo a,.header .nav li:hover a,
+.header .nav li.active a,.header .nav li .dropdown li:hover a,.header .nav li .dropdown li .dropdown.submenu li:hover a,.home-slider .owl-carousel .owl-nav div:hover,.course-search .form-group i,.courses .course-body .c-title:hover a,.courses .rattings li,.courses .course-info span:hover,.features .single-feature:hover .f-title,.register-today .cdown span,.register-today .form-group i,.register-today .nice-select i,.register-today .nice-select:hover,.fun-facts .icon,.teachers .social li a:hover,.teachers .teacher-content h4 span,.events .single-event:hover .event-title a,.events .entry-date-time i,.single-events .owl-carousel .owl-nav div:hover,.cta .text-content h2 span,.latest-news .news-title a:hover,.latest-news .news-title a:hover,.latest-news .news-meta span a:hover,.latest-news .news-meta span a i,.courses.single .owl-carousel .owl-nav div:hover,.courses.single .c-title a:hover,.courses.single .single-info i,.courses.single .teacher-content h4 span,.course-sidebar .course-price p,.course-sidebar .single-feature .value,.news-single .news-title a:hover,.news-single .meta span i,.news-single .form-group i,.main-sidebar .single-sidebar ul li a:hover,.main-sidebar .single-sidebar.s-course h4 a:hover,.main-sidebar .single-sidebar.s-course .meta span i,.main-sidebar .news-info a:hover,.main-sidebar .news-info span i,.main-sidebar .subscribe button:hover,.about-us .about-title span,.skill-main .circle strong span,.error-page .error-inner h2 span,.error-page  .social li a:hover,.contact .form-head .form-group i,.contact .contact-info:hover .icon i,.breadcrumbs ul li a:hover,.pricing .single-table:hover .bg-icon i,.footer .list li a:hover,.footer .copyright a{
+	color: #05C46B;
+}
+.header .nav li a::before,.header .nav li a::after,.header .search-form button,.home-slider .slider-title,.home-slider .owl-carousel .owl-nav div,.course-search .list li:hover,.courses .teacher-info .title,.courses .price,.courses .owl-controls .owl-nav div:hover,.features .icon-img:before,.image-gallery #gallery-menu li.active,.image-gallery #gallery-menu li:hover,.image-gallery .gallery-nav li.active .cbp-filter-counter,.image-gallery .gallery-nav li:hover .cbp-filter-counter,.register-today .list li:hover,.fun-facts .single-fact:hover .icon,.teachers .social,.teachers .teacher-content:hover,.teachers .owl-controls .owl-nav div:hover,.testimonials .owl-controls .owl-dot.active span,.testimonials .owl-controls .owl-dot:hover span,.testimonials .video-box.overlay::before,.events .event-date,.single-events .social li:hover a,.single-events .project-info .single-info b,.latest-news .owl-controls .owl-nav div:hover,.courses.single .nav-tabs li a.active,.courses.single .nav-tabs li a:hover,.courses.single .course-required li:hover span,.courses.single .social li a:hover,.course-sidebar .course-feature h4::before,.news-single blockquote::before,.news-single .prev-next li a:hover,.news-single .single-comments a,.news-single .form-group .button,.main-sidebar .widget-title:before,.main-sidebar .widget-title i,.main-sidebar .subscribe:before,.main-sidebar .tags ul li a:hover,.about-us .btn.video-popup:hover,.faqs .panel.active .faq-title a,.contact .contact-info .icon i,.clients,.clients::before,#scrollUp,#scrollUp:hover,.breadcrumbs ul li.active a,.pricing .bg-icon i,.footer .social li:hover a,.footer .social li.active a,.footer .opening-times .list li .value.off,.footer .newsletter .button{
+	background: #05C46B;
+}
+.header .nav li .dropdown,.header .nav li .dropdown.submenu,.course-search .form-group .list,.register-today .form-group .list{
+	border-top-color:#05C46B;
+}
+.course-search .nice-select:hover:after,.courses .single-course .teacher-info:hover img,.testimonials .single-testimonial:hover img,.testimonials .owl-controls .owl-dot span,.news-single .meta-left .author img,.news-single .prev-next li a,.pricing .single-table:hover .bg-icon i{
+	border-color:#05C46B;
+}
+.courses .teacher-info .title::before{
+	border-bottom-color:#05C46B
+}
+
+.register-today .form-group input:hover,
+.register-today .nice-select:hover,
+.register-today .form-group textarea:hover{
+	border-bottom-color:#05C46B;
+} 
+
+.fun-facts .single-fact:hover .icon::after{
+	border-left-color:#05C46B;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8"/>
+    <title>this is a home page</title>
+</head>
+<body>
+<section class="banner">
+    <div id="login">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form class="form" action="#" th:action="@{/do_register}" method="post" th:object="${user}">
+                            <h3 class="text-center text-info">Signup</h3>
+                            <!--name field -->
+                            <label for="name_field">Your Name</label>
+                            <input
+                                    name="name"
+                                    type="text"
+                                    class="form-control"
+                                    id="name_field"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter here"
+                                    required
+                                    th:field="*{name}"
+                            />
+
+                            <!--email field -->
+                            <label for="email_field">Your Email</label>
+                            <input
+                                    name="email"
+                                    type="email"
+                                    class="form-control"
+                                    id="email_field"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter here"
+                                    th:field="*{email}"
+
+                                    required
+                            />
+                            <!-- </div>-->
+
+                            <!--password field -->
+                            <!--<div class="form-group">-->
+                            <label for="password_field">Your Password</label>
+                            <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control"
+                                    id="password_field"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter here"
+                                    required
+                                    th:field="*{password}"
+
+                            />
+
+
+                            <!-- </div>-->
+                            <!-- Term and conition agreement -->
+                            <div class="form-group form-check">
+
+                                <input type="checkbox"
+                                       name="agreement"
+                                       class="form-check-input"
+                                       id="agreement"
+                                       required
+                                />
+                                <label for="agreement"> Accept term and conditions</label>
+                            </div>
+                            <div class="container text-center">
+                                <button type="submit" class="btn bg-info  text-white">
+                                    submit
+                                </button>
+                                <button type="Reset" class="btn bg-warning text-white">
+                                    Reset
+                                </button>
+                            </div>
+                            
+                            <br>
+
+                            <div id="register-link" class="text-right">
+                                <a th:href="@{/login}" class="text-info">Already a Member? Login here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+</body>
+</html>
+
+

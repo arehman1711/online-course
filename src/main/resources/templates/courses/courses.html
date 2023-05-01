@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8" />
+    <title>this is a home page Document</title>
+    <script>
+        function submitForm(id) {
+            let form = "document.getElementsByTagName('form')[id-1];
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+
+<!-- New Design Starts -->
+<section class="banner courses archive section">
+    <!-- Courses -->
+        <div class="container">
+            <div class="row">
+                <th:block th:each="course : ${courseList}">
+                    <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single Course -->
+                    <div class="single-course">
+                        <!-- Course Head -->
+                        <div class="course-head overlay">
+                            <img th:src="@{${'/image/courses/course'+ course.imageId + '.jpg'}}" alt="#"/>
+
+                            <span th:if="!${session.user}"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
+
+                            <span th:if="${session.user}">
+                                <div th:switch="${session.user.role}">
+                                    <span th:case="'admin'">
+                                        <form th:id="*{id}" class="form" th:action="@{/init-manage-course}" method="post"   th:object="${course}">
+                                            <input type="hidden"  name="id" th:value=*{id} />
+                                            <input type="hidden" name="courseName" th:value="*{courseName}" />
+                                            <input type="hidden" name="courseDescription"th:value="*{courseDescription}" />
+                                            <input type="hidden" name="duration" th:value=*{duration} />
+                                            <input type="hidden" name="trainer" th:value="*{trainer}" />
+                                            <a  th:onclick="submitForm([[${course.id}]])"  class="a btn white primary">Manage Course</a>
+                                        </form>
+                                    </span>
+
+                                    <span th:case="'user'">
+
+                                        <a th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
+
+                                    </span>
+
+                                </div>
+                            </span>
+
+<!--
+
+                            <span th:if="!${session.user}"><a  th:href="@{/signup}" class="btn white primary">Register Now</a></span>
+                            <span th:if="${session.user}"><a th:href="@{/enroll}" class="btn white primary">Enroll Now</a></span>
+                            <span th:if="${session.user}"><a th:href="@{/init-update-course}"  class="btn white primary">Update Course</a></span>
+-->
+
+                        </div>
+                        <!-- Course Body -->
+                        <div class="course-body">
+                            <div class="name-price">
+                                <div class="teacher-info">
+                                    <img th:src="@{${'/image/teachers/author'+ course.imageId + '.jpg'}}" alt="#"/>
+                                    <h4 class="title" th:text="${course.trainer}"></h4>
+                                </div>
+                                <span class="price">$350</span>
+                            </div>
+                            <h4 class="c-title"><a th:href="@{/coursedetail}" th:text="${course.courseName}"></a></h4>
+                            <p th:text="${course.courseDescription}"></p>
+                        </div>
+                        <!-- Course Meta -->
+                        <div class="course-meta">
+                            <!-- Rattings -->
+                            <ul class="rattings">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star-half-o"></i></li>
+                                <li class="point"><span>4.5</span></li>
+                            </ul>
+                            <!-- Course Info -->
+                            <div class="course-info">
+                                <span><i class="fa fa-users"></i>2.4k Enrolled</span>
+                                <span><i class="fa fa-calendar-o" th:text="${course.duration}" ></i> Days </span>
+                                <span><i class="fa fa-clock-o" ></i>09:30 - 12:00</span>
+                            </div>
+                        </div>
+                        <!--/ End Course Meta -->
+                    </div>
+                    <!--/ End Single Course -->
+                </div>
+                </th:block>
+            </div>
+        </div>
+    <!--/ End Courses -->
+
+</section>
+<!-- New Design End -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

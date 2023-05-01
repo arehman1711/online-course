@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8" />
+  <title>this is a home page Document</title>
+</head>
+<body>
+
+<section class="banner">
+
+  <div class = "">
+  </div>
+
+  <div class=" d-flex justify-content-center align-items-center">
+
+    <table border = "1">
+      <!-- Table Header -->
+      <tr>
+
+        <td>Course Name</td>
+        <td>User Id</td>
+      </tr>
+      <!-- Table Data Section -->
+
+      <th:block th:each="course : ${courseList}">
+        <tr>
+          <td th:text="${course}" />
+        </tr>
+      </th:block>
+
+    </table>
+  </div>
+</section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
