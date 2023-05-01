@@ -41,8 +41,12 @@
                                     </span>
 
                                     <span th:case="'user'">
-
-                                        <a th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
+                                       <!--
+                                        <a th:if="${course.isEnrolled == false}" th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
+                                        <a th:if="${course.isEnrolled == true}" href="#" class="btn enrolled-btn white primary">Already Enrolled</a>
+                                        -->
+                                        <a th:if="${course.id != 2}" th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
+                                        <a th:if="${course.id == 2}" href="#" class="btn enrolled-btn white primary">Already Enrolled</a>
 
                                     </span>
 
@@ -64,7 +68,8 @@
                                     <img th:src="@{${'/image/teachers/author'+ course.imageId + '.jpg'}}" alt="#"/>
                                     <h4 class="title" th:text="${course.trainer}"></h4>
                                 </div>
-                                <span class="price">$350</span>
+                                <span th:if="${course.id != 3}" class="price">₹350/-</span>
+                                <span th:if="${course.id == 3}" class="price">FREE</span>
                             </div>
                             <h4 class="c-title"><a th:href="@{/coursedetail}" th:text="${course.courseName}"></a></h4>
                             <p th:text="${course.courseDescription}"></p>
