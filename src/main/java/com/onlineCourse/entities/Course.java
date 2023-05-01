@@ -13,8 +13,7 @@ import org.springframework.context.annotation.Lazy;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Entity
 @Lazy(value = false)
@@ -37,6 +36,9 @@ public class Course {
 	@Column(name = "duration")
 	private int duration;
 
+	@Column(name = "price")
+	private int price;
+
 	@Column(name = "trainer")
 	private String trainer;
 
@@ -46,15 +48,4 @@ public class Course {
 	@Transient
 	private String imageId;
 
-	@Override
-	public String toString() {
-		return "Course{" +
-				"id=" + id +
-				", courseName='" + courseName + '\'' +
-				", courseDescription='" + courseDescription + '\'' +
-				", duration=" + duration +
-				", trainer='" + trainer + '\'' +
-				", isEnrolled=" + isEnrolled +
-				'}';
-	}
 }
