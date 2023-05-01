@@ -1,13 +1,14 @@
 package com.onlineCourse.controller;
 
 
-import com.onlineCourse.entities.ContactUs;
 import com.onlineCourse.entities.Course;
+import com.onlineCourse.entities.CourseEnrollment;
+import com.onlineCourse.repository.CourseEnrollmentRepository;
 import com.onlineCourse.repository.CourseRepository;
-import com.onlineCourse.repository.EnrollmentRepository;
 import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.service.interfaces.UserService;
+import com.onlineCourse.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,18 +20,16 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Controller
 @Slf4j
 public class CourseController {
 
-/*	@Autowired
-	private EnrollmentRepository enrollmentRepository;*/
 	@Autowired
-	private UserRepository userRepository;
+	private CourseEnrollmentRepository courseEnrollmentRepository;
   	@Autowired
 	private CourseRepository courseRepository;
 	@Autowired
@@ -70,23 +69,20 @@ public class CourseController {
 		return "courses/course-detail" ;
 
 	}
-	@GetMapping("/mycourse")
-	public String mycourse(@ModelAttribute("user") User user,  Model model) {
-		log.info(" USER : " +  user);
-		return courses(model);
-	}
 
 	@RequestMapping(value = "/enroll/{id}", method = RequestMethod.GET)
-	public String enrollUser(HttpSession session,@PathVariable("id") int courseId, Model model) {
+	public String enrollUser(HttpSession session, @PathVariable("id") int courseId, Model model) {
 		log.info("Course for Enrollment : " +  courseId);
 		User sessionUser = (User) session.getAttribute("user");
-/*
-		enrollmentRepository.insertWithQuery(sessionUser.getId(), courseId);
-*/
+		CourseEnrollment courseEnrollment = new CourseEnrollment();
+		courseEnrollment.setCourseId(courseId);
+		courseEnrollment.setUserId(sessionUser.getId());
+		courseEnrollment.setUserName(sessionUser.getName());
+		CourseEnrollment dbEnrollment = courseEnrollmentRepository.save(courseEnrollment);
 
 		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
 		log.info("success" +  sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
-		return courses(model);
+		return myCourses(session, model);
 	}
 
 	@GetMapping(value = "/init-add-course")
@@ -141,7 +137,17 @@ public class CourseController {
 		return courses(model);
 	}
 
-	//mycourses - User
+	@GetMapping("/my-courses")
+	public String myCourses(HttpSession session,  Model model) {
+		User sessionUser = (User) session.getAttribute("user");
+		List<Course> courseList = courseService.getEnrolledCourseList(sessionUser.getId());
+
+		log.info("courseList : " + courseList);
+		model.addAttribute("title", "My Courses");
+		model.addAttribute("courseList", courseList);
+		return "courses/courses";
+	}
+
 
 	//courseDetail - Course
 

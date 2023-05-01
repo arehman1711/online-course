@@ -13,8 +13,7 @@ import org.springframework.context.annotation.Lazy;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Entity
 @Lazy(value = false)
@@ -46,6 +45,7 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
+/*
 	@ManyToMany(cascade = {
 			CascadeType.PERSIST,
 			CascadeType.MERGE}, fetch = FetchType.EAGER)
@@ -54,15 +54,6 @@ public class User {
 			joinColumns = @JoinColumn(name = "student_id"),
 			inverseJoinColumns = @JoinColumn(name = "course_id"))
 	private List<Course> courseList = new ArrayList<>();
+*/
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				", email='" + email + '\'' +
-				", role='" + role + '\'' +
-				", password='" + password + '\'' +
-				'}';
-	}
 }

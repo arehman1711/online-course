@@ -1,11 +1,14 @@
 package com.onlineCourse.service.impl;
 
+import com.onlineCourse.entities.Course;
 import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.entities.User;
 import com.onlineCourse.service.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -39,11 +42,5 @@ public class UserServiceImpl implements UserService {
     public User getUserByEmail(String email) {
         return userRepository.getUserByEmail(email);
     }
-
-    @Override
-    public User enroll(User sessionUser) {
-        return userRepository.save(sessionUser);
-    }
-
 
 }

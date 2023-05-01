@@ -13,12 +13,7 @@
                             <form class="form" action="#" th:action="@{/submit-manage-course}" method="post" th:object="${course}">
                                 <h3 class="text-center text-info">Manage Course</h3>
 
-                                <input
-                                        type="hidden"
-                                        id="id"
-                                        required
-                                        th:field="*{id}"
-                                />
+                                <input type="hidden" id="id" required th:field="*{id}" />
 
                                 <!--courseName field -->
                                 <label for="courseName">Course Name</label>
