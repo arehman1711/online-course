@@ -94,7 +94,7 @@ public class HomeController {
 			session.setAttribute("name", user.getName());
 			model.addAttribute("info", "Welcome "+ user.getName() + "!");
 			log.info("Welcome "+ user.getName() + "!");
-			return courseController.courses(model);
+			return courseController.courses(session, model);
 		}
 		log.info("Invalid email/password.");
 		model.addAttribute("error", "Invalid email/password.");

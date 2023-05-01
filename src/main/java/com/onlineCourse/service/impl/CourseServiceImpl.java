@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,21 +25,24 @@ public class CourseServiceImpl implements CourseService {
     private CourseEnrollmentRepository courseEnrollmentRepository;
 
     @Override
-    public List<Course> getCourseList() {
+    public List<Course> getCourseList(Integer userId) {
+        List<Integer> enrolledCourseIds = getEnrolledCourseIds(userId);
         List<Course> courseList =  courseRepository.findAll();
-        return stampImageId(courseList);
+        return stampImageIdAndEnrollmentFlag(courseList,enrolledCourseIds);
     }
 
     @Override
-    public List<Course> search(String searchText) {
+    public List<Course> search(String searchText, Integer userId) {
+        List<Integer> enrolledCourseIds = getEnrolledCourseIds(userId);
         List<Course> courseList =  courseRepository.findByCourseNameContainingIgnoreCase(searchText);
-        return stampImageId(courseList);
+        return stampImageIdAndEnrollmentFlag(courseList, enrolledCourseIds);
     }
 
-    private List<Course> stampImageId(List<Course> courseList) {
-        return Utils.safe(courseList).stream().map(course -> {
-            course.setImageId(String.valueOf(course.getId()%10));
-            return course;
+    private List<Course> stampImageIdAndEnrollmentFlag(List<Course> courseList, List<Integer> enrolledCourseIds) {
+        return Utils.safe(courseList).stream().map(c -> {
+            c.setImageId(String.valueOf(c.getId()%10));
+            c.setEnrolled(enrolledCourseIds.contains(c.getId()) ? true : false);
+            return c;
         }).collect(Collectors.toList());
     }
 
@@ -49,9 +53,18 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> getEnrolledCourseList(Integer userId){
-        List<CourseEnrollment> courseEnrollmentList = courseEnrollmentRepository.getCourseEnrollmentByUserId(userId);
-        List<Integer> courseIdList =  Utils.safe(courseEnrollmentList).stream().map(ce -> ce.getCourseId()).collect(Collectors.toList());
-        List<Course> courseList = findByIdIn(courseIdList);
-        return stampImageId(courseList);
+        List<Integer> enrolledCourseIds = getEnrolledCourseIds(userId);
+        List<Course> courseList = findByIdIn(enrolledCourseIds);
+        return stampImageIdAndEnrollmentFlag(courseList, enrolledCourseIds);
+    }
+
+    private List<Integer> getEnrolledCourseIds(Integer userId) {
+        if (userId != null && userId>0) {
+            List<CourseEnrollment> courseEnrollmentList = courseEnrollmentRepository.getCourseEnrollmentByUserId(userId);
+            List<Integer> courseIdList = Utils.safe(courseEnrollmentList).stream().map(ce -> ce.getCourseId()).collect(Collectors.toList());
+            return (List<Integer>) Utils.safe(courseIdList);
+        } else {
+            return Collections.emptyList();
+        }
     }
 }
