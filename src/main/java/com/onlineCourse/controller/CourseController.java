@@ -5,10 +5,8 @@ import com.onlineCourse.entities.Course;
 import com.onlineCourse.entities.CourseEnrollment;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
 import com.onlineCourse.repository.CourseRepository;
-import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.service.interfaces.UserService;
-import com.onlineCourse.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @Controller
@@ -39,30 +36,34 @@ public class CourseController {
 	private CourseService courseService;
 
 	@GetMapping("/courses")
-	public String courses(Model model) {
-		List<Course> courseList = courseService.getCourseList();
+	public String courses(HttpSession session, Model model) {
+		Integer userId = getUserIdFromSession(session);
+		List<Course> courseList = courseService.getCourseList(userId);
 		log.info("courseList : " + courseList);
 		model.addAttribute("title", "Courses");
 		model.addAttribute("courseList", courseList);
 		return "courses/courses";
 	}
 
+	private Integer getUserIdFromSession(HttpSession session) {
+		User sessionUser = (User) session.getAttribute("user");
+		return sessionUser != null ? sessionUser.getId() : null;
+	}
+
 	@PostMapping("/search")
-	public String search( @RequestParam(value = "searchText") String searchText, Model model) {
+	public String search(HttpSession session, @RequestParam(value = "searchText") String searchText, Model model) {
+		Integer userId = getUserIdFromSession(session);
 		log.info("Search Criteria : " + searchText);
-		List<Course> courseList = courseService.search(searchText);
+		List<Course> courseList = courseService.search(searchText, userId);
 		log.info("courseList : " + courseList);
 		model.addAttribute("title", "Courses");
 		model.addAttribute("courseList", courseList);
 		return "courses/courses";
 	}
 	@GetMapping("/coursedetail")
-	public String courseDetail(@ModelAttribute("user") Course course,  Model model) {
-		//log.info("Course : " + course);
-		//log.info("User : " + user);
-
-		//model.addAttribute("user ",user);
-		List<Course> courseList = courseService.getCourseList();
+	public String courseDetail(HttpSession session, @ModelAttribute("user") Course course,  Model model) {
+		Integer userId = getUserIdFromSession(session);
+		List<Course> courseList = courseService.getCourseList(userId);
 		log.info("courseList : " + courseList);
 		model.addAttribute("title", "Courses");
 		model.addAttribute("courseList", courseList);
@@ -110,19 +111,19 @@ public class CourseController {
 	}
 
 	@RequestMapping(value = "/submit-manage-course", method = RequestMethod.POST)
-	public String submitManageCourse(@ModelAttribute("course") Course course, Model model) {
+	public String submitManageCourse(HttpSession session, @ModelAttribute("course") Course course, Model model) {
 		log.info("course=" + course);
 		if(course.getId()>0){
 			Course dbCourse = courseRepository.save(course);
 			model.addAttribute("success", dbCourse.getCourseName() + " updated successfully.");
-			return courses(model);
+			return courses(session, model);
 		}
 		model.addAttribute("error", course.getCourseName() + " update failed.");
-		return courses(model);
+		return courses(session, model);
 	}
 
 	@RequestMapping(value = "/delete-course/{id}", method = RequestMethod.GET)
-	public String deleteCourse(@PathVariable("id") int id, Model model) {
+	public String deleteCourse(HttpSession session, @PathVariable("id") int id, Model model) {
 		log.info("Id=" + id);
 		if(id>0){
 			try {
@@ -131,10 +132,10 @@ public class CourseController {
 			} catch (Exception e) {
 				log.error("Error : " + e.getLocalizedMessage());
 				model.addAttribute("error", "Course with id : " + id + " delete failed with exception.");			}
-			return courses(model);
+			return courses(session, model);
 		}
 		model.addAttribute("error", "Course with id : " + id + " delete failed.");
-		return courses(model);
+		return courses(session, model);
 	}
 
 	@GetMapping("/my-courses")
