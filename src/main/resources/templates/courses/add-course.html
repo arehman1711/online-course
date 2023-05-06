@@ -30,9 +30,12 @@
                                         id="courseDescription"
                                         placeholder="Enter here"
                                         required
+                                        th:maxlength="80"
+                                        th:minlength="50"
                                         th:field="*{courseDescription}"
 
                                 />
+                                <span id="textarea_feedback"></span>
 
                                 <label for="duration">Duration (Days) </label>
                                 <input
