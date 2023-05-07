@@ -15,10 +15,10 @@
 <!-- New Design Starts -->
 <section class="banner courses archive section">
     <!-- Courses -->
-        <div class="container">
-            <div class="row">
-                <th:block th:each="course : ${courseList}">
-                    <div class="col-lg-4 col-md-6 col-12">
+    <div class="container">
+        <div class="row">
+            <th:block th:each="course : ${courseList}">
+                <div class="col-lg-4 col-md-6 col-12">
                     <!-- Single Course -->
                     <div class="single-course">
                         <!-- Course Head -->
@@ -46,7 +46,7 @@
 
                                         <a th:if="${course.isEnrolled == false}" th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
                                         <a th:if="${course.isEnrolled == true}" class="btn enrolled-btn white primary">Already Enrolled</a>
-                                        
+
                                     </span>
                                 </div>
                             </span>
@@ -88,27 +88,11 @@
                     </div>
                     <!--/ End Single Course -->
                 </div>
-                </th:block>
-            </div>
+            </th:block>
         </div>
+    </div>
     <!--/ End Courses -->
-
 </section>
 <!-- New Design End -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
