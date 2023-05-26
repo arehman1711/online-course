@@ -79,7 +79,7 @@ public class HomeController {
 		model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
 		model.addAttribute("success", "User registered successfully.");
 		log.info("User "+ dbUser.getName() + " successfully Registered.");
-		return "courses";
+		return "home";
 	}
 	@RequestMapping(value = "/do_login", method = RequestMethod.POST)
 	public String loginUser(HttpSession session, @ModelAttribute("user") User user, Model model) {
