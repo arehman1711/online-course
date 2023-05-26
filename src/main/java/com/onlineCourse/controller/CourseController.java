@@ -60,16 +60,6 @@ public class CourseController {
 		model.addAttribute("courseList", courseList);
 		return "courses/courses";
 	}
-	@GetMapping("/coursedetail")
-	public String courseDetail(HttpSession session, @ModelAttribute("user") Course course,  Model model) {
-		Integer userId = getUserIdFromSession(session);
-		List<Course> courseList = courseService.getCourseList(userId);
-		log.info("courseList : " + courseList);
-		model.addAttribute("title", "Courses");
-		model.addAttribute("courseList", courseList);
-		return "courses/course-detail" ;
-
-	}
 
 	@RequestMapping(value = "/enroll/{id}", method = RequestMethod.GET)
 	public String enrollUser(HttpSession session, @PathVariable("id") int courseId, Model model) {
@@ -149,7 +139,12 @@ public class CourseController {
 		return "courses/courses";
 	}
 
-
-	//courseDetail - Course
+	@RequestMapping(value = "/init-course-detail", method = RequestMethod.POST)
+	public String courseDetail(HttpSession session, @ModelAttribute  Course course,  Model model) {
+		model.addAttribute("course", course);
+		model.addAttribute("title", "Course Detail");
+		log.info("loading init-course-detail..! course=" + course);
+		return "courses/new-course-details" ;
+	}
 
 }

@@ -14,14 +14,8 @@
                                 <h3 class="text-center text-info">Add New Course</h3>
                                 <!--courseName field -->
                                 <label for="courseName">Course Name</label>
-                                <input
-                                        type="text"
-                                        class="form-control"
-                                        id="courseName"
-                                        placeholder="Enter here"
-                                        required
-                                        th:field="*{courseName}"
-                                />
+                                <input type="text" class="form-control" id="courseName" placeholder="Enter here"
+                                       required th:field="*{courseName}"/>
 
                                 <!--courseDescription field -->
                                 <label for="courseDescription">Course Description</label>
@@ -30,9 +24,13 @@
                                         id="courseDescription"
                                         placeholder="Enter here"
                                         required
+                                        th:maxlength="80"
+                                        th:minlength="50"
                                         th:field="*{courseDescription}"
 
                                 />
+                                <span id="textarea_feedback"></span>
+                                <br>
 
                                 <label for="duration">Duration (Days) </label>
                                 <input

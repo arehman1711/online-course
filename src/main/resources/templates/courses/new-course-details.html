@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8"/>
+  <title>this is a home page</title>
+</head>
+<body>
+<section class="banner">
+<div class="div-relative course">
+		<div class="div-relative container">
+			<div class="div-relative row">
+
+				<!-- Course -->
+				<div class="div-relative col-lg-8">
+
+					<div class="div-relative course_container">
+						<div class="div-relative course_title"><span th:text="${course.courseName}"></span></div>
+						<div class="div-relative course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+
+							<!-- Course Info Item -->
+							<div class="div-relative course_info_item">
+								<div class="div-relative course_info_title">Teacher:</div>
+								<div class="div-relative course_info_text"><a href="#">Khushhal</a></div>
+							</div>
+
+							<!-- Course Info Item -->
+							<div class="div-relative course_info_item">
+								<div class="div-relative course_info_title">Reviews:</div>
+								<div style="color:green" >
+									<i class="fa fa-star"></i>
+									<i th:if = "${course.rating >= 2}" class="fa fa-star"></i>
+									<i th:if = "${course.rating >= 3}" class="fa fa-star"></i>
+									<i th:if = "${course.rating >= 4}" class="fa fa-star"></i>
+									<i th:if = "${course.rating >= 5}" class="fa fa-star"></i>
+									<i  th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
+									<span class="point" th:text="${' (' + course.rating + ')'}"></span>
+								</div>
+							</div>
+
+							<!-- Course Info Item -->
+							<div class="div-relative course_info_item">
+								<div class="div-relative course_info_title">Categories:</div>
+								<div class="div-relative course_info_text"><a href="#">Languages</a></div>
+							</div>
+
+						</div>
+
+						<!-- Course Image -->
+						<div class="div-relative course_image"><img src="images/course_image.jpg" alt=""></div>
+
+						<!-- Course Tabs -->
+						<div class="div-relative course_tabs_container">
+							<div class="div-relative tabs d-flex flex-row align-items-center justify-content-start">
+								<div class="div-relative tab active">description</div>
+								<div class="div-relative tab">curriculum</div>
+								<div class="div-relative tab">reviews</div>
+								<div class="div-relative tab">Study Material</div>
+							</div>
+							<div class="div-relative tab_panels">
+
+								<!-- Description -->
+								<div class="div-relative tab_panel active">
+									<div class="div-relative tab_panel_title">Software Training</div>
+									<div class="div-relative tab_panel_content">
+										<div class="div-relative tab_panel_text">
+											<p>Software training is a crucial aspect of professional development in today's technology-driven world. As software continues to evolve and become increasingly complex, it is essential for individuals and organizations to invest in training programs to stay ahead of the curve.
+
+												Software training refers to the process of acquiring knowledge, skills, and proficiency in using specific software applications or programming languages. It involves learning the functionalities, features, and best practices associated with a particular software tool or platform.
+
+												The benefits of software training are manifold. Firstly, it empowers individuals to maximize their productivity by utilizing the full potential of software applications. With proper training, users can efficiently navigate through different functions, shortcuts, and tools, enabling them to work more effectively and accomplish tasks in a shorter timeframe.
+
+												Moreover, software training enhances problem-solving abilities. By gaining in-depth knowledge of a software's capabilities, users can troubleshoot issues, identify errors, and find innovative solutions. This proficiency not only saves time but also improves the overall quality of work.</p>
+										</div>
+										<div class="div-relative tab_panel_section">
+											<div class="div-relative tab_panel_subtitle">Requirements</div>
+											<ul class="tab_panel_bullets">
+												<li>Expertise in Java, Spring Boot, Microservices, AWS, Camel, Kafka, and software development technologies..</li>
+												<li>Minimum of 10 years of experience in the field..</li>
+												<li>Strong knowledge of software development principles and best practices.</li>
+												<li>Strong interpersonal skills and the ability to work well with individuals and teams..</li>
+												<li>Passion for continuous learning and staying updated with the latest advancements in software development.</li>
+											</ul>
+										</div>
+										<div class="div-relative tab_panel_section">
+											<div class="div-relative tab_panel_subtitle">What is the target audience?</div>
+											<div class="div-relative tab_panel_text">
+												<p>The target audience is software developers, IT professionals, and organizations seeking to enhance their skills and knowledge in Java, Spring Boot, Microservices, AWS, Camel, Kafka, and software development technologies..</p>
+											</div>
+										</div>
+										<div class="div-relative tab_panel_faq">
+											<div class="div-relative tab_panel_title">FAQ</div>
+
+											<!-- Accordions -->
+											<div class="div-relative accordions">
+
+												<div class="div-relative elements_accordions">
+
+													<div class="div-relative accordion_container">
+														<div class="div-relative accordion d-flex flex-row align-items-center"><div>Can I just enroll in a single course?</div></div>
+														<div class="div-relative accordion_panel">
+															<p>Yes, you can certainly enroll in a single course. Many training programs and educational institutions offer individual courses that cover specific topics or skill sets. This allows you to focus on a particular area of interest or address a specific learning need without committing to a full program or curriculum.</p>
+														</div>
+													</div>
+
+													<div class="div-relative accordion_container">
+														<div class="div-relative accordion d-flex flex-row align-items-center active"><div>I'm not interested in the entire Specialization?</div></div>
+														<div class="div-relative accordion_panel">
+															<p>That's perfectly fine. Specializations are typically a collection of related courses designed to provide comprehensive knowledge and skills in a specific domain. However, you have the flexibility to choose individual courses based on your specific interests and needs. You can select a single course that aligns with your goals and focuses on the specific topics or skills you want to learn..</p>
+														</div>
+													</div>
+
+													<div class="div-relative accordion_container">
+														<div class="div-relative accordion d-flex flex-row align-items-center"><div>What is the refund policy?</div></div>
+														<div class="div-relative accordion_panel">
+															<p>The refund policy for courses and training programs can vary depending on the institution or platform offering the course. It is advisable to review the specific refund policy of the course or program you are interested in before enrolling. Typically, refund policies may include provisions such as:
+
+																Time-based Refunds: Refunds may be available within a specific timeframe (e.g., within the first week of enrollment) if you decide the course is not suitable for you.
+
+																Partial Refunds: In some cases, a partial refund may be offered if you withdraw from the course after a certain point in the program.
+
+																No Refunds: Some courses or programs may have a no-refund policy once you have accessed the course materials or completed a certain portion of the program.</p>
+														</div>
+													</div>
+
+													<div class="div-relative accordion_container">
+														<div class="div-relative accordion d-flex flex-row align-items-center"><div>What background knowledge is necessary?</div></div>
+														<div class="div-relative accordion_panel">
+															<p>A basic understanding of programming concepts and familiarity with computer systems is generally helpful for most courses. However, the specific background knowledge required can vary depending on the course content. It's recommended to review the course prerequisites or requirements to determine the specific background knowledge needed for the course you are interested in.</p>
+														</div>
+													</div>
+
+													<div class="div-relative accordion_container">
+														<div class="div-relative accordion d-flex flex-row align-items-center"><div>Do i need to take the courses in a specific order?</div></div>
+														<div class="div-relative accordion_panel">
+															<p>The course sequence or order of courses within a program can vary depending on the curriculum structure and the educational institution or platform offering the courses. Some courses may have prerequisites or build upon concepts taught in earlier courses, requiring a specific order of completion. In such cases, it is generally recommended to follow the suggested order to ensure a smooth learning progression and maximize your understanding of the subject matter.</p>
+														</div>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Curriculum -->
+								<div class="div-relative div-relative tab_panel tab_panel_2">
+									<div class="div-relative div-relative tab_panel_content">
+										<div class="div-relative div-relative tab_panel_title">Software Training</div>
+										<div class="div-relative div-relative tab_panel_content">
+											<div class="div-relative div-relative tab_panel_text">
+												<p>Software training is crucial for staying competitive and maximizing productivity. It enhances problem-solving skills, fosters collaboration, and keeps professionals updated. Invest in software training for success in the digital era.</p>
+											</div>
+
+											<!-- Dropdowns -->
+											<ul class="dropdowns">
+												<li class="has_children">
+													<div class="div-relative div-relative dropdown_item">
+														<div class="div-relative div-relative dropdown_item_title"><span>Lecture 1:</span>Mastering Java Development: From Fundamentals to Advanced Techniques</div>
+														<div class="div-relative div-relative dropdown_item_text">
+															<p>Learn the foundations of Java development and progress to advanced topics, including object-oriented programming, data structures, multithreading, and design patterns, empowering you to build robust and efficient Java applications.</p>
+														</div>
+													</div>
+													<ul>
+														<li>
+															<div class="div-relative dropdown_item">
+																<div class="div-relative dropdown_item_title"><span>Lecture 1.1:</span>Unlocking the Power of Microservices: Best Practices and Implementation Strategies.</div>
+																<div class="div-relative dropdown_item_text">
+																	<p>Explore the benefits of microservices, learn how to design scalable and resilient systems, and gain insights into successful deployment and management techniques for maximizing the power of microservices in your applications.</p>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="div-relative dropdown_item">
+																<div class="div-relative dropdown_item_title"><span>Lecture 1.2:</span> Building Scalable Web Applications with Spring Boot and AWS.</div>
+																<div class="div-relative dropdown_item_text">
+																	<p> Learn how to build highly scalable and resilient web applications using the Spring Boot framework and AWS cloud services.</p>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</li>
+												<li class="has_children">
+													<div class="div-relative dropdown_item">
+														<div class="div-relative dropdown_item_title"><span>Lecture 2:</span> Exploring Data Streaming with Kafka: Real-time Processing and Event-Driven Architecture.</div>
+														<div class="div-relative dropdown_item_text">
+															<p>Learn how to build scalable and resilient data streaming pipelines, process events in real-time, and leverage Kafka's distributed messaging system for efficient data integration and analytics.</p>
+														</div>
+													</div>
+													<ul>
+														<li>
+															<div class="div-relative dropdown_item">
+																<div class="div-relative dropdown_item_title"><span>Lecture 2.1:</span>Advanced Topics in Software Development: Dive into Camel Framework and Integration Patterns.</div>
+																<div class="div-relative dropdown_item_text">
+																	<p> Exploring Camel Framework & Integration Patterns" - Delve deep into the Camel framework and learn advanced integration patterns to build robust and efficient software solutions.</p>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="div-relative dropdown_item">
+																<div class="div-relative dropdown_item_title"><span>Lecture 2.2:</span> Discover techniques for fault tolerance, data replication, and ensuring high availability in Kafka clusters..</div>
+																<div class="div-relative dropdown_item_text">
+																	<p> Configure a replication factor greater than one for Kafka topics. This ensures that each partition is replicated across multiple brokers, providing redundancy and fault tolerance. If one broker fails, the replicas on other brokers can continue serving the data.Lorem Ipsn gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus.</p>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</li>
+												<li>
+													<div class="div-relative dropdown_item">
+														<div class="div-relative dropdown_item_title"><span>Lecture 3:</span> Cloud-Native Application Development: Leveraging AWS for Scalable Solutions.</div>
+														<div class="div-relative dropdown_item_text">
+															<p> Harness the power of AWS to build and deploy highly scalable and resilient cloud-native applications.
+																Explore best practices, tools, and services to leverage the full potential of AWS for developing modern, cloud-native solutions.</p>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="div-relative dropdown_item">
+														<div class="div-relative dropdown_item_title"><span>Lecture 4:</span> Secure Coding Practices: Ensuring Robust and Resilient Software</div>
+														<div class="div-relative dropdown_item_text">
+															<p>Discover essential practices for developing secure software, ensuring protection against vulnerabilities and threats..</p>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="div-relative dropdown_item">
+														<div class="div-relative dropdown_item_title"><span>Lecture 5:</span>Agile Software Development: Principles and Practices for Success.</div>
+														<div class="div-relative dropdown_item_text">
+															<p>Master the foundations and strategies for successful software development using Agile methodologies.
+																Learn key principles, such as iterative development, collaboration, and continuous improvement, to drive efficiency and adaptability in your projects..</p>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<!-- Reviews -->
+								<div class="div-relative tab_panel tab_panel_3">
+									<div class="div-relative tab_panel_title">Course Review</div>
+
+									<!-- Rating -->
+									<div class="div-relative review_rating_container">
+										<div class="div-relative review_rating">
+											<div class="div-relative review_rating_num"> <span th:text="${course.rating}"></span></div>
+											<div class="div-relative review_rating_stars">
+												<div class="div-relative rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+											</div>
+											<div class="div-relative review_rating_text">(28 Ratings)</div>
+										</div>
+										<div class="div-relative review_rating_bars">
+											<ul>
+												<li><span>5 Star</span><div class="div-relative review_rating_bar"><div style="width:90%;"></div></div></li>
+												<li><span>4 Star</span><div class="div-relative review_rating_bar"><div style="width:75%;"></div></div></li>
+												<li><span>3 Star</span><div class="div-relative review_rating_bar"><div style="width:32%;"></div></div></li>
+												<li><span>2 Star</span><div class="div-relative review_rating_bar"><div style="width:10%;"></div></div></li>
+												<li><span>1 Star</span><div class="div-relative review_rating_bar"><div style="width:3%;"></div></div></li>
+											</ul>
+										</div>
+									</div>
+
+									<!-- Comments -->
+									<div class="div-relative comments_container">
+										<ul class="comments_list">
+											<li>
+												<div class="div-relative comment_item d-flex flex-row align-items-start jutify-content-start">
+													<div class="div-relative comment_image"><div><img src="images/comment_1.jpg" alt=""></div></div>
+													<div class="div-relative comment_content">
+														<div class="div-relative comment_title_container d-flex flex-row align-items-center justify-content-start">
+															<div class="div-relative comment_author"><a href="#">Abdur Rehman</a></div>
+															<div class="div-relative comment_rating"><div class="div-relative rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div></div>
+															<div class="div-relative comment_time ml-auto">1 day ago</div>
+
+														</div>
+														<div class="div-relative comment_text">
+															<p>There are many variations of passages of Lorem Ipsum available, but the majority have alteration in some form, by injected humour.</p>
+														</div>
+														<div class="div-relative comment_extras d-flex flex-row align-items-center justify-content-start">
+															<div class="div-relative comment_extra comment_likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>15</span></a></div>
+															<div class="div-relative comment_extra comment_reply"><a href="#"><i class="fa fa-reply" aria-hidden="true"></i><span>Reply</span></a></div>
+														</div>
+													</div>
+												</div>
+												<ul>
+													<li>
+														<div class="div-relative comment_item d-flex flex-row align-items-start jutify-content-start">
+															<div class="div-relative comment_image"><div><img src="images/comment_2.jpg" alt=""></div></div>
+															<div class="div-relative comment_content">
+																<div class="div-relative comment_title_container d-flex flex-row align-items-center justify-content-start">
+																	<div class="div-relative comment_author"><a href="#">Mohd Salman</a></div>
+																	<div class="div-relative comment_rating"><div class="div-relative rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div></div>
+																	<div class="div-relative comment_time ml-auto">1 day ago</div>
+																</div>
+																<div class="div-relative comment_text">
+																	<p>There are many variations of passages of Lorem Ipsum available, but the majority have alteration in some form, by injected humour.</p>
+																</div>
+																<div class="div-relative comment_extras d-flex flex-row align-items-center justify-content-start">
+																	<div class="div-relative comment_extra comment_likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>15</span></a></div>
+																	<div class="div-relative comment_extra comment_reply"><a href="#"><i class="fa fa-reply" aria-hidden="true"></i><span>Reply</span></a></div>
+																</div>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<div class="div-relative comment_item d-flex flex-row align-items-start jutify-content-start">
+													<div class="div-relative comment_image"><div><img src="images/comment_3.jpg" alt=""></div></div>
+													<div class="div-relative comment_content">
+														<div class="div-relative comment_title_container d-flex flex-row align-items-center justify-content-start">
+															<div class="div-relative comment_author"><a href="#">Abdur Rehman</a></div>
+															<div class="div-relative comment_rating"><div class="div-relative rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div></div>
+															<div class="div-relative comment_time ml-auto">1 day ago</div>
+														</div>
+														<div class="div-relative comment_text">
+															<p>There are many variations of passages of Lorem Ipsum available, but the majority have alteration in some form, by injected humour.</p>
+														</div>
+														<div class="div-relative comment_extras d-flex flex-row align-items-center justify-content-start">
+															<div class="div-relative comment_extra comment_likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>15</span></a></div>
+															<div class="div-relative comment_extra comment_reply"><a href="#"><i class="fa fa-reply" aria-hidden="true"></i><span>Reply</span></a></div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+										<div class="div-relative add_comment_container">
+											<div class="div-relative add_comment_title">Add a review</div>
+											<div class="div-relative add_comment_text">You must be <a href="#">logged</a> in to post a comment.</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Study Material -->
+								<div class="div-relative tab_panel tab_panel_4">
+									<div class="div-relative tab_panel_content">
+										<div class="div-relative tab_panel_title">Study Material</div>
+										<div class="div-relative tab_panel_content">
+											<div class="div-relative tab_panel_text">
+												<p>Below study material is available to all students in form of video and pdf.</p>
+											</div>
+
+											<!-- Dropdowns -->
+											<ul class="dropdowns">
+												<li class="has_children" >
+													<div class="div-relative dropdown_item div-relative" >
+														<div class="div-relative dropdown_item_title div-relative" ><span>PDF Tutorials:</span> Easy to understand pdf Tutorial.</div>
+														<div class="div-relative dropdown_item_text">
+															<p>Click to expand link to view PDF Tutorial.</p>
+														</div>
+													</div>
+													<ul>
+														<li>
+															<div class="div-relative dropdown_item .div-relative">
+																<div class="div-relative dropdown_item_title div-relative" ><span>PDF 1:</span> Beginners Tutorial.</div>
+																<div class="div-relative dropdown_item_text div-relative">
+																	<a th:href="@{'pdf/study-material/spring_boot_tutorial.pdf'}" target="_blank">Open PDF</a>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="div-relative dropdown_item">
+																<div class="div-relative dropdown_item_title"><span>PDF 2:</span> Advanced Tutorial.</div>
+																<div class="div-relative dropdown_item_text">
+																	<a th:href="@{'pdf/study-material/spring_boot_tutorial.pdf'}" target="_blank">Open PDF</a>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+
+										<br>
+										<br>
+
+										<div class="div-relative tab_panel_title fa fa-youtube-play" style="font-size:26px;color:black">Youtube  Tutorial</div>
+										<div class="div-relative tab_panel_content">
+											<div class="div-relative tab_panel_text">
+												<p>Youtube Tutorial for beginner and advanced learning.</p>
+											</div>
+
+											<br>
+											<div id="alternateLink" style="display: none;">
+												<a th:href="@{'https://www.youtube.com/embed/35EQXmHKZYs'}">Video Link</a>
+											</div>
+											<div  style="position: relative; height: 400px; width: 100%;">
+												<iframe id="youtubeIframe" width="100%" height="100%" th:src="@{'https://www.youtube.com/embed/35EQXmHKZYs'}" frameborder="0" allowfullscreen scrolling="no" onerror="showAlternateLink()"></iframe>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Course Sidebar -->
+				<div class="div-relative col-lg-4">
+					<div class="div-relative sidebar">
+
+						<!-- Feature -->
+						<div class="div-relative sidebar_section">
+							<div class="div-relative sidebar_section_title">Course Feature</div>
+							<div class="div-relative sidebar_feature">
+
+								<span th:if="${course.price != 0}" class="price div-relative course_price" th:text="${'Price - ₹'+course.price+'/-'}"></span>
+								<span th:if="${course.price == 0}" class="price div-relative course_price">FREE</span>
+
+								<!-- Features -->
+								<div class="div-relative feature_list">
+
+									<!-- Feature -->
+									<div class="div-relative div-relative feature d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Timing:</span></div>
+										<div class="div-relative feature_text ml-auto">10:00 AM to 12:00 PM</div>
+									</div>
+
+									<!-- Feature -->
+									<div class="div-relative div-relative feature d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative feature_title"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Duration:</span></div>
+										<div class="div-relative feature_text ml-auto"><span th:text="${course.duration}"></span> days</div>
+									</div>
+
+									<!-- Feature -->
+									<div class="div-relative div-relative feature d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative feature_title"><i class="fa fa-question-circle" aria-hidden="true"></i><span>Days Per week:</span></div>
+										<div class="div-relative feature_text ml-auto">5</div>
+									</div>
+
+									<!-- Feature -->
+									<div class="div-relative div-relative feature d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative feature_title"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Online:</span></div>
+										<div class="div-relative feature_text ml-auto">Yes</div>
+									</div>
+
+									<!-- Feature -->
+									<div class="div-relative div-relative feature d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative feature_title"><i class="fa fa-users" aria-hidden="true"></i><span>Number of Students:</span></div>
+										<div class="div-relative feature_text ml-auto">35</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Feature -->
+						<div class="div-relative sidebar_section">
+							<div class="div-relative sidebar_section_title">Trainer</div>
+							<div class="div-relative sidebar_teacher">
+								<div class="div-relative teacher_title_container d-flex flex-row align-items-center justify-content-start">
+									<div class="div-relative teacher_image"><img src="/image/teachers/Khushhal_Photo.jpg" alt=""></div>
+									<div class="div-relative teacher_title">
+										<div class="div-relative teacher_name"><a href="#">Khushhal</a></div>
+										<div class="div-relative teacher_position">Senior Software Engineer</div>
+									</div>
+								</div>
+								<div class="div-relative teacher_meta_container">
+									<!-- Teacher Rating --><br>
+									<div class="div-relative teacher_meta d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative teacher_meta_title">Average Rating:</div>
+										<div class="div-relative teacher_meta_text ml-auto"><span>4.7</span><i class="fa fa-star" aria-hidden="true"></i></div>
+									</div>
+									<!-- Teacher Review -->
+									<div class="div-relative teacher_meta d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative teacher_meta_title">Review:</div>
+										<div class="div-relative teacher_meta_text ml-auto"><span>12k</span><i class="fa fa-comment" aria-hidden="true"></i></div>
+									</div>
+									<!-- Teacher Quizzes -->
+									<div class="div-relative teacher_meta d-flex flex-row align-items-center justify-content-start">
+										<div class="div-relative teacher_meta_title">Quizzes:</div>
+										<div class="div-relative teacher_meta_text ml-auto"><span>600</span><i class="fa fa-user" aria-hidden="true"></i></div>
+									</div>
+								</div>
+								<div class="div-relative teacher_info">
+									<p>Khushhal is a highly experienced trainer with 10 years of expertise in Java, Spring Boot, Microservices, AWS, Camel, Kafka, and software development technologies. With his deep knowledge and proficiency in these areas, Khushhal delivers exceptional training, enabling individuals and organizations to excel in their software development journey. His extensive experience and expertise make him a valuable asset for anyone seeking to enhance their skills and stay ahead in the ever-evolving world of technology..</p>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
