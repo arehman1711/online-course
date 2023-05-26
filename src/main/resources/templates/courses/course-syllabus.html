@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8"/>
+    <title>this is a home page</title>
+</head>
+<body>
+<section class="banner">
+    <div id="contactus">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+<!--                    <form class="form" action="#" th:action="@{/submit-manage-course}" method="post" th:object="${course}">-->
+<!--                        <h3 class="text-center text-info">Syllabus</h3>-->
+
+<!--                        <input type="hidden" id="id" required th:field="*{id}" />-->
+<!--                        <input type="hidden" id="rating" required th:field="*{rating}" />-->
+
+<!--                        &lt;!&ndash;courseName field &ndash;&gt;-->
+<!--                        <label for="courseName">Course Name</label>-->
+<!--                        <input-->
+<!--                                type="text"-->
+<!--                                class="form-control"-->
+<!--                                id="courseName"-->
+<!--                                placeholder="Enter here"-->
+<!--                                required-->
+<!--                                th:field="*{courseName}"-->
+<!--                        />-->
+
+<!--                        &lt;!&ndash;courseDescription field &ndash;&gt;-->
+<!--                        <label for="courseDescription">Course Description</label>-->
+<!--                        <textarea-->
+<!--                                class="form-control"-->
+<!--                                id="courseDescription"-->
+<!--                                placeholder="Enter here"-->
+<!--                                required-->
+<!--                                th:maxlength="80"-->
+<!--                                th:minlength="50"-->
+<!--                                th:field="*{courseDescription}"-->
+<!--                        />-->
+<!--                        <span id="textarea_feedback"></span>-->
+
+<!--                        <label for="duration">Duration (Days) </label>-->
+<!--                        <input-->
+<!--                                type="text"-->
+<!--                                class="form-control"-->
+<!--                                id="duration"-->
+<!--                                placeholder="Enter here"-->
+<!--                                required-->
+<!--                                th:field="*{duration}"-->
+<!--                        />-->
+
+<!--                        <label for="trainer">Trainer Name </label>-->
+<!--                        <input-->
+<!--                                type="text"-->
+<!--                                class="form-control"-->
+<!--                                id="trainer"-->
+<!--                                placeholder="Enter here"-->
+<!--                                required-->
+<!--                                th:field="*{trainer}"-->
+<!--                        />-->
+
+<!--                        <label for="price">Price </label>-->
+<!--                        <input-->
+<!--                                type="text"-->
+<!--                                class="form-control"-->
+<!--                                id="price"-->
+<!--                                placeholder="Enter here"-->
+<!--                                required-->
+<!--                                th:field="*{price}"-->
+<!--                        />-->
+
+<!--                        <br>-->
+<!--                        <div class="container text-center">-->
+<!--                            <button type="submit" class="btn bg-info  text-white">submit</button>-->
+<!--                        </div>-->
+
+<!--                        <div id="register-link" class="text-right">-->
+<!--                            <a th:href="@{/delete-course/{id}(id = ${course.id})}" class="delete-link">Delete Course</a>-->
+<!--                        </div>-->
+
+<!--                    </form>-->
+                    <h3 class="text-center text-info">Syllabus</h3>
+                    <ul>
+                        <li th:each="syllabus:${course}">
+                            <span th:text="${course.courseName}"></span><br>
+                            <span th:text="${course.courseDescription}"></span><br>
+                            <span th:text="${course.duration}"></span><br>
+                            <span th:text="${course.trainer}"></span><br>
+                            <span th:text="${course.price}"></span>
+                        </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+
