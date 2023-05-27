@@ -14,43 +14,43 @@
 				<div class="div-relative col-lg-8">
 
 					<div class="div-relative course_container">
-						<div class="div-relative course_title"><span th:text="${course.courseName}"></span></div>
-						<div class="div-relative course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+						<div class="div-relative course_title">
+							<span th:text="${course.courseName}"></span>
+						</div>
+						<div class="course_info wrap d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
 
 							<!-- Course Info Item -->
-							<div class="div-relative course_info_item">
-								<div class="div-relative course_info_title">Teacher:</div>
-								<div class="div-relative course_info_text"><a href="#">Khushhal</a></div>
+							<div class=" course_info_item course_info_title">
+								<span class="course_info_title">Teacher: </span><a class="course_info_text" href="#" th:text="${course.trainer}"></a>
 							</div>
 
 							<!-- Course Info Item -->
-							<div class="div-relative course_info_item">
-								<div class="div-relative course_info_title">Reviews:</div>
-								<div style="color:green" >
-									<i class="fa fa-star"></i>
-									<i th:if = "${course.rating >= 2}" class="fa fa-star"></i>
-									<i th:if = "${course.rating >= 3}" class="fa fa-star"></i>
-									<i th:if = "${course.rating >= 4}" class="fa fa-star"></i>
-									<i th:if = "${course.rating >= 5}" class="fa fa-star"></i>
-									<i  th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
-									<span class="point" th:text="${' (' + course.rating + ')'}"></span>
-								</div>
+							<div class="course_info_item" style="color:green" >
+								<span class="course_info_title">Reviews:</span>
+								<i class="fa fa-star"></i>
+								<i th:if = "${course.rating >= 2}" class="fa fa-star"></i>
+								<i th:if = "${course.rating >= 3}" class="fa fa-star"></i>
+								<i th:if = "${course.rating >= 4}" class="fa fa-star"></i>
+								<i th:if = "${course.rating >= 5}" class="fa fa-star"></i>
+								<i  th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
+								<span class="point" th:text="${' (' + course.rating + ')'}"></span>
 							</div>
 
 							<!-- Course Info Item -->
-							<div class="div-relative course_info_item">
-								<div class="div-relative course_info_title">Categories:</div>
-								<div class="div-relative course_info_text"><a href="#">Languages</a></div>
+							<div class="div-relative course_info_item course_info_text">
+								<span class="course_info_title">Categories:</span> <a href="#">Languages</a>
 							</div>
 
 						</div>
 
 						<!-- Course Image -->
-						<div class="div-relative course_image"><img src="images/course_image.jpg" alt=""></div>
+<!--
+						<div class="course_image"><img th:src="@{${'/image/courses-detail/course'+ course.imageId + '.jpg'}}" /></div>
+-->
 
 						<!-- Course Tabs -->
 						<div class="div-relative course_tabs_container">
-							<div class="div-relative tabs d-flex flex-row align-items-center justify-content-start">
+							<div class="div-relative wrap d-flex align-items-center justify-content-start">
 								<div class="div-relative tab active">description</div>
 								<div class="div-relative tab">curriculum</div>
 								<div class="div-relative tab">reviews</div>
@@ -245,8 +245,13 @@
 									<div class="div-relative review_rating_container">
 										<div class="div-relative review_rating">
 											<div class="div-relative review_rating_num"> <span th:text="${course.rating}"></span></div>
-											<div class="div-relative review_rating_stars">
-												<div class="div-relative rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+											<div style="color:green" >
+												<i class="fa fa-star"></i>
+												<i th:if = "${course.rating >= 2}" class="fa fa-star"></i>
+												<i th:if = "${course.rating >= 3}" class="fa fa-star"></i>
+												<i th:if = "${course.rating >= 4}" class="fa fa-star"></i>
+												<i th:if = "${course.rating >= 5}" class="fa fa-star"></i>
+												<i  th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
 											</div>
 											<div class="div-relative review_rating_text">(28 Ratings)</div>
 										</div>
@@ -452,9 +457,11 @@
 							<div class="div-relative sidebar_section_title">Trainer</div>
 							<div class="div-relative sidebar_teacher">
 								<div class="div-relative teacher_title_container d-flex flex-row align-items-center justify-content-start">
-									<div class="div-relative teacher_image"><img src="/image/teachers/Khushhal_Photo.jpg" alt=""></div>
+									<div class="div-relative teacher_image">
+										<img th:src="@{${'/image/teachers/author'+ course.imageId + '.jpg'}}" alt="#"/>
+									</div>
 									<div class="div-relative teacher_title">
-										<div class="div-relative teacher_name"><a href="#">Khushhal</a></div>
+										<div class="div-relative teacher_name"><a href="#"  th:text="${course.trainer}"></a></div>
 										<div class="div-relative teacher_position">Senior Software Engineer</div>
 									</div>
 								</div>
@@ -478,6 +485,7 @@
 								<div class="div-relative teacher_info">
 									<p>Khushhal is a highly experienced trainer with 10 years of expertise in Java, Spring Boot, Microservices, AWS, Camel, Kafka, and software development technologies. With his deep knowledge and proficiency in these areas, Khushhal delivers exceptional training, enabling individuals and organizations to excel in their software development journey. His extensive experience and expertise make him a valuable asset for anyone seeking to enhance their skills and stay ahead in the ever-evolving world of technology..</p>
 								</div>
+
 							</div>
 						</div>
 

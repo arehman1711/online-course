@@ -144,7 +144,7 @@ public class CourseController {
 		model.addAttribute("course", course);
 		model.addAttribute("title", "Course Detail");
 		log.info("loading init-course-detail..! course=" + course);
-		return "courses/new-course-details" ;
+		return "courses/course-details" ;
 	}
 
 }
