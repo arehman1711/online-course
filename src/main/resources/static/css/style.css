@@ -109,6 +109,10 @@ cursor:pointer;
     text-align: center;
 }
 
+.btn {
+    border-radius:4px !important;
+}
+
 .nav-section-float{
     float : right;
 }

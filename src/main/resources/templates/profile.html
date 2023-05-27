@@ -72,8 +72,10 @@
                                 </button>
                             </div>
 
+<br>
                             <div id="register-link" class="text-right">
-                                <a th:href="@{/delete-profile}" class="delete-link">Delete Profile</a>
+                                <a th:if="${session.user.id > 4}" th:href="@{/delete-profile}" class="delete-link">Delete Profile</a>
+                                <a th:if="${session.user.id < 4}" href="#" class="delete-link">Delete Profile (disabled for this user)</a>
                             </div>
                         </form>
                     </div>

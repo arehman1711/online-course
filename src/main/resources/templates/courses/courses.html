@@ -32,6 +32,7 @@
                                     <span th:case="'admin'">
                                         <form th:id="*{id}" class="form" th:action="@{/init-manage-course}" method="post"   th:object="${course}">
                                             <input type="hidden"  name="id" th:value=*{id} />
+                                            <input type="hidden"  name="imageId" th:value=*{imageId} />
                                             <input type="hidden" name="courseName" th:value="*{courseName}" />
                                             <input type="hidden" name="courseDescription"th:value="*{courseDescription}" />
                                             <input type="hidden" name="duration" th:value=*{duration} />
@@ -62,17 +63,17 @@
                                 <span th:if="${course.price != 0}" class="price" th:text="${'₹'+course.price+'/-'}"></span>
                                 <span th:if="${course.price == 0}" class="price">FREE</span>
                             </div>
-<!--      <h4 class="c-title"><a  th:if="${course.isEnrolled == false}" th:text="${course.courseName}"></a></h4>&ndash;&gt;-->
+<!--      <h4 class="c-title"><a  th:if="${course.isEnrolled == false}" th:text="${course.courseName}"></a></h4-->
                             <form th:id="*{id}" class="form" th:action="@{/init-course-detail}" method="post"   th:object="${course}">
                                 <input type="hidden"  name="id" th:value=*{id} />
+                                <input type="hidden"  name="imageId" th:value=*{imageId} />
                                 <input type="hidden" name="courseName" th:value="*{courseName}" />
                                 <input type="hidden" name="courseDescription"th:value="*{courseDescription}" />
                                 <input type="hidden" name="duration" th:value=*{duration} />
                                 <input type="hidden" name="trainer" th:value="*{trainer}" />
                                 <input type="hidden" name="rating" th:value="*{rating}" />
                                 <input type="hidden" name="price" th:value="*{price}" />
-                                <h4 class="c-title"> <a  th:if="${course.isEnrolled == true}"  th:onclick="submitForm([[${course.id}]])"  th:text="${course.courseName}"></a></h4>
-                                <h4 class="c-title"> <a  th:if="${course.isEnrolled == false}"   th:text="${course.courseName}"></a></h4>
+                                <h4 class="c-title"> <a    th:onclick="submitForm([[${course.id}]])"  th:text="${course.courseName}"></a></h4>
                             </form>
 <!--                            <h4 class="c-title"><a  th:if="${course.isEnrolled == true}"th:href="@{/init-manage-course}" th:text="${course.courseName}"></a></h4>-->
                             <p th:text="${course.courseDescription}"></p>
