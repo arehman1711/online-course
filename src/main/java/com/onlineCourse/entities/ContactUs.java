@@ -1,9 +1,6 @@
 package com.onlineCourse.entities;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
@@ -11,9 +8,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@ToString
-@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Lazy(value = false)
@@ -28,6 +24,7 @@ public class ContactUs {
         @Column(name = "name")
         @Size(min = 10, max = 200, message = "Name must be between 10 and 200 characters")
         private String name;
+
         @NotNull(message = "Email is Mandatory.")
         @Email(message = "Email should be valid")
         @Column(name = "email")

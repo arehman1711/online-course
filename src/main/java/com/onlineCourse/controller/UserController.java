@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
 
@@ -58,8 +59,11 @@ public class UserController {
         User sessionUser = (User) session.getAttribute("user");
         log.info("USER : " + user);
         log.info("sessionUser : " + user);
-        if(sessionUser.getEmail().equals(user.getEmail())){
+        if(StringUtils.equalsIgnoreCase(sessionUser.getEmail(),user.getEmail())){
             user.setId(sessionUser.getId());
+            if(StringUtils.isEmpty(user.getPassword())){
+                user.setPassword(sessionUser.getPassword());
+            }
             userService.save(user);
             session.setAttribute("user", user);
             session.setAttribute("name", user.getName());
