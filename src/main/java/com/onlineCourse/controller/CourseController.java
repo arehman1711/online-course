@@ -3,19 +3,17 @@ package com.onlineCourse.controller;
 
 import com.onlineCourse.entities.Course;
 import com.onlineCourse.entities.CourseEnrollment;
+import com.onlineCourse.entities.User;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
 import com.onlineCourse.repository.CourseRepository;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.service.interfaces.UserService;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import com.onlineCourse.entities.User;
-
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;

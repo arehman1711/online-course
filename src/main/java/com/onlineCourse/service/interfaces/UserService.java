@@ -8,4 +8,8 @@ public interface UserService {
     boolean isUserAlreadyExists(String email);
 
     User getUserByEmail(String email);
+
+    User save(User user);
+
+    void deleteById(Integer id);
 }

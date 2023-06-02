@@ -1,8 +1,6 @@
 package com.onlineCourse.controller;
 
-import com.onlineCourse.entities.Course;
 import com.onlineCourse.entities.User;
-import com.onlineCourse.repository.UserRepository;
 import com.onlineCourse.service.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +9,41 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @Slf4j
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private UserService userService;
 
     @Autowired
     private CourseController courseController;
+
+    @RequestMapping(value = "/do_register", method = RequestMethod.POST)
+    public String registerUser(HttpSession session, @ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
+        if (!agreement) {
+            log.info("You have not agreed the terms and conditions.");
+            model.addAttribute("error", "You have not agreed the terms and conditions.");
+            return "sign-up";
+        }
+        log.info("USER " + user);
+        boolean isDuplicateUser = userService.isUserAlreadyExists(user.getEmail());
+
+        if(isDuplicateUser){
+            model.addAttribute("error", "User already exists in database.");
+            log.info("User already exists in database.");
+            return "sign-up";
+        }
+        User dbUser = userService.save(user);
+        session.setAttribute("user", dbUser);
+        model.addAttribute("user", dbUser);
+        session.setAttribute("name", dbUser.getName());
+        model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
+        model.addAttribute("success", "User registered successfully.");
+        log.info("User "+ dbUser.getName() + " successfully Registered.");
+        return "home";
+    }
 
     @GetMapping(value = "/profile")
     public String profile(HttpSession session, Model model) {
@@ -42,7 +60,7 @@ public class UserController {
         log.info("sessionUser : " + user);
         if(sessionUser.getEmail().equals(user.getEmail())){
             user.setId(sessionUser.getId());
-            userRepository.save(user);
+            userService.save(user);
             session.setAttribute("user", user);
             session.setAttribute("name", user.getName());
             model.addAttribute("success", "Profile updated successfully.");
@@ -58,7 +76,7 @@ public class UserController {
     public String deleteUser(HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("user");
         log.info("sessionUser : " + sessionUser);
-        userRepository.deleteById(sessionUser.getId());
+        userService.deleteById(sessionUser.getId());
         session.invalidate();
         model.addAttribute("success", "Profile deleted successfully.");
         log.info("Profile deleted successfully.");
