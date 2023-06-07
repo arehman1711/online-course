@@ -61,7 +61,7 @@ public class CourseServiceImpl implements CourseService {
     private List<Integer> getEnrolledCourseIds(Integer userId) {
         if (userId != null && userId>0) {
             List<CourseEnrollment> courseEnrollmentList = courseEnrollmentRepository.getCourseEnrollmentByUserId(userId);
-            List<Integer> courseIdList = Utils.safe(courseEnrollmentList).stream().map(ce -> ce.getCourseId()).collect(Collectors.toList());
+            List<Integer> courseIdList = Utils.safe(courseEnrollmentList).stream().map(CourseEnrollment::getCourseId).collect(Collectors.toList());
             return (List<Integer>) Utils.safe(courseIdList);
         } else {
             return Collections.emptyList();

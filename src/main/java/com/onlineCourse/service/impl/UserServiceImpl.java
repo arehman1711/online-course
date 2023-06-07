@@ -47,14 +47,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(User user) {
         user = userRepository.save(user);
-        fileRepository.saveUser(user);
+        fileRepository.save(user);
         return user;
     }
 
     @Override
     public void deleteById(Integer id){
         userRepository.deleteById(id);
-        //fileRepo delele
+        fileRepository.deleteById(id);
     }
 
 }

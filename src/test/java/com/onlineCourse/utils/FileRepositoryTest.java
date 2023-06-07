@@ -23,13 +23,12 @@ public class FileRepositoryTest {
     @Before
     public void init() {
         ReflectionTestUtils.setField(fileRepository, "fileRepoPath", "file-repo/" );
-        fileRepository.createDirectories();
     }
 
     @Test
     public void save_success() {
         User user = User.builder().id(10).name("User 10").role(ROLE_USER).password("abcd").email("test@test.com").build();
-        User fileUser = fileRepository.saveUser(user);
+        User fileUser = fileRepository.save(user);
         Assert.assertNotNull(fileUser);
         Assert.assertEquals("User 10", fileUser.getName());
         Assert.assertEquals(user, fileUser);
