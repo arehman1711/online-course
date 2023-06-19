@@ -1,6 +1,7 @@
-package com.onlineCourse.utils;
+package com.onlineCourse.repository.file;
 
 import com.onlineCourse.entities.User;
+import com.onlineCourse.repository.file.FileUserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,19 +17,19 @@ import static com.onlineCourse.utils.Constants.ROLE_USER;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Slf4j
-public class FileRepositoryTest {
+public class FileUserRepositoryTest {
 
     @Autowired
-    private FileRepository fileRepository;
+    private FileUserRepository fileUserRepository;
     @Before
     public void init() {
-        ReflectionTestUtils.setField(fileRepository, "fileRepoPath", "file-repo/" );
+        ReflectionTestUtils.setField(fileUserRepository, "fileRepoPath", "file-repo/" );
     }
 
     @Test
     public void save_success() {
         User user = User.builder().id(10).name("User 10").role(ROLE_USER).password("abcd").email("test@test.com").build();
-        User fileUser = fileRepository.save(user);
+        User fileUser = fileUserRepository.save(user);
         Assert.assertNotNull(fileUser);
         Assert.assertEquals("User 10", fileUser.getName());
         Assert.assertEquals(user, fileUser);

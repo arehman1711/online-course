@@ -1,8 +1,8 @@
-package com.onlineCourse.utils;
+package com.onlineCourse.repository.file;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.onlineCourse.entities.User;
-import com.onlineCourse.repository.UserRepository;
+import com.onlineCourse.entities.Course;
+import com.onlineCourse.repository.CourseRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,18 +13,15 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static com.onlineCourse.utils.Utils.safe;
 
 @Component
 @Slf4j
-public class FileRepository {
+public class FileCourseRepository {
     @Autowired
-    private UserRepository userRepository;
+    private CourseRepository courseRepository;
     @Value("${file.repo.path:/}")
     private String fileRepoPath;
 
@@ -33,44 +30,41 @@ public class FileRepository {
 
     @Autowired
     ObjectMapper mapper;
-    public static final Set<String> ENTITY_SET = new HashSet<>(Arrays.asList("User","Course"));
 
-
-
-    public User save(User user) {
-        return save(user, getUserPath(user.getId()));
+    public Course save(Course course) {
+        return save(course, getCoursePath(course.getId()));
     }
 
-    private String getUserPath(Integer id) {
-        String fileName = "user-".concat(String.valueOf(id)).concat(".json");
-        return getUserDirectoryPath() + fileName;
+    private String getCoursePath(Integer id) {
+        String fileName = "course-".concat(String.valueOf(id)).concat(".json");
+        return getCourseDirectoryPath() + fileName;
     }
 
-    private User save(User user, String path) {
+    private Course save(Course course, String path) {
         if (isFileRepoEnabled) {
-            log.info("Insert user to file-repo : User=" + user + ", Path=" + path);
+            log.info("Insert course to file-repo : course=" + course + ", Path=" + path);
             try {
                 File file = new File(path); // create file
-                mapper.writeValue(file, user); // Convert object to json and Write to the file.
-                user = getById(user.getId());
+                mapper.writeValue(file, course); // Convert object to json and Write to the file.
+                course = getById(course.getId());
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
-        return user ;
+        return course ;
     }
 
-    public User getById(Integer id) throws IOException {
-        File fileData = new File(getUserPath(id)); //Get file data from Path
-        User user = mapper.readValue(fileData, User.class); //Map file data to Java pojo
-        log.info("Successfully fetched user Data from File. User={}", user);
-        return user;
+    public Course getById(Integer id) throws IOException {
+        File fileData = new File(getCoursePath(id)); //Get file data from Path
+        Course course = mapper.readValue(fileData, Course.class); //Map file data to Java pojo
+        log.info("Successfully fetched course Data from File. course={}", course);
+        return course;
     }
 
     public void deleteById(Integer id) {
         if(isFileRepoEnabled) {
             try {
-                File file = new File(getUserPath(id));
+                File file = new File(getCoursePath(id));
                 if (file.delete()) {
                     log.info("File : {} deleted successfully", file);
                 } else {
@@ -86,26 +80,26 @@ public class FileRepository {
     @PostConstruct
     public void loadDataFromDB() {
         createDirectories();
-        loadUserTable();
+        loadCourseTable();
     }
 
-    private void loadUserTable() {
-        List<User> userList = userRepository.findByIdLessThan(4);
-        log.info("Loading user table into file Repository. userList={}", userList);
-        safe(userList).forEach(this::save);
+    private void loadCourseTable() {
+        List<Course> courseList = courseRepository.findAll();
+        log.info("Loading course table into file Repository. courseList={}", courseList);
+        safe(courseList).forEach(this::save);
     }
 
     private void createDirectories() {
         try {
-            Files.createDirectories(Paths.get(getUserDirectoryPath()));
+            Files.createDirectories(Paths.get(getCourseDirectoryPath()));
         } catch (Exception e) {
             log.error("Unable to create Directory");
             e.printStackTrace();
         }
     }
 
-    private String getUserDirectoryPath() {
-        return fileRepoPath + "user" + "/";
+    private String getCourseDirectoryPath() {
+        return fileRepoPath + "course" + "/";
     }
 
 }

@@ -2,8 +2,8 @@ package com.onlineCourse.service.impl;
 
 import com.onlineCourse.entities.User;
 import com.onlineCourse.repository.UserRepository;
+import com.onlineCourse.repository.file.FileUserRepository;
 import com.onlineCourse.service.interfaces.UserService;
-import com.onlineCourse.utils.FileRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private FileRepository fileRepository;
+    private FileUserRepository fileUserRepository;
 
     @Override
     public boolean isValidUser(User user) {
@@ -47,14 +47,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(User user) {
         user = userRepository.save(user);
-        fileRepository.save(user);
+        fileUserRepository.save(user);
         return user;
     }
 
     @Override
     public void deleteById(Integer id){
         userRepository.deleteById(id);
-        fileRepository.deleteById(id);
+        fileUserRepository.deleteById(id);
     }
 
 }

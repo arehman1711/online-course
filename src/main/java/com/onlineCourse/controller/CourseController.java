@@ -5,9 +5,7 @@ import com.onlineCourse.entities.Course;
 import com.onlineCourse.entities.CourseEnrollment;
 import com.onlineCourse.entities.User;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
-import com.onlineCourse.repository.CourseRepository;
 import com.onlineCourse.service.interfaces.CourseService;
-import com.onlineCourse.service.interfaces.UserService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +23,6 @@ public class CourseController {
 
 	@Autowired
 	private CourseEnrollmentRepository courseEnrollmentRepository;
-  	@Autowired
-	private CourseRepository courseRepository;
-	@Autowired
-	private UserService userService;
 
 	@Autowired
 	private CourseService courseService;
@@ -84,7 +78,7 @@ public class CourseController {
 
 	@RequestMapping(value = "/submit-add-course", method = RequestMethod.POST)
 	public String submitAddCourse(@ModelAttribute("course") Course course, Model model) {
-		Course dbCourse = courseRepository.save(course);
+		Course dbCourse = courseService.save(course);
 		model.addAttribute("success", dbCourse.getCourseName() + " added successfully. You can continue to add more..!");
 		log.info("success - " + course.getCourseName() + " added successfully. Course =  : " + dbCourse);
 		return initAddCourse(model);
@@ -102,7 +96,7 @@ public class CourseController {
 	public String submitManageCourse(HttpSession session, @ModelAttribute("course") Course course, Model model) {
 		log.info("course=" + course);
 		if(course.getId()>0){
-			Course dbCourse = courseRepository.save(course);
+			Course dbCourse = courseService.save(course);
 			model.addAttribute("success", dbCourse.getCourseName() + " updated successfully.");
 			return courses(session, model);
 		}
@@ -115,7 +109,7 @@ public class CourseController {
 		log.info("Id=" + id);
 		if(id>0){
 			try {
-				courseRepository.deleteById(id);
+				courseService.deleteById(id);
 				model.addAttribute("success", "Course with " + id + " deleted successfully.");
 			} catch (Exception e) {
 				log.error("Error : " + e.getLocalizedMessage());

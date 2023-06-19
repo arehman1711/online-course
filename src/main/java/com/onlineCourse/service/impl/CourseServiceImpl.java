@@ -4,6 +4,7 @@ import com.onlineCourse.entities.Course;
 import com.onlineCourse.entities.CourseEnrollment;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
 import com.onlineCourse.repository.CourseRepository;
+import com.onlineCourse.repository.file.FileCourseRepository;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.utils.Utils;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,9 @@ public class CourseServiceImpl implements CourseService {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private FileCourseRepository fileCourseRepository;
 
     @Autowired
     private CourseEnrollmentRepository courseEnrollmentRepository;
@@ -56,6 +60,19 @@ public class CourseServiceImpl implements CourseService {
         List<Integer> enrolledCourseIds = getEnrolledCourseIds(userId);
         List<Course> courseList = findByIdIn(enrolledCourseIds);
         return stampImageIdAndEnrollmentFlag(courseList, enrolledCourseIds);
+    }
+
+    @Override
+    public Course save(Course course) {
+        course = courseRepository.save(course);
+        fileCourseRepository.save(course);
+        return course;
+    }
+
+    @Override
+    public void deleteById(int id) {
+        courseRepository.deleteById(id);
+        fileCourseRepository.deleteById(id);
     }
 
     private List<Integer> getEnrolledCourseIds(Integer userId) {
