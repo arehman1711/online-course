@@ -388,9 +388,7 @@ Version:	1.0
 /*===============================
 	Courses CSS
 =================================*/
-.courses {
-	background: #f8f8f8;
-}
+
 .courses .course-slider {
 	margin-top: 30px;
 }

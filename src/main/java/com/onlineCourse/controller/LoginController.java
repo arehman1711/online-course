@@ -2,6 +2,7 @@ package com.onlineCourse.controller;
 import com.onlineCourse.entities.User;
 import com.onlineCourse.repository.ContactUsRepository;
 
+import com.onlineCourse.service.interfaces.EmailService;
 import com.onlineCourse.service.interfaces.UserService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,8 @@ public class LoginController {
 
 	@Autowired
 	private ContactUsRepository contactUsRepository;
-
+	@Autowired
+	EmailService emailService;
 	@Autowired
 	private UserService userService;
 
@@ -53,6 +55,14 @@ public class LoginController {
 			model.addAttribute("user ", user);
 			session.setAttribute("user", user);
 			session.setAttribute("name", user.getName());
+			emailService.sendEmail(user.getEmail(),
+					"Login Successful",
+					"Dear "+user.getName()+","+"\n\n"
+							+ "Congratulations! You have successfully logged in to Learng Kart.\n\n"
+							+ "Thank you for choosing Learng Kart for your learning needs.\n\n"
+							+ "Best regards,\n"
+							+ "The Learng Kart Team ");
+
 			model.addAttribute("info", "Welcome "+ user.getName() + "!");
 			log.info("Welcome "+ user.getName() + "!");
 			return courseController.courses(session, model);

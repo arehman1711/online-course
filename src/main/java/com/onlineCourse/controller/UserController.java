@@ -1,6 +1,7 @@
 package com.onlineCourse.controller;
 
 import com.onlineCourse.entities.User;
+import com.onlineCourse.service.interfaces.EmailService;
 import com.onlineCourse.service.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
+    @Autowired
+    EmailService emailService;
     @Autowired
     private CourseController courseController;
 
@@ -40,6 +42,13 @@ public class UserController {
         session.setAttribute("user", dbUser);
         model.addAttribute("user", dbUser);
         session.setAttribute("name", dbUser.getName());
+        emailService.sendEmail(dbUser.getEmail(),
+                "Registered Successful",
+                "Dear "+user.getName()+","+"\n\n"
+                        + "Congratulations! You have successfully Registered to Learning Kart.\n\n"
+                        + "Thank you for choosing Learning Kart for your learning needs.\n\n"
+                        + "Best regards,\n"
+                        + "The Learning Kart Team ");
         model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
         model.addAttribute("success", "User registered successfully.");
         log.info("User "+ dbUser.getName() + " successfully Registered.");
