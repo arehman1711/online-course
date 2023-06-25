@@ -1,6 +1,7 @@
 package com.onlineCourse.controller;
 
 import com.onlineCourse.entities.User;
+import com.onlineCourse.service.interfaces.EmailService;
 import com.onlineCourse.service.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
+import java.util.Random;
 
 @Controller
 @Slf4j
@@ -17,12 +19,14 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
+    @Autowired
+    EmailService emailService;
     @Autowired
     private CourseController courseController;
 
     @RequestMapping(value = "/do_register", method = RequestMethod.POST)
     public String registerUser(HttpSession session, @ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
+
         if (!agreement) {
             log.info("You have not agreed the terms and conditions.");
             model.addAttribute("error", "You have not agreed the terms and conditions.");
@@ -31,15 +35,24 @@ public class UserController {
         log.info("USER " + user);
         boolean isDuplicateUser = userService.isUserAlreadyExists(user.getEmail());
 
+
         if(isDuplicateUser){
             model.addAttribute("error", "User already exists in database.");
             log.info("User already exists in database.");
             return "sign-up";
         }
+
         User dbUser = userService.save(user);
         session.setAttribute("user", dbUser);
         model.addAttribute("user", dbUser);
         session.setAttribute("name", dbUser.getName());
+        emailService.sendEmail(dbUser.getEmail(),
+                "Registration Successful",
+                "Dear "+user.getName()+","+"\n\n"
+                        + "Congratulations! You have successfully Registered for Learning Kart.\n\n"
+                        + "Thank you for choosing Learning Kart for your learning needs.\n\n"
+                        + "Best regards,\n"
+                        + "The Learning Kart Team ");
         model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
         model.addAttribute("success", "User registered successfully.");
         log.info("User "+ dbUser.getName() + " successfully Registered.");
