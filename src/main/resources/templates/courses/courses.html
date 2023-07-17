@@ -45,7 +45,7 @@
 
                                     <span th:case="'user'">
 
-                                        <a th:style="'border-radius:4rem!important;'" th:if="${course.isEnrolled == false}" th:href="@{/enroll/{id}(id = ${course.id})}" class="btn white primary">Enroll Now</a>
+                                        <a th:style="'border-radius:4rem!important;'" th:if="${course.isEnrolled == false}" th:href="@{/enroll/{id}(id = ${course.id})}" class="btn before-enrolled white primary">Enroll Now</a>
                                         <a th:style="'border-radius:4rem!important;'" th:if="${course.isEnrolled == true}" class="btn enrolled-btn white primary">Already Enrolled</a>
 
                                     </span>

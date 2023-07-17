@@ -42,7 +42,7 @@ public class ContactusController {
 		contactUsRepository.save(contactUs);
 		model.addAttribute("success", "Message sent successfully.");
 		log.info("Message sent successfully.");
-		return "home";
+		return "index";
 	}
 
 }

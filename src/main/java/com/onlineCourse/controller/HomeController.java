@@ -16,7 +16,14 @@ public class HomeController {
 	public String home(Model model) {
 		model.addAttribute("title", "Home");
 		log.info("Enter in Home!");
-		return "home";
+		return "index";
+
+	}
+	@GetMapping("/search")
+	public String search(Model model) {
+		model.addAttribute("title", "search");
+		log.info("Enter in search!");
+		return "search";
 
 	}
 }

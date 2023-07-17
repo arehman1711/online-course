@@ -27,7 +27,7 @@
 							</div>
 
 							<!-- Course Info Item -->
-							<div class="course_info_item" style="color:green" >
+							<div class="course_info_item" style="color:#6674CC" >
 								<span class="course_info_title">Reviews:</span>
 								<i th:style="'color: #6674CC!important;'"  class="fa fa-star"></i>
 								<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 2}" class="fa fa-star"></i>
@@ -247,7 +247,7 @@
 									<div class="div-relative review_rating_container">
 										<div class="div-relative review_rating">
 											<div class="div-relative review_rating_num"> <span th:text="${course.rating}"></span></div>
-											<div style="color:green" >
+											<div style="color:#6674CC" >
 												<i th:style="'color: #6674CC!important;'" class="fa fa-star"></i>
 												<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 2}" class="fa fa-star"></i>
 												<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 3}" class="fa fa-star"></i>

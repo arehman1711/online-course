@@ -5,68 +5,31 @@
     <title>This is a home page</title>
 </head>
 <body>
-<section class="text-gray-600 body-font relative">
-    <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-12">
-            <span th:style="'margin-top:50px'"></span>
-            <h1 th:style="'color:black;'" class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+
+        <h1 class="text-3xl font-medium title-font text-gray-900 mb-4 w-full text-center">Contact Us</h1>
+
+        <div th:style="'padding-left: 30px;padding-right: 30px;display: flex;width: 100%;margin-top:1rem;margin-bottom:0px;padding: 2rem;margin-left: 80px;margin-right: 80px;--tw-bg-opacity: 1;border-radius: 0.5rem;flex-direction: column;background-color: rgb(243 244 246 / var(--tw-bg-opacity));'" class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <form th:action="@{/submit-contactus}" method="post" th:object="${contactUs}">
+                <!-- Form fields here -->
+                <div class="relative mb-4">
+                    <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                    <input type="text" id="name" name="name"   readonly class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Enter here" required th:field="*{name}">
+                </div>
+                <div class="relative mb-4">
+                    <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                    <input type="email" id="email" name="email"   readonly class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Enter here" required th:field="*{email}">
+                </div>
+                <div class="relative mb-4">
+                    <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                    <textarea class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out h-32 resize-none" id="message" name="message" placeholder="Enter your message here" required th:field="*{message}"></textarea>
+                </div>
+                <div class="p-2 w-full">
+                    <button th:style="'border-radius:4rem!important;background-color: #6674CC;padding-left:2rem;padding-right:2rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:1.125;line-height:2.125;'" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+                </div>
+            </form>
         </div>
-        <form th:action="@{/submit-contactus}" method="post" th:object="${contactUs}" >
-            <span th:if="${contactus}">
-                <div id="successAlert" class="alert alert-success" role="alert">
-                    <h6 class="fas fa-check-circle " th:text="${contactus}"></h6>
-                </div>
-            </span>
-            <div th:style="'width:50%; '" class="md:w-2/3 mx-auto">
-                <div th:style="'display:flex;flex-wrap:wrap; margin:-0.5rem;'">
-                    <div th:style="'width:50%; '" class="p-2 ">
-                        <div class="relative">
-                            <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-                            <input th:style="'background-color:#F3F4F680;padding:10px; font-weight:normal'"
-                                   type="text"
-                                   id="name"
-                                   name="name"
-                                   class="form-control"
-                                   required
-                                   th:field="*{name}"
-                            >
-                        </div>
-                    </div>
-                    <div th:style="'width:50%;'" class="p-2">
-                        <div class="relative">
-                            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-                            <input th:style="'background-color:#F3F4F680;padding:10px; font-weight:normal'"
-                                   type="email"
-                                   id="email"
-                                   name="email"
-                                   class="form-control"
-                                   required
-                                   th:field="*{email}"
-                            >
-                        </div>
-                    </div>
-                    <div class="p-2 w-full">
-                        <div class="relative">
-                            <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-                            <textarea th:style="'background-color:#F3F4F680;height:8rem;'"
-                                      id="message"
-                                      name="message"
-                                      class="form-control"
-                                      required
-                                      th:field="*{message}"
-                            ></textarea>
-                        </div>
-                    </div>
-                    <div class="p-2 w-full">
-                        <button th:style="'border-radius:4rem!important;background-color: #6674CC;padding-left:2rem;padding-right:2rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:1.125;line-height:2.125;'"
-                                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-                        >
-                            Submit
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
 </section>
 </body>

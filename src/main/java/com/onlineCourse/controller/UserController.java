@@ -52,7 +52,7 @@ public class UserController {
         model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
         model.addAttribute("success", "User registered successfully.");
         log.info("User "+ dbUser.getName() + " successfully Registered.");
-        return "home";
+        return "index";
     }
 
     @GetMapping(value = "/profile")
@@ -78,7 +78,7 @@ public class UserController {
             session.setAttribute("name", user.getName());
             model.addAttribute("success", "Profile updated successfully.");
             log.info("Profile updated successfully.");
-            return "home";
+            return "index";
         }
         model.addAttribute("error", "Email update not allowed.");
         log.info("Email update not allowed.");
@@ -93,7 +93,7 @@ public class UserController {
         session.invalidate();
         model.addAttribute("success", "Profile deleted successfully.");
         log.info("Profile deleted successfully.");
-        return "home";
+        return "index";
     }
 
 }

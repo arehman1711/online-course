@@ -276,7 +276,7 @@ section
 .top_bar
 {
 	width: 100%;
-	background: #14bdee;
+	background: #6474cc;
 }
 .header.scrolled .top_bar
 {
@@ -401,7 +401,7 @@ section
 }
 .logo_text span
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .header.scrolled .logo
 {
@@ -951,7 +951,7 @@ section
 .tab.active,
 .tab:hover
 {
-	background: #14bdee;
+	background: #6474cc;
 	color: #FFFFFF;
 }
 .tab_panels
@@ -1246,7 +1246,7 @@ section
 }
 .review_rating_stars .rating_r i::before
 {
-	color: #ffc80a;
+	color: #6474cc;
 	font-size: 18px;
 }
 .review_rating_text
@@ -1277,13 +1277,13 @@ section
 	vertical-align: middle;
 	width: 300px;
 	height: 30px;
-	background: #efefef;
+	/*background: #efefef;*/
 	margin-left: 22px;
 }
 .review_rating_bar > div
 {
 	height: 100%;
-	background: #14bdee;
+	background: #6474cc;
 }
 .comments_container
 {
@@ -1332,7 +1332,7 @@ section
 }
 .comment_author a:hover
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .comments_container .rating_r
 {
@@ -1341,7 +1341,8 @@ section
 }
 .comments_container .rating_r i::before
 {
-	color: #ffc80a;
+	color: #6474cc
+	;
 }
 .comment_text
 {
@@ -1368,7 +1369,7 @@ section
 }
 .comment_extra a:hover
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .comment_extra a span
 {
@@ -1376,7 +1377,7 @@ section
 }
 .comment_reply a i
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .comments_list li ul
 {
@@ -1399,7 +1400,7 @@ section
 }
 .add_comment_text a
 {
-	color: #14bdee;
+	color: #6474cc;
 	text-decoration: underline;
 }
 
@@ -1434,7 +1435,7 @@ section
 	font-family: 'Roboto Slab', serif;
 	font-size: 24px;
 	font-weight: 400;
-	color: #14bdee;
+	color: #6474cc;
 }
 .feature_list
 {
@@ -1459,7 +1460,7 @@ section
 	transform: translateY(-50%);
 	left: 0;
 	font-size: 18px;
-	color: #14bdee;
+	color: #6474cc;
 }
 .sidebar_teacher
 {
@@ -1489,7 +1490,7 @@ section
 	font-family: 'Roboto Slab', serif;
 	font-size: 24px;
 	font-weight: 700;
-	color: #14bdee;
+	color: #6474cc;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1521,7 +1522,7 @@ section
 }
 .teacher_meta_text i
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .teacher_info
 {
@@ -1570,14 +1571,14 @@ section
 }
 .latest_title a:hover
 {
-	color: #14bdee;
+	color: 6474cc;
 }
 .latest_price
 {
 	font-family: 'Roboto Slab', serif;
 	font-size: 14px;
 	font-weight: 700;
-	color: #14bdee;
+	color: #6474cc;
 	line-height: 0.75;
 	margin-top: 16px;
 }
@@ -1685,7 +1686,7 @@ section
 	cursor: pointer;
 	font-size: 14px;
 	text-transform: uppercase;
-	color: #14bdee;
+	color: #6474cc;
 	font-weight: 500;
 	letter-spacing: 0.1em;
 }
@@ -1732,7 +1733,7 @@ section
 }
 .footer_logo_text span
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .footer_title
 {
@@ -1788,7 +1789,7 @@ section
 }
 .footer_social ul li:hover
 {
-	background: #14bdee;
+	background: #6474cc;
 }
 .footer_contact
 {
@@ -1838,7 +1839,7 @@ section
 }
 .footer_links_container ul li a:hover
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .footer_mobile
 {
@@ -1878,7 +1879,7 @@ section
 }
 .cr_text a:hover
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .cr_list li:not(:last-child)
 {
@@ -1896,7 +1897,7 @@ section
 }
 .cr_list li a:hover
 {
-	color: #14bdee;
+	color: #6474cc;
 }
 .courses .rattings li {
 	display: inline;
