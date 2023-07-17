@@ -2,87 +2,87 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
 <head>
     <meta charset="UTF-8"/>
-    <title>this is a home page</title>
+    <title>This is a home page</title>
 </head>
 <body>
-<section class="banner">
-    <div id="login">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form class="form" action="#" th:action="@{/update-profile}" method="post" th:object="${user}">
-                            <h3 class="text-center text-info">My Profile</h3>
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+        <h1 class="text-3xl font-medium title-font text-gray-900 mb-4 w-full text-center">My Profile</h1>
 
-                            <input
-                                    type="hidden"
-                                    id="id"
-                                    required
-                                    th:field="*{id}"
-                            />
+        <div th:style="'padding-left: 30px;padding-right: 30px;display: flex;width: 100%;margin-top:1rem;margin-bottom:0px;padding: 2rem;margin-left: 80px;margin-right: 80px;--tw-bg-opacity: 1;border-radius: 0.5rem;flex-direction: column;background-color: rgb(243 244 246 / var(--tw-bg-opacity));'" class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <form th:action="@{/update-profile}" method="post" th:object="${user}">
+                <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Profile Details</h2>
+                <input type="hidden" id="id" required th:field="*{id}" />
 
-                            <!--email field -->
-                            <label for="email_field">Email</label>
-                            <input
-                                    name="email"
-                                    type="email"
-                                    class="form-control"
-                                    id="email_field"
-                                    th:readOnly="*{email}"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Enter here"
-                                    th:field="*{email}"
-                                    required
-                            />
-                            <!--name field -->
-                            <label for="name_field">Name</label>
-                            <input
-                                    name="name"
-                                    type="text"
-                                    class="form-control"
-                                    id="name_field"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Enter here"
-                                    required
-                                    th:field="*{name}"
-                            />
-
-                            <!-- </div>-->
-
-                            <!--password field -->
-                            <!--<div class="form-group">-->
-                            <label for="password_field">Password</label>
-                            <input
-                                    name="password"
-                                    type="password"
-                                    class="form-control"
-                                    id="password_field"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Enter here"
-                                    th:field="*{password}"
-
-                            />
-                            <br>
-                            <div class="container text-center">
-                                <button type="Submit" class="btn bg-info  text-white">
-                                    Update
-                                </button>
-                                <button type="Reset" class="btn bg-warning text-white">
-                                    Reset
-                                </button>
-                            </div>
-
-<br>
-                            <div id="register-link" class="text-right">
-                                <a th:if="${session.user.id > 4}" th:href="@{/delete-profile}" class="delete-link">Delete Profile</a>
-                                <a th:if="${session.user.id < 4}" href="#" class="delete-link">Delete Profile (disabled for this user)</a>
-                            </div>
-                        </form>
-                    </div>
+                <div class="relative mb-4">
+                    <label for="email_field" class="leading-7 text-sm text-gray-600">Email</label>
+                    <input
+                            id="email_field"
+                            name="email"
+                            type="email"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter here"
+                            th:field="*{email}"
+                            required
+                            readonly
+                    >
                 </div>
+                <div class="relative mb-4">
+                    <label for="name_field" class="leading-7 text-sm text-gray-600">Name</label>
+                    <input
+                            id="name_field"
+                            name="name"
+                            type="text"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter here"
+                            required
+                            th:field="*{name}"
+                    >
+                </div>
+                <div class="relative mb-4">
+                    <label for="password_field" class="leading-7 text-sm text-gray-600">Password</label>
+                    <input
+                            id="password_field"
+                            name="password"
+                            type="password"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter here"
+                            th:field="*{password}"
+                    >
+                </div>
+
+                <br>
+                <div class="container text-center">
+                    <button th:style="'border-radius:4rem!important;background-color: #6674CC !important;'" type="Submit" class="btn bg-info  text-white">
+                        Update
+                    </button>
+                    <button th:style="'border-radius:4rem!important;'" type="Reset" class="btn bg-warning text-white">
+                        Reset
+                    </button>
+                </div>
+
+                <br>
+<!--                <div class="container text-center">-->
+<!--                <div class="p-2 w-full">-->
+
+<!--                    <button th:style="'border-radius:4rem!important;background-color: #6674CC;padding-left:2rem;padding-right:2rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:1.125;line-height:2.125;'" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"-->
+<!--                    >-->
+<!--                        Update-->
+<!--                    </button>-->
+
+<!--                    <button th:style="'border-radius:4rem!important;background-color: #6674CC;padding-left:2rem;padding-right:2rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:1.125;line-height:2.125;'" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"-->
+<!--                    >-->
+<!--                        Update-->
+<!--                    </button>-->
+<!--                </div>-->
+            </form>
+            <br>
+            <div id="register-link" class="text-right">
+                <a th:if="${session.user.id > 4}" th:href="@{/delete-profile}" class="delete-link">Delete Profile</a>
+                <a th:style="'color:red !important;'"  th:if="${session.user.id < 4}" href="#" class="delete-link">Delete Profile (disabled for this user)</a>
             </div>
+        </div>
     </div>
 </section>
 </body>
 </html>
-
-

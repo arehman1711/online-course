@@ -5,95 +5,117 @@
     <title>this is a home page</title>
 </head>
 <body>
-<section class="banner">
-    <div id="login">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form class="form" action="#" th:action="@{/do_register}" method="post" th:object="${user}">
-                            <h3 class="text-center text-info">Signup</h3>
-                            <!--name field -->
-                            <label for="name_field">Your Name</label>
-                            <input
-                                    name="name"
-                                    type="text"
-                                    class="form-control"
-                                    id="name_field"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Enter here"
-                                    required
-                                    th:field="*{name}"
+<section>
+    <div class="container">
 
-                            />
+        <div class="row">
+            <div class="col-lg-6">
 
-                            <!--email field -->
-                            <label for="email_field">Your Email</label>
-                            <input
-                                    name="email"
-                                    type="email"
-                                    class="form-control"
-                                    id="email_field"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Enter here"
-                                    th:field="*{email}"
-                                    required
-                            />
-                            <!-- </div>-->
+                <br>
 
-                            <!--password field -->
-                            <!--<div class="form-group">-->
-                            <label for="password_field">Your Password</label>
-                            <input
-                                    name="password"
-                                    type="password"
-                                    class="form-control"
-                                    id="password_field"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Enter here"
-                                    required
-                                    th:field="*{password}"
+                <img src="/image/superadmin-login.jpg" style="margin-top:120px;width:100%">
 
-                            />
-
-
-                            <!-- </div>-->
-                            <!-- Term and conition agreement -->
-                            <div class="form-group form-check">
-
-                                <input type="checkbox"
-                                       name="agreement"
-                                       class="form-check-input"
-                                       id="agreement"
-                                       required
-                                />
-                                <label for="agreement"> Accept term and conditions</label>
-                            </div>
-                            <div class="container text-center">
-                                <button type="submit" class="btn bg-info  text-white">
-                                    submit
-                                </button>
-                                <button type="Reset" class="btn bg-warning text-white">
-                                    Reset
-                                </button>
-                            </div>
-
-                            <br>
-
-                            <div id="register-link" class="text-right">
-                                <a th:href="@{/login}" class="text-info">Already a Member? Login here</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
-    </div>
-    <script>
-  var emailField = document.getElementById("email_field");
-  if (emailField.value.trim() === "") {
-    emailField.value = emailField.value + "@gmail.com";
-  }
-</script>
+            <div class="col-lg-6">
+                <form th:action="@{/do_register}"method="post" th:object="${user}">
 
+                    <div style="margin-top: 200px;" class="card">
+                        <div class="card-body">
+
+
+                            <p style="text-align: center;">
+                        <span style="margin: 0; font-size: 34px; text-transform: uppercase;">
+
+                            <span style="color: #000000;">Learning</span>
+                            <span style="color: #6674CC;">kart</span>
+                        </span>
+
+                            </p>
+                            <p style="margin-bottom: 10px;margin-top: 10px;'">
+                            <h3 class="text-center" th:style="'font-weight: 500;'">
+                                Students | Signup
+                            </h3>
+                            <!-- <p style="font-size: 15px;text-align: center;">
+                                10Seconds - Student Authentication
+                            </p> -->
+                            <h3 class="w3-center" id="signinerr" style="color:red;display:block"></h3>
+                            <p>
+                                <label th:style="'Font-size:16px;color:#212529;margin-bottom:0'">Name</label>
+                                <input  th:style="'font-weight:normal;padding:.375rem .75rem'"
+                                        type="text"
+                                       class="form-control"
+                                       id="name" name="name"
+
+                                       required placeholder="Enter your Name"
+                                th:field="*{name}">
+                            </p>
+                            <p>
+                                <label th:style="'Font-size:16px;color:#212529;margin-bottom:0'">Email</label>
+                                <input th:style="'font-weight:normal;padding:.375rem .75rem'"
+                                        type="email"
+                                       class="form-control"
+                                       id="email" name="email"
+
+                                       required placeholder="Enter your email"
+                                       th:field="*{email}"
+                                >
+                                <span id="erremail" style="font-size: 10px;color:red"></span>
+                            </p>
+
+
+                            <p style="margin-bottom: 10px;margin-top: 10px;'">
+                                <label th:style="'margin-bottom:0;font-size: 16px; color: #212529; font-family: myProductFont;'">Password</label>
+                                <input type="password"
+                                       id="password" name="password"
+                                       class="form-control"
+                                       th:style="'padding: .375rem .75rem;'"
+                                       placeholder="Enter your password"
+                                       required
+                                       autocomplete="off">
+                                <span id="errpassword" style="font-size: 10px; color: red;"></span>
+                            </p>
+
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="checkbox"  onclick="togglePassword()"><span th:style="'Font-size:16px;color:#212529'">&nbsp;Show Password</span>
+                                </div>
+
+                            </div><br>
+                            <button class="btn" id="btnsubmit" style="width: 100%;color: white;background-color: #6674CC;" onclick="return message(event)">
+                                SignUp
+                            </button>
+                            <p></p>
+                            <p style="font-size: 13px;text-align: right;margin-top:10px;">
+                                <a  th:href="@{/login}" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#registerModal" th:style="'color: #0d6efd;border-bottom: solid 0px;font-size: 13px;'" onclick="register();">Already register? Click Here To Login</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        <!-- forgot Modal -->
+
+<script>
+        function togglePassword() {
+            var passwordInput = document.getElementById("password");
+            var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+
+            // Update the checked state of the checkbox
+            showPasswordCheckbox.checked = (passwordInput.type === "text");
+        }
+    </script>
+    </div>
 </section>
 </body>
 </html>

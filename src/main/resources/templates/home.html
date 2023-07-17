@@ -7,12 +7,14 @@
       <link rel="stylesheet" th:href="@{style.css}" />
   </head>
   <body>
-  <section class="search-banner">
-    <form class="search-bar" action="#" th:action="@{/search}" method="post" >
-        <input type="text "  id="searchText" name="searchText" placeholder="search  courses"/>
-        <button type="submit"><img src="image/search.png"></button>
-      </form>
-
+  <section class="landing-page">
+    <h1 class="landing-heading">Welcome to My Learning Platform</h1>
+    <form class="search-bar" action="#" th:action="@{/search}" method="post">
+      <input type="text" id="searchText" name="searchText" placeholder="Search Courses" />
+      <button type="submit">
+        <img src="image/search.png" alt="Search" />
+      </button>
+    </form>
   </section>
   </body>
 </html>

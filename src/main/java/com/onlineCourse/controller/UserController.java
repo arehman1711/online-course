@@ -25,11 +25,11 @@ public class UserController {
 
     @RequestMapping(value = "/do_register", method = RequestMethod.POST)
     public String registerUser(HttpSession session, @ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
-        if (!agreement) {
-            log.info("You have not agreed the terms and conditions.");
-            model.addAttribute("error", "You have not agreed the terms and conditions.");
-            return "sign-up";
-        }
+//        if (!agreement) {
+//            log.info("You have not agreed the terms and conditions.");
+//            model.addAttribute("error", "You have not agreed the terms and conditions.");
+//            return "sign-up";
+//        }
         log.info("USER " + user);
         boolean isDuplicateUser = userService.isUserAlreadyExists(user.getEmail());
 

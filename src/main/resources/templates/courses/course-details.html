@@ -15,6 +15,8 @@
 
 					<div class="div-relative course_container">
 						<div class="div-relative course_title">
+							<br>
+							<br>
 							<span th:text="${course.courseName}"></span>
 						</div>
 						<div class="course_info wrap d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
@@ -27,13 +29,13 @@
 							<!-- Course Info Item -->
 							<div class="course_info_item" style="color:green" >
 								<span class="course_info_title">Reviews:</span>
-								<i class="fa fa-star"></i>
-								<i th:if = "${course.rating >= 2}" class="fa fa-star"></i>
-								<i th:if = "${course.rating >= 3}" class="fa fa-star"></i>
-								<i th:if = "${course.rating >= 4}" class="fa fa-star"></i>
-								<i th:if = "${course.rating >= 5}" class="fa fa-star"></i>
-								<i  th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
-								<span class="point" th:text="${' (' + course.rating + ')'}"></span>
+								<i th:style="'color: #6674CC!important;'"  class="fa fa-star"></i>
+								<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 2}" class="fa fa-star"></i>
+								<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 3}" class="fa fa-star"></i>
+								<i th:style="'color: #6674CC!important;'"  th:if = "${course.rating >= 4}" class="fa fa-star"></i>
+								<i th:style="'color: #6674CC!important;'"  th:if = "${course.rating >= 5}" class="fa fa-star"></i>
+								<i  th:style="'color: #6674CC!important;'" th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
+								<span th:style="'color: #6674CC!important;'" class="point" th:text="${' (' + course.rating + ')'}"></span>
 							</div>
 
 							<!-- Course Info Item -->
@@ -246,12 +248,12 @@
 										<div class="div-relative review_rating">
 											<div class="div-relative review_rating_num"> <span th:text="${course.rating}"></span></div>
 											<div style="color:green" >
-												<i class="fa fa-star"></i>
-												<i th:if = "${course.rating >= 2}" class="fa fa-star"></i>
-												<i th:if = "${course.rating >= 3}" class="fa fa-star"></i>
-												<i th:if = "${course.rating >= 4}" class="fa fa-star"></i>
-												<i th:if = "${course.rating >= 5}" class="fa fa-star"></i>
-												<i  th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
+												<i th:style="'color: #6674CC!important;'" class="fa fa-star"></i>
+												<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 2}" class="fa fa-star"></i>
+												<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 3}" class="fa fa-star"></i>
+												<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 4}" class="fa fa-star"></i>
+												<i th:style="'color: #6674CC!important;'" th:if = "${course.rating >= 5}" class="fa fa-star"></i>
+												<i th:style="'color: #6674CC!important;'"  th:if = "${course.rating == 2.5 || course.rating == 3.5 || course.rating == 4.5}" class="fa fa-star-half-o"></i></i>
 											</div>
 											<div class="div-relative review_rating_text">(28 Ratings)</div>
 										</div>

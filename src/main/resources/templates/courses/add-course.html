@@ -2,77 +2,90 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
 <head>
     <meta charset="UTF-8"/>
-    <title>this is a home page</title>
+    <title>This is a home page</title>
 </head>
 <body>
-    <section class="banner">
-        <div id="contactus">
-                <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
-                        <div id="login-box" class="col-md-12">
-                            <form class="form" action="#" th:action="@{/submit-add-course}" method="post" th:object="${course}">
-                                <h3 class="text-center text-info">Add New Course</h3>
-                                <!--courseName field -->
-                                <label for="courseName">Course Name</label>
-                                <input type="text" class="form-control" id="courseName" placeholder="Enter here"
-                                       required th:field="*{courseName}"/>
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+        <h1 class="text-3xl font-medium title-font text-gray-900 mb-4 w-full text-center">Add New Course</h1>
 
-                                <!--courseDescription field -->
-                                <label for="courseDescription">Course Description</label>
-                                <textarea
-                                        class="form-control"
-                                        id="courseDescription"
-                                        placeholder="Enter here"
-                                        required
-                                        th:maxlength="80"
-                                        th:minlength="50"
-                                        th:field="*{courseDescription}"
+        <div th:style="'padding-left: 30px;padding-right: 30px;display: flex;width: 100%;margin-top:1rem;margin-bottom:0px;padding: 2rem;margin-left: 80px;margin-right: 80px;--tw-bg-opacity: 1;border-radius: 0.5rem;flex-direction: column;background-color: rgb(243 244 246 / var(--tw-bg-opacity));'"class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <form th:action="@{/submit-add-course}" method="post" th:object="${course}">
+                <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Course Details</h2>
+                <input type="hidden" id="id" required th:field="*{id}" />
+                <input type="hidden" id="rating" required th:field="*{rating}" />
 
-                                />
-                                <span id="textarea_feedback"></span>
-                                <br>
-
-                                <label for="duration">Duration (Days) </label>
-                                <input
-                                        type="text"
-                                        class="form-control"
-                                        id="duration"
-                                        placeholder="Enter here"
-                                        required
-                                        th:field="*{duration}"
-                                />
-
-                                <label for="trainer">Trainer Name </label>
-                                <input
-                                        type="text"
-                                        class="form-control"
-                                        id="trainer"
-                                        placeholder="Enter here"
-                                        required
-                                        th:field="*{trainer}"
-                                />
-
-                                <label for="price">Price </label>
-                                <input
-                                        type="text"
-                                        class="form-control"
-                                        id="price"
-                                        placeholder="Enter here"
-                                        required
-                                        th:field="*{price}"
-                                />
-
-                                <br>
-                                <div class="container text-center">
-                                    <button type="submit" class="btn bg-info  text-white">submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                <div class="relative mb-4">
+                    <label for="courseName" class="leading-7 text-sm text-gray-600">Course Name</label>
+                    <input
+                            type="text"
+                            id="courseName"
+                            name="courseName"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter here"
+                            required
+                            th:field="*{courseName}"
+                    >
                 </div>
+                <div class="relative mb-4">
+                    <label for="courseDescription" class="leading-7 text-sm text-gray-600">Course Description</label>
+                    <textarea
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            id="courseDescription"
+                            name="courseDescription"
+                            placeholder="Enter here"
+                            required
+                            th:maxlength="80"
+                            th:minlength="50"
+                            th:field="*{courseDescription}"
+                    ></textarea>
+                    <span id="textarea_feedback"></span>
+                </div>
+                <div class="relative mb-4">
+                    <label for="duration" class="leading-7 text-sm text-gray-600">Duration (Days)</label>
+                    <input
+                            type="text"
+                            id="duration"
+                            name="duration"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter here"
+                            required
+                            th:field="*{duration}"
+                    >
+                </div>
+                <div class="relative mb-4">
+                    <label for="trainer" class="leading-7 text-sm text-gray-600">Trainer Name</label>
+                    <input
+                            type="text"
+                            id="trainer"
+                            name="trainer"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter here"
+                            required
+                            th:field="*{trainer}"
+                    >
+                </div>
+                <div class="relative mb-4">
+                    <label for="price" class="leading-7 text-sm text-gray-600">Price</label>
+                    <input
+                            type="text"
+                            id="price"
+                            name="price"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter here"
+                            required
+                            th:field="*{price}"
+                    >
+                </div>
+                <div class="p-2 w-full">
+                    <button th:style="'border-radius:4rem!important;background-color: #6674CC;padding-left:2rem;padding-right:2rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:1.125;line-height:2.125;'" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 </body>
 </html>
-
-

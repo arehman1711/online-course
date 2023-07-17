@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>alert</title>
+    <!-- Link to FontAwesome CSS (add the correct link based on your setup) -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- Your other CSS and meta tags should go here -->
+</head>
+<body>
+<div th:fragment="navbar"><!-- Navbar Start -->
+    <div style="height: 80px; background-color: #FFFFFF; position: fixed; top: 0; left: 0;
+        right: 0; z-index: 999; display: flex; justify-content: space-between; align-items: center;
+        padding: 0 20px; color: #fff;">
+        <!-- Transparent Navbar -->
+
+        <h1 style="margin: 0; font-size: 36px; text-transform: uppercase;">
+            <span style="color: #000000;">Learning</span>
+            <span style="color: #6674CC;">kart</span>
+        </h1>
+
+        <!-- For Guest -->
+        <div class="nav-item active" th:if="!${session.user}">
+            <div style="display: flex; align-items: center;"> <!-- Added align-items: center -->
+                <a th:href="@{/}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Home</a>
+                <a th:href="@{/}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Search</a>
+                <a th:href="@{/courses}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Courses</a>
+                <a th:href="@{/contactus}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Contact Us</a>
+                <a th:href="@{/signup}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Signup</a>
+                <a th:href="@{/login}" style=" color: #FFFFFF; text-decoration: none; font-size: 18px; text-transform: uppercase; padding: 0.5rem 2.5rem; background-color: #6674CC; border: 1px solid #6674CC; border-radius: 0.375rem; display: flex; align-items: center;" href="#">
+                    Login
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- For User -->
+        <span th:if="${session.user}" th:switch="${session.user.role}">
+            <span th:case="'user'">
+                <div class="nav-item active">
+                    <div style="display: flex; align-items: center;"> <!-- Added align-items: center -->
+                        <a th:href="@{/}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Home</a>
+                        <a th:href="@{/}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Search</a>
+                        <a th:href="@{/courses}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Courses</a>
+                        <a th:href="@{/my-courses}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">My Courses</a>
+                        <a th:href="@{/profile}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Profile</a>
+                        <a th:href="@{/contactus}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Contact Us</a>
+                        <a th:href="@{/logout}" style=" color: #FFFFFF; text-decoration: none; font-size: 18px; text-transform: uppercase; padding: 0.5rem 2.5rem; background-color: #6674CC; border: 1px solid #6674CC; border-radius: 0.375rem; display: flex; align-items: center;" href="#">
+                            Logout
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                <polyline points="10 17 15 12 10 7"></polyline>
+                                <line x1="15" y1="12" x2="3" y2="12"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </span>
+
+            <!-- For Admin -->
+            <span th:case="'admin'">
+                <div class="nav-item active">
+                    <div style="display: flex; align-items: center;"> <!-- Added align-items: center -->
+                        <a th:href="@{/}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Home</a>
+                        <a th:href="@{/}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Search</a>
+                        <a th:href="@{/init-add-course}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Add Courses</a>
+                        <a th:href="@{/courses}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Manage Courses</a>
+                        <a th:href="@{/profile}" style="margin: 0 10px; color: #000000; text-decoration: none; font-size: 18px; text-transform: uppercase;" href="#">Profile</a>
+
+                        <a th:href="@{/logout}" style=" color: #FFFFFF; text-decoration: none; font-size: 18px; text-transform: uppercase; padding: 0.5rem 2.5rem; background-color: #6674CC; border: 1px solid #6674CC; border-radius: 0.375rem; display: flex; align-items: center;" href="#">
+                            Logout
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                <polyline points="10 17 15 12 10 7"></polyline>
+                                <line x1="15" y1="12" x2="3" y2="12"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </span>
+        </span>
+    </div>
+    <script>
+        // Function to show the navbar when scrolling down
+        window.onscroll = function () {
+            var navbar = document.querySelector("div");
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = "#222";
+            } else {
+                navbar.style.backgroundColor = "transparent";
+            }
+        };
+    </script>
+</div>
+</body>
+</html>
