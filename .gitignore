@@ -38,5 +38,9 @@ build/
 app.log
 
 ### VS Code ###
+/logs/
 *.gz
 app.log.*
+
+#File-repo
+/file-repo/
