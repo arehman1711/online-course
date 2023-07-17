@@ -10,6 +10,7 @@ body{
        padding:5%;
        background-image:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(../image/banner.jpg);
        background-size:cover;
+       background-position:center;
        color:white;
 }
 .my-card{

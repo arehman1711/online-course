@@ -33,6 +33,7 @@ public class Course {
 
 	@Column(name = "courseDescription")
 	private String courseDescription;
+
 	@Column(name = "duration")
 	private Integer duration;
 
@@ -41,6 +42,7 @@ public class Course {
 
 	@Column(name = "rating")
 	private Double rating = 4.5;
+
 	@Column(name = "trainer")
 	private String trainer;
 

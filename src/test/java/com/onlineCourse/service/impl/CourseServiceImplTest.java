@@ -26,8 +26,8 @@ public class CourseServiceImplTest {
     }
 
     @Test
-    public void testGetCourseList() throws Exception {
-        List<Course> courseList = courseService.getCourseList(userId);
+    public void testGetCourseList_ReturnResult() throws Exception {
+        List<Course> courseList = courseService.getCourseList(1);
         log.info("courseList = " + courseList);
         Assert.assertNotNull(courseList);
     }

@@ -4,6 +4,7 @@ import com.onlineCourse.entities.Course;
 import com.onlineCourse.entities.CourseEnrollment;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
 import com.onlineCourse.repository.CourseRepository;
+import com.onlineCourse.repository.file.FileCourseRepository;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.utils.Utils;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,9 @@ public class CourseServiceImpl implements CourseService {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private FileCourseRepository fileCourseRepository;
 
     @Autowired
     private CourseEnrollmentRepository courseEnrollmentRepository;
@@ -58,10 +62,23 @@ public class CourseServiceImpl implements CourseService {
         return stampImageIdAndEnrollmentFlag(courseList, enrolledCourseIds);
     }
 
+    @Override
+    public Course save(Course course) {
+        course = courseRepository.save(course);
+        fileCourseRepository.save(course);
+        return course;
+    }
+
+    @Override
+    public void deleteById(int id) {
+        courseRepository.deleteById(id);
+        fileCourseRepository.deleteById(id);
+    }
+
     private List<Integer> getEnrolledCourseIds(Integer userId) {
         if (userId != null && userId>0) {
             List<CourseEnrollment> courseEnrollmentList = courseEnrollmentRepository.getCourseEnrollmentByUserId(userId);
-            List<Integer> courseIdList = Utils.safe(courseEnrollmentList).stream().map(ce -> ce.getCourseId()).collect(Collectors.toList());
+            List<Integer> courseIdList = Utils.safe(courseEnrollmentList).stream().map(CourseEnrollment::getCourseId).collect(Collectors.toList());
             return (List<Integer>) Utils.safe(courseIdList);
         } else {
             return Collections.emptyList();

@@ -53,6 +53,12 @@
                     </div>
                 </div>
         </div>
+        <script>
+  var emailField = document.getElementById("email_field");
+  if (emailField.value.trim() === "") {
+    emailField.value = emailField.value + "@gmail.com";
+  }
+</script>
     </section>
 </body>
 </html>

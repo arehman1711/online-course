@@ -18,28 +18,54 @@
             <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
         </symbol>
     </svg>
-
-    <div id="alert"  class="alert-success alert-custom d-flex align-items-center alert-dismissible fade show" role="alert" th:if="${success}" >
+    <span id="successAlert">
+    <div  class="alert-success alert-custom d-flex align-items-center alert-dismissible fade show" role="alert" th:if="${success}" >
         <svg  class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
         <div th:text="${success}"></div>
     </div>
-
+    </span>
+    <span id="infoAlert">
     <div class="alert-primary alert-custom d-flex align-items-center" role="alert" th:if="${info}">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"></use></svg>
         <div th:text="${info}"></div>
     </div>
-
+</span>
+    <span id="warningAlert">
     <div class="alert-warning alert-custom d-flex align-items-center" role="alert" th:if="${warning}">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"></use></svg>
         <div th:text="${warning}"></div>
     </div>
-
+    </span>
+    <span id="errorAlert">
     <div class="alert-danger alert-custom d-flex align-items-center" role="alert" th:if="${error}">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"></use></svg>
         <div th:text="${error}"></div>
     </div>
+</span>
+    <script>
+  // Function to hide the alert after a specified duration
+        function hideAlert(alertId, duration) {
+            var alertElement = document.getElementById(alertId);
+            setTimeout(function() {
+                if (alertElement) {
+                    alertElement.style.display = 'none';
+                }
+            }, duration);
+        }
+
+ // Hide success alert after 3 seconds
+        hideAlert('successAlert', 3000);
+
+        // Hide info alert after 5 seconds
+        hideAlert('infoAlert', 3000);
+
+        // Hide warning alert after 4 seconds
+        hideAlert('warningAlert', 3000);
+
+        // Hide error alert after 6 seconds
+        hideAlert('errorAlert', 3000);
+</script>
 </div>
 
-</div>
 </body>
 </html>

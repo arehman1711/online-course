@@ -22,6 +22,8 @@ import java.util.List;
 		generator = ObjectIdGenerators.PropertyGenerator.class,
 		property = "id",
 		scope= User.class)
+@AllArgsConstructor
+@Builder
 public class User {
 	
 	@Id

@@ -35,12 +35,12 @@ build/
 
 ### VS Code ###
 .vscode/
-app.log
 
-### VS Code ###
+### Logs ###
 /logs/
+app.log
 *.gz
 app.log.*
 
-#File-repo
+### file-repo ###
 /file-repo/

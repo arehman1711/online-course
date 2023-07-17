@@ -12,4 +12,8 @@ public interface CourseService {
 
 
     List<Course> getEnrolledCourseList(Integer userId);
+
+    Course save(Course course);
+
+    void deleteById(int id);
 }
