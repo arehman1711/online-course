@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
-import java.util.Random;
 
 @Controller
 @Slf4j
@@ -26,37 +25,34 @@ public class UserController {
 
     @RequestMapping(value = "/do_register", method = RequestMethod.POST)
     public String registerUser(HttpSession session, @ModelAttribute("user") User user, @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model) {
-
-        if (!agreement) {
-            log.info("You have not agreed the terms and conditions.");
-            model.addAttribute("error", "You have not agreed the terms and conditions.");
-            return "sign-up";
-        }
+//        if (!agreement) {
+//            log.info("You have not agreed the terms and conditions.");
+//            model.addAttribute("error", "You have not agreed the terms and conditions.");
+//            return "sign-up";
+//        }
         log.info("USER " + user);
         boolean isDuplicateUser = userService.isUserAlreadyExists(user.getEmail());
-
 
         if(isDuplicateUser){
             model.addAttribute("error", "User already exists in database.");
             log.info("User already exists in database.");
             return "sign-up";
         }
-
         User dbUser = userService.save(user);
         session.setAttribute("user", dbUser);
         model.addAttribute("user", dbUser);
         session.setAttribute("name", dbUser.getName());
         emailService.sendEmail(dbUser.getEmail(),
-                "Registration Successful",
+                "Registered Successful",
                 "Dear "+user.getName()+","+"\n\n"
-                        + "Congratulations! You have successfully Registered for Learning Kart.\n\n"
+                        + "Congratulations! You have successfully Registered to Learning Kart.\n\n"
                         + "Thank you for choosing Learning Kart for your learning needs.\n\n"
                         + "Best regards,\n"
                         + "The Learning Kart Team ");
         model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
         model.addAttribute("success", "User registered successfully.");
         log.info("User "+ dbUser.getName() + " successfully Registered.");
-        return "home";
+        return "index";
     }
 
     @GetMapping(value = "/profile")
@@ -82,7 +78,7 @@ public class UserController {
             session.setAttribute("name", user.getName());
             model.addAttribute("success", "Profile updated successfully.");
             log.info("Profile updated successfully.");
-            return "home";
+            return "index";
         }
         model.addAttribute("error", "Email update not allowed.");
         log.info("Email update not allowed.");
@@ -97,7 +93,7 @@ public class UserController {
         session.invalidate();
         model.addAttribute("success", "Profile deleted successfully.");
         log.info("Profile deleted successfully.");
-        return "home";
+        return "index";
     }
 
 }

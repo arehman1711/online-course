@@ -5,60 +5,114 @@
     <title>this is a home page</title>
 </head>
 <body>
-    <section class="banner">
-        <div id="login">
-                <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
-                        <div id="login-box" class="col-md-12">
-                            <form class="form" action="#" th:action="@{/do_login}" method="post" th:object="${user}">
-                                <h3 class="text-center text-info">Login</h3>
-                                <label for="email_field">Your Email:</label>
-                                <input
-                                        name="email"
-                                        type="email"
-                                        class="form-control"
-                                        id="email_field"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter here"
-                                        th:field="*{email}"
+<section th:style="'background-color:white;'">
+<div class="container">
 
-                                        required
-                                />
-                                <label for="password_field">Your Password:</label>
-                                <input
-                                        name="password"
-                                        type="password"
-                                        class="form-control"
-                                        id="password_field"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter here"
-                                        required
-                                        th:field="*{password}"
+    <div class="row">
+        <div class="col-lg-6">
 
-                                />
-                                <div class="form-group">
-                                    <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+            <br>
 
-                                    <div class="container text-center">
-                                        <button type="submit" class="btn bg-info  text-white">
-                                            submit
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="register-link" class="text-right">
-                                   <a th:href="@{/signup}" class="text-info">Not a Member? Register here</a>
-                                </div>
-                            </form>
+            <img src="/image/superadmin-login.jpg" style="margin-top:120px;width:100%">
+
+        </div>
+        <div class="col-lg-6">
+            <form th:action="@{/do_login}"method="post" th:object="${user}">
+                <div style="margin-top: 50px;" class="card">
+                    <div class="card-body">
+
+                        <div class="logo-new">
+                            <!--                        <span style="margin: 0; font-size: 34px; text-transform: uppercase;">-->
+
+                            <!--                            <span style="color: #000000;">Learning</span>-->
+                            <!--                            <span style="color: #6674CC;">kart</span>-->
+                            <!--                        </span>-->
+                            <img src="/image/logo-trim.png">
                         </div>
+
+
+                        <p style="margin-bottom: 10px;margin-top: 10px;'">
+                        <h3 class="text-center" th:style="'font-weight: 500;'">
+                            Students | Login
+                        </h3>
+                        <!-- <p style="font-size: 15px;text-align: center;">
+                            10Seconds - Student Authentication
+                        </p> -->
+                        <h3 class="w3-center" id="signinerr" style="color:red;display:block"></h3>
+                        <p>
+                            <label th:style="'Font-size:16px;color:#212529;margin-bottom:0'">Email</label>
+                            <input th:style="'font-weight:normal;padding:.375rem .75rem'"
+                                    type="text"
+                                   class="form-control"
+                                   id="email"
+                                   name="email"
+
+                                   required placeholder="Enter your email"
+                                   th:field="*{email}"
+
+                                   autocomplete="off">
+                            <span id="erremail" style="font-size: 10px;color:red"></span>
+                        </p>
+
+
+                        <p style="margin-bottom: 10px;margin-top: 10px;'">
+                            <label th:style="'margin-bottom:0;font-size: 16px; color: #212529; font-family: myProductFont;'">Password</label>
+                            <input th:style="'font-weight:normal;padding:.375rem .75rem'"
+                                    type="password"
+                                   id="password"
+                                   name="password"
+                                   class="form-control"
+
+                                   placeholder="Enter your password"
+                                   required
+                                   autocomplete="off">
+                            <span id="errpassword" style="font-size: 10px; color: red;"></span>
+                        </p>
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="checkbox"  onclick="togglePassword()"><span th:style="'Font-size:16px;color:#212529'">&nbsp;Show Password</span>
+                            </div>
+
+                        </div><br>
+                        <button class="btn" id="btnsubmit" style="width: 100%;color: white;background-color: #6674CC;" onclick="return message(event)">
+                            Login
+                        </button>
+                        <p></p>
+
+                        <p style="font-size: 13px; margin-top:10px; text-align: right;">
+                            <a th:href="@{/signup}" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#registerModal" th:style="'color: #0d6efd;border-bottom: solid 0px;font-size: 13px;'" onclick="register();">Click Here To Register</a>
+
+                        </p>
+
                     </div>
                 </div>
+            </form>
+
         </div>
-        <script>
-  var emailField = document.getElementById("email_field");
-  if (emailField.value.trim() === "") {
-    emailField.value = emailField.value + "@gmail.com";
-  }
-</script>
+
+    </div>
+
+
+<script>
+
+// Change the type of input to password or text
+        function togglePassword() {
+            var passwordInput = document.getElementById("password");
+            var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+
+            // Update the checked state of the checkbox
+            showPasswordCheckbox.checked = (passwordInput.type === "text");
+        }
+        </script>
+</div>
     </section>
 </body>
 </html>

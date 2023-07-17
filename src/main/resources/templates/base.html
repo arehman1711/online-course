@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" th:href="@{/css/coursedetail.css}"/>
     <link rel="stylesheet" th:href="@{/css/common/footer-style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/signup.css}"/>
     <!-- Course CSS -->
     <link rel="stylesheet" href="/css/course/bootstrap.min.css">
     <!-- Font Awesome CSS -->
@@ -52,12 +53,14 @@
 <title th:text="${title}">Base html</title>
 </head>
 <body>
+
     <!-- navbar -->
-    <div th:replace="navbar :: navbar">  </div>
+    <div th:replace="nav :: navbar">  </div>
     <!-- Alert Section-->
     <div th:replace="alert :: alert">  </div>
     <!-- Main Content-->
     <div th:replace="${content}"></div>
+
     <!-- Footer -->
 <!--
  <div th:replace="footer :: footer">  </div>

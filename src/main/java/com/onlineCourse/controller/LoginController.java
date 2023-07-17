@@ -7,6 +7,7 @@ import com.onlineCourse.service.interfaces.UserService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,14 +59,14 @@ public class LoginController {
 			emailService.sendEmail(user.getEmail(),
 					"Login Successful",
 					"Dear "+user.getName()+","+"\n\n"
-							+ "Congratulations! You have successfully logged in for Learning Kart.\n\n"
+							+ "Congratulations! You have successfully logged in to Learning Kart.\n\n"
 							+ "Thank you for choosing Learning Kart for your learning needs.\n\n"
 							+ "Best regards,\n"
 							+ "The Learning Kart Team ");
 
-			model.addAttribute("info", "Welcome "+ user.getName() + "!");
+			//model.addAttribute("info", "Welcome "+ user.getName() + "!");
 			log.info("Welcome "+ user.getName() + "!");
-			return courseController.courses(session, model);
+			return "index";
 		}
 		log.info("Invalid email/password.");
 		model.addAttribute("error", "Invalid email/password.");
@@ -77,7 +78,7 @@ public class LoginController {
 		session.invalidate();
 		model.addAttribute("success", "Logged out successfully.");
 		log.info("Logged out successfully.");
-		return "home";
+		return "index";
 	}
 
 }

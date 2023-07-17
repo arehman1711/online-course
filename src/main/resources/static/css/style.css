@@ -1,21 +1,17 @@
 body{
-	 background: #e2e2e2!important;
+	 background: white!important;
 }
 .bg-primary{
 	background: #009688 !important;
 }
 .banner{
-	   width: 100%;
-       height:93vh;
-       padding:5%;
-       background-image:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(../image/banner.jpg);
        background-size:cover;
        background-position:center;
-       color:white;
+        background-color:#FFFFFF;
 }
 .my-card{
         padding:20px;
-        background:#    ;
+
 }
 
 #login .container #login-row #login-column #login-box {
@@ -67,12 +63,15 @@ font-family:'Poppins',sans-serif;
   display:flex;
   align-items:center;
   border-radius:60px;
-  padding:1px 30px;
+  /*padding:1px 30px;*/
   back-drop-filter:blur(4px); saturate(180);
  }
 .search-bar input{
    background:transparent;
    flex: 1;
+
+
+
    border: 0;
    outline: none;
    padding: 23px 20px;
@@ -90,7 +89,7 @@ border:0;
 border-radius:50%;
 width:50px;
 height: 60px;
-background:#54B4d3;
+
 cursor:pointer;
 }
 
@@ -119,5 +118,67 @@ cursor:pointer;
 }
 
 
+
+/* Landing page styles */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*height: 95vh; */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.bg-image {
+    color: #fff;
+    height: 90vh;
+    background-image:url(../image/banner.jpg);
+}
+
+.landing-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    border: none;
+    padding: 10px 15px;
+
+    cursor: pointer;
+    outline: none;
+}
+
+.search-bar button img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.logo-new {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 58%;
+ }
 
 

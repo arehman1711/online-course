@@ -1,0 +1,306 @@
+.p-5 {
+    padding: 1.25rem;
+}
+@media (min-width: 768px) {
+    .md\:flex-row {
+        flex-direction: row;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:pr-24 {
+        padding-right: 6rem;
+    }
+}
+    @media (min-width: 768px) {
+        .md\:text-left {
+            text-align: left;
+        }
+    }
+@media (min-width: 768px){
+
+.md\:w-1\/2 {
+    width: 50%;
+
+}}
+@media (min-width: 768px){
+
+.md\:mb-0 {
+    margin-bottom: 0px;
+}
+}
+.flex-col {
+    flex-direction: column;
+}
+@media (min-width: 1024px) {
+    .lg\:max-w-lg {
+        max-width: 32rem;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:w-full {
+        width: 100%;
+    }
+}
+.py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+@media (min-width: 768px) {
+    .md\:flex-row {
+        flex-direction: row;
+    }
+}
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.bg-indigo-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+.w-10 {
+    width: 2.5rem;
+}
+.rounded-full {
+    border-radius: 9999px;
+}
+@media (min-width: 768px) {
+    .md\:mb-0 {
+        margin-bottom: 0px;
+    }
+}
+.font-medium {
+    font-weight: 500;
+}
+.items-center {
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .md\:flex-row {
+        flex-direction: row;
+    }
+}
+.p-5 {
+    padding: 1.25rem;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+    .containers {
+        max-width: 2000px;
+    }
+}
+@media (min-width: 768px) {
+    .md\:mb-0 {
+        margin-bottom: 0px;
+    }
+}
+@media (min-width: 768px) {
+    .md\:ml-auto {
+        margin-left: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar-light.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+.navbars {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.bg-white {
+    background-color: #fff !important;
+}
+.p-0 {
+    padding: 0 !important;
+}
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+}
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+.collapse:not(.show) {
+    display: none;
+}
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+.navbar-light .navbar-brand, .navbar-light a.btn {
+    height: 75px;
+}
+.btn.btn-primary, .btn.btn-secondary {
+    color: #FFFFFF;
+}
+.d-none {
+    display: none !important;
+}
+.btn-primary {
+    color: #000;
+    background-color: #06BBCC;
+    border-color: #06BBCC;
+}
+.ms-3 {
+    margin-left: 1rem !important;
+}
+.ms-auto {
+    margin-left: auto !important;
+}
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
+@media (min-width: 992px) {
+    .px-lg-5 {
+        padding-right: 3rem !important;
+        padding-left: 3rem !important;
+    }
+}
+.ms-3 {
+    margin-left: 1rem !important;
+}
+.py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}@media (min-width: 768px) {
+    .md\:w-2\/3 {
+        width: 66.666667%;
+    }
+}
+.flex {
+    display: flex;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.p-2 {
+    padding: 0.5rem;
+}
+.w-full {
+    width: 100%;
+}
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+.text-gray-600 {
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+.text-\[\#fff\] {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255/var(--tw-text-opacity));
+}
+
+
+
+
+
+/* CSS for the hamburger icon */
+.hamburger-icon {
+    display: none;
+    cursor: pointer;
+}
+
+/* CSS for the responsive navbar */
+#nav-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    padding: 20px;
+    color: #fff;
+}
+
+#nav-menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+nav a.active {
+
+  }

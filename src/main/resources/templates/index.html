@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="landing-page">
+       <span>
+  <h1  class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900" style="text-align: center"  th:if="!${session.name}">
+    Hello, <span  th:if="!${session.name}"id="guest-text" style="color:#4055c9;"></span>
+  </h1>
+</span>
+
+
+
+    <span>
+  <h1 id="welcome-text" class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900" style="text-align: center" th:if="${session.name}" >
+    Welcome, <span th:if="${session.name}" id="session-name" style="color:#4055c9;"></span>
+  </h1>
+</span>
+<div th:style="'     max-width: 1300px;align-items: center; padding-left: 1.25rem;
+    padding-right: 1.25rem;padding-top: 2rem ; padding-bottom: 10rem ;'" class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+
+    <div th:style=" '   display: flex; flex-direction: column ;margin-bottom: 0px; width: 50% ;  align-items: flex-start;text-align: left !important;padding-right: 4rem !important;'" class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 th:style="'margin-bottom: 1rem;font-size: 2.25rem ;
+    line-height: 2.5rem;'" class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Unlock Your Potential:
+            <br class="hidden lg:inline-block"> <span style="color:#4055c9">Empowering Growth through Online Learning</span>
+        </h1>
+
+        <p th:style="' font-size:16px;margin-bottom: 2rem;line-height: 1.625;'" class="mb-8 leading-relaxed">
+            Discover boundless opportunities with our online learning platform. Unlock your true potential and embrace continuous growth, all from the comfort of your home. Empower yourself with knowledge, skills, and confidence, as you embark on a transformative journey of learning and achievement.
+        </p>
+        <div class="flex justify-center">
+           <span th:if="${session.name}">
+               <a th:href="@{/search}" >
+                 <button th:style="'background-color:#6674CC;'" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Search </button>
+                </a>
+           </span>
+        </div>
+
+        <div class="flex justify-center">
+           <span th:if="!${session.name}">
+               <a th:href="@{/login}" >
+                 <button th:style="'background-color:#6674CC;'" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login </button>
+                </a>
+           </span>
+        </div>
+    </div>
+
+
+    <img th:style="'border-radius: 0.25rem;max-width:100%;width:50%;'" alt="Unable to fetch please connect to the Internet" class="object-cover object-center rounded"
+         src="/image/home.jpg">
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+  var sessionName = "[[${session.name}]]!"; // Replace with the actual session name
+  var typingSpeed = 100; // Speed of typing in milliseconds
+  var typingDelay = 1000; // Delay before typing starts in milliseconds
+
+  var sessionNameSpan = document.getElementById('session-name');
+  var typedText = ''; // Variable to store the typed session name
+
+  setTimeout(function() {
+  typeText(sessionName, 0, typingSpeed);
+  }, typingDelay);
+
+  function typeText(text, index, speed) {
+  if (index < text.length) {
+  typedText += text.charAt(index);
+  sessionNameSpan.textContent = typedText; // Update the session name with the typed characters
+  index++;
+  setTimeout(function() {
+  typeText(text, index, speed);
+  }, speed);
+  }
+  }
+  });
+      window.addEventListener('load', function() {
+  var guestText = "guest!"; // Replace with the desired text
+  var typingSpeed = 100; // Speed of typing in milliseconds
+  var typingDelay = 1000; // Delay before typing starts in milliseconds
+
+  setTimeout(function() {
+    typeText(guestText, 0, typingSpeed);
+  }, typingDelay);
+
+  function typeText(text, index, speed) {
+    var guestSpan = document.getElementById('guest-text');
+    if (index < text.length) {
+      guestSpan.textContent += text.charAt(index);
+      index++;
+      setTimeout(function() {
+        typeText(text, index, speed);
+      }, speed);
+    }
+  }
+});
+</script>
+</section>
+</body>
+</html>

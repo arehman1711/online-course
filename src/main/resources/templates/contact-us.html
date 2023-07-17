@@ -2,69 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
 <head>
     <meta charset="UTF-8"/>
-    <title>this is a home page</title>
+    <title>This is a home page</title>
 </head>
 <body>
-    <section class="banner">
-        <div id="contactus">
-                <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
-                        <div id="login-box" class="col-md-12">
-                            <form class="form" action="#" th:action="@{/submit-contactus}" method="post" th:object="${contactUs}">
-                                <h3 class="text-center text-info">Contact us</h3>
-                                <!--name field -->
-                                <label for="name_field">Your Name</label>
-                                <input
-                                        name="name"
-                                        type="text"
-                                        class="form-control"
-                                        id="name_field"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter here"
-                                        required
-                                        th:field="*{name}"
-                                />
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
 
-                                <!--email field -->
-                                <label for="email_field">Your Email</label>
-                                <input
-                                        name="email"
-                                        type="email"
-                                        class="form-control"
-                                        id="email_field"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter here"
-                                        th:field="*{email}"
+        <h1 class="text-3xl font-medium title-font text-gray-900 mb-4 w-full text-center">Contact Us</h1>
 
-                                        required
-                                />
-                                <!-- </div>-->
-
-                                <!--password field -->
-                                <!--<div class="form-group">-->
-                                <label for="message_field">Your message </label>
-                                <textarea
-                                        name="message"
-                                        class="form-control"
-                                        id="message_field"
-                                        placeholder="Enter here"
-                                        required
-                                        th:field="*{message}"
-
-                                />
-                                <br>
-                                <div class="container text-center">
-                                    <button type="submit" class="btn bg-info  text-white">
-                                        submit
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <div th:style="'padding-left: 30px;padding-right: 30px;display: flex;width: 100%;margin-top:1rem;margin-bottom:0px;padding: 2rem;margin-left: 80px;margin-right: 80px;--tw-bg-opacity: 1;border-radius: 0.5rem;flex-direction: column;background-color: rgb(243 244 246 / var(--tw-bg-opacity));'" class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <form th:action="@{/submit-contactus}" method="post" th:object="${contactUs}">
+                <!-- Form fields here -->
+                <div class="relative mb-4">
+                    <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                    <input type="text" id="name" name="name"   readonly class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Enter here" required th:field="*{name}">
                 </div>
+                <div class="relative mb-4">
+                    <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                    <input type="email" id="email" name="email"   readonly class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Enter here" required th:field="*{email}">
+                </div>
+                <div class="relative mb-4">
+                    <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                    <textarea class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out h-32 resize-none" id="message" name="message" placeholder="Enter your message here" required th:field="*{message}"></textarea>
+                </div>
+                <div class="p-2 w-full">
+                    <button th:style="'border-radius:4rem!important;background-color: #6674CC;padding-left:2rem;padding-right:2rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:1.125;line-height:2.125;'" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 </body>
 </html>
-
-

@@ -6,8 +6,18 @@
 </head>
 <body>
 <div th:fragment="navbar">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-        <a class="navbar-brand" th:href="@{/}" >Learning kart</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-indigo-500">
+        <div>
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                     stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+                     viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+            </a>
+        </div>
+        <a th:style="'margin-left:20px;color:#000000; '" class="navbar-brand" th:href="@{/}" >Learning kart</a>
 
         <span  th:if="!${session.user}" align="center" th:text="'Hello Guest..!'"></span>
 
@@ -20,40 +30,40 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!--Guest Section-->
-            <div class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right" th:if="!${session.user}">
+            <div class="navbar navbar-expand-lg navbar-dark bg-indigo-500collapse navbar-collapse navbar-right" th:if="!${session.user}">
                 <ul class="navbar-nav ml-auto text-uppercase">
                     <li class="nav-item active">
-                        <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a  th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a th:href="@{/}" class="nav-link" href="#">Search <span class="sr-only">(current)</span></a>
+                        <a   th:href="@{/}" class="nav-link" href="#">Search <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/courses}" href="/courses" >courses</a>
+                        <a  class="nav-link" th:href="@{/courses}" href="/courses" >courses</a>
                     </li>
 
                     <li class="nav-item" >
-                        <a class="nav-link" th:href="@{/signup}" href="#">Signup</a>
+                        <a  class="nav-link" th:href="@{/signup}" href="#">Signup</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/login}" href="/login">Login</a>
+                        <a   class="nav-link" th:href="@{/login}" href="/login">Login</a>
                     </li>
 
                     <li class="nav-item" >
-                        <a class="nav-link" th:href="@{/contactus}" href="/contactus">Contact US</a>
+                        <a   class="nav-link" th:href="@{/contactus}" href="/contactus">Contact US</a>
                     </li>
                 </ul>
             </div>
 
 
 
-                <span th:if="${session.user}"  th:switch="${session.user.role}" class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right">
+                <span th:if="${session.user}"  th:switch="${session.user.role}" class="navbar navbar-expand-lg navbar-dark bg-indigo-500 collapse navbar-collapse navbar-right">
 
                     <!--User Section-->
-                    <span th:case="'user'"  class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right" >
+                    <span th:case="'user'"  class="navbar navbar-expand-lg navbar-dark bg-indigo-500 collapse navbar-collapse navbar-right" >
                         <ul class="navbar-nav ml-auto text-uppercase">
                             <li class="nav-item active">
                                 <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -86,7 +96,7 @@
                     </span>
 
                     <!--Admin Section-->
-                    <span  th:case="'admin'" class="navbar navbar-expand-lg navbar-dark bg-info collapse navbar-collapse navbar-right" >
+                    <span  th:case="'admin'" class="navbar navbar-expand-lg navbar-dark bg-indigo-500 collapse navbar-collapse navbar-right" >
                         <ul class="navbar-nav ml-auto text-uppercase">
                             <li class="nav-item active">
                                 <a th:href="@{/}" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>

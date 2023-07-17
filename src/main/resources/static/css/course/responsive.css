@@ -171,11 +171,11 @@
 }
 .slicknav_btn {
 	margin: 0;
-	background: #05C46B;
+	background: #6474cc;
 	border-radius: 0px;
 }
 .slicknav_nav a:hover{
-	color:#05C46B;
+	color:#6474cc;
 }
 .slicknav_btn:hover{
 	background:#20232E;

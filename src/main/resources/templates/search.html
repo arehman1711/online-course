@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})"
+      xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <title>this is a home page Document</title>
+      <link rel="stylesheet" th:href="@{style.css}" />
+  </head>
+  <body>
+  <section class="landing-page bg-image">
+    <h1 class="landing-heading">Welcome to My Learning Platform</h1>
+    <form class="search-bar" action="#" th:action="@{/search}" method="post">
+      <input type="text" id="searchText" name="searchText" placeholder="Search Courses" />
+      <button th:style="'background-color:white;'" type="submit">
+        <img src="/image/search-new-theme.png" alt="Search" />
+      </button>
+    </form>
+  </section>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
