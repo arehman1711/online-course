@@ -15,9 +15,13 @@
 
 <!-- New Design Starts -->
 <section class="banner courses archive section">
+    <span th:if="${message}">
+    <h1 style="text-align: center; padding-bottom:200px;color: #4B5563;" th:text="${message}"></h1>
+    </span>
     <!-- Courses -->
     <div class="container">
         <div class="row">
+
             <th:block th:each="course : ${courseList}">
                 <div class="col-lg-4 col-md-6 col-12">
                     <!-- Single Course -->

@@ -124,9 +124,15 @@ public class CourseController {
 	public String myCourses(HttpSession session,  Model model) {
 		User sessionUser = (User) session.getAttribute("user");
 		List<Course> courseList = courseService.getEnrolledCourseList(sessionUser.getId());
+		log.info("courseList"+courseList);
 		log.info("courseList : " + courseList);
-		model.addAttribute("title", "My Courses");
-		model.addAttribute("courseList", courseList);
+		if(!courseList.isEmpty()) {
+			model.addAttribute("title", "My Courses");
+			model.addAttribute("courseList", courseList);
+			return "courses/courses";
+		}
+		model.addAttribute("message","Not Enrolled for any courses");
+		System.out.println("not enrolled");
 		return "courses/courses";
 	}
 
