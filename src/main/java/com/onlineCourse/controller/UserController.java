@@ -43,7 +43,7 @@ public class UserController {
         model.addAttribute("user", dbUser);
         session.setAttribute("name", dbUser.getName());
         emailService.sendEmail(dbUser.getEmail(),
-                "Registered Successful",
+                "Registration Successful",
                 "Dear "+user.getName()+","+"\n\n"
                         + "Congratulations! You have successfully Registered to Learning Kart.\n\n"
                         + "Thank you for choosing Learning Kart for your learning needs.\n\n"
