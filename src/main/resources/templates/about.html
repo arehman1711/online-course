@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8"/>
+  <title>this is a home page</title>
+</head>
+<body>
+<section>
+<div class="relative"><div th:style="'    padding-left: 1rem;
+    padding-right: 1rem;    grid-template-columns: repeat(2,minmax(0,1fr));margin-top: 2.5rem;
+    margin-bottom: 2.5rem;'"
+        class="mx-auto my-10 grid min-h-[564px] max-w-maxScreen px-paddingXforMob md:grid-cols-2 md:px-4">
+  <img th:style="'max-width: 100%; place-self: center;object-fit: cover;  height: 564px;    width: 660px;border-radius: 1.5rem;'" src="/image/teachers/abdur.jpg" alt="img" class="-pt-1 mx-auto h-[80vw] w-[80vw] place-self-center rounded-full object-cover object-top sm:h-[500px] sm:w-full sm:rounded-3xl md:w-[660px] lg:h-[564px]">
+  <div th:style="'      padding-top: 2.5rem;
+    padding-bottom: 2.5rem;    gap: 1rem;    flex-direction: column;    display: flex;  padding-right: 5rem;    padding-left: 5rem;align-items: flex-start;'" class="flex flex-col items-center justify-center gap-4 px-4 py-10 md:items-start md:px-12 lg:px-20">
+    <p th:style="'        margin: 0;font-size: 42px;    font-weight: 700;--tw-text-opacity: 1;
+    color: rgb(1 18 41/var(--tw-text-opacity));'" class="section_heading text-headText">
+      About us</p><p th:style="' --tw-text-opacity: 1;
+    color: rgb(119 124 133/var(--tw-text-opacity));
+}  text-align: start;font-size: 1.25rem;
+    line-height: 1.75rem;'" class="section_subheading text-center md:text-start text-subText ">Hello! Welcome to
+    <span th:style="'    font-size: 1.25rem;
+    line-height: 1.75rem;  text-align: start;font-weight: bold;'" class="font-medium">Learning kart </span>
+    ! Really happy to see you here.</p>
+    <p th:style="'    text-align: start;    font-size: 1.125rem;
+    line-height: 1.75rem;    --tw-text-opacity: 1;
+    color: rgb(166 166 166/var(--tw-text-opacity));'" class="content_text text-justify md:text-start text-grey100">
+      We are delighted to have you join our esteemed community of learners. Taking the first step towards a mentorship program can indeed be overwhelming, but rest assured, you've come to the right place.
+
+      At Learning Kart, we understand the value of seeking counsel and guidance. Our team of experienced mentors is dedicated to supporting you throughout your journey. Whether it's excelling in placement preparations, gaining valuable interview experiences, mastering programming skills, or exploring various fields, we've got you covered!
+
+      Learning should be an enjoyable experience, and that's why we strive to make our programs interactive and engaging. Our mentors are experts at breaking down complex topics and providing practical examples, making learning a breeze.
+
+      Embrace the opportunity to grow and learn with us. Our mission is to empower you to reach your full potential and achieve your dreams.
+      <span th:style="'font-weight:bold'" class="font-medium">Learning Kart</span> we are here to provide all the necessary counsel you might need for
+      <span th:style="'font-weight:bold'" class="font-medium">placement preparations, interview experiences, programming</span>, et cetera! For any additional questions, feel free to email us at a.rehman1711@gmail.com
+    </p>
+  </div>
+</div>
+</div>
+
+</section>
+</body>
+</html>
