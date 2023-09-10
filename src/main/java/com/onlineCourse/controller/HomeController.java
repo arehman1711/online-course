@@ -24,6 +24,21 @@ public class HomeController {
 		model.addAttribute("title", "search");
 		log.info("Enter in search!");
 		return "search";
+	}
+	@GetMapping("/abdur")
+	public String abdur(Model model) {
+		model.addAttribute("title", "search");
+		log.info("Enter in about!");
+		return "about";
+	}
+	@GetMapping("/responsive")
+	public String responsive(Model model) {
+		model.addAttribute("title", "search");
+		log.info("Enter in about!");
+		return "responsive-index";
+	}
+
 
 	}
-}
+
+

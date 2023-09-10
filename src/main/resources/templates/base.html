@@ -3,11 +3,11 @@
 <head>
     <link rel="icon" type="image/x-icon" href="/image/teachers/Khushhal_Photo.jpg">
     <script src="http://localhost:35729/livereload.js"></script>
-<!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" th:href="@{/css/coursedetail.css}"/>
@@ -50,21 +50,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"crossorigin="anonymous"></script>
     <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script th:src="@{/js/course-script.js}"></script>
-<title th:text="${title}">Base html</title>
+    <title th:text="${title}">Base html</title>
 </head>
 <body>
 
-    <!-- navbar -->
-    <div th:replace="nav :: navbar">  </div>
-    <!-- Alert Section-->
-    <div th:replace="alert :: alert">  </div>
-    <!-- Main Content-->
-    <div th:replace="${content}"></div>
+<!-- navbar -->
+<div th:replace="nav :: navbar">  </div>
+<!-- Alert Section-->
+<div th:replace="alert :: alert">  </div>
+<!-- Main Content-->
+<div th:replace="${content}"></div>
 
-    <!-- Footer -->
+<!-- Footer -->
 
 <div th:replace="footer :: footer">  </div>
 
 
 </body>
-

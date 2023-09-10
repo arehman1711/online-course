@@ -17,7 +17,7 @@
 
         </div>
         <div class="col-lg-6">
-            <form th:action="@{/do_login}"method="post" th:object="${user}">
+            <form th:style="'padding-top:100px;padding-bottom:130px;'" th:action="@{/do_login}"method="post" th:object="${user}">
                 <div style="margin-top: 50px;" class="card">
                     <div class="card-body">
 
@@ -82,7 +82,7 @@
                         <p></p>
 
                         <p style="font-size: 13px; margin-top:10px; text-align: right;">
-                            <a th:href="@{/signup}" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#registerModal" th:style="'color: #0d6efd;border-bottom: solid 0px;font-size: 13px;'" onclick="register();">Click Here To Register</a>
+                            <a th:href="@{/signup}" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#registerModal" th:style="'color: #0d6efd;border-bottom: solid 0px;font-size: 13px;'" onclick="register();">Don’t have an account? Sign up</a>
 
                         </p>
 
