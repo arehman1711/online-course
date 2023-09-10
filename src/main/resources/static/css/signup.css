@@ -42,8 +42,8 @@
     }
 }
 .py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 @media (min-width: 768px) {
     .md\:flex-row {
@@ -210,8 +210,8 @@
     margin-left: 1rem !important;
 }
 .py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 .mx-auto {
     margin-left: auto;

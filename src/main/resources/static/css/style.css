@@ -182,3 +182,60 @@ cursor:pointer;
  }
 
 
+
+/*.nav-path*/
+/*z{*/
+/*    height: 40px;*/
+/*    background: #FFFFFF;*/
+/*    font-size: 16px;*/
+/*    border-radius: 8px;*/
+/*    color: #384158;*/
+/*    font-weight: 500;*/
+/*    line-height: 40px;*/
+/*    text-align: center;*/
+/*    text-transform: uppercase;*/
+/*    cursor: pointer;*/
+/*    margin-right: 10px;*/
+/*    padding-left: 21px;*/
+/*    padding-right: 20px;*/
+/*    -webkit-transition: all 200ms ease;*/
+/*    -moz-transition: all 200ms ease;*/
+/*    -ms-transition: all 200ms ease;*/
+/*    -o-transition: all 200ms ease;*/
+/*    transition: all 200ms ease;*/
+/*}*
+/*.nav-path.active,*/
+/*.nav-path:hover*/
+/*{*/
+/*    background: #6474cc;*/
+/*    color: #FFFFFF;*/
+/*}*/
+
+
+.nav-path
+{
+	height: 40px;
+	background: #white;
+	font-size: 16px;
+	color: #384158;
+	font-weight: 500;
+	line-height: 40px;
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	margin-right: 10px;
+	border-radius:5px;
+	padding-left: 21px;
+	padding-right: 20px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.nav-path.active,
+.nav-path:hover
+{
+	background: #6474cc;
+	color: #FFFFFF;
+}

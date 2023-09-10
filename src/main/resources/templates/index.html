@@ -33,17 +33,28 @@
         </p>
         <div class="flex justify-center">
            <span th:if="${session.name}">
-               <a th:href="@{/search}" >
-                 <button th:style="'background-color:#6674CC;'" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Search </button>
+                 <a th:href="@{/search}" style=" color: #FFFFFF; text-decoration: none; font-size: 18px; text-transform: uppercase; padding: 0.5rem 0.85rem; background-color: #6674CC; border: 1px solid #6674CC; border-radius: 0.375rem; display: flex; align-items: center;" href="#">
+                    Search
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
                 </a>
            </span>
         </div>
 
         <div class="flex justify-center">
            <span th:if="!${session.name}">
-               <a th:href="@{/login}" >
-                 <button th:style="'background-color:#6674CC;'" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login </button>
+               <a th:href="@{/login}" style=" color: #FFFFFF; text-decoration: none; font-size: 18px; text-transform: uppercase; padding: 0.5rem 0.85rem; background-color: #6674CC; border: 1px solid #6674CC; border-radius: 0.375rem; display: flex; align-items: center;" href="#">
+                    Login
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
                 </a>
+
            </span>
         </div>
     </div>

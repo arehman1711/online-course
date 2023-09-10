@@ -49,8 +49,8 @@ public class UserController {
                         + "Thank you for choosing Learning Kart for your learning needs.\n\n"
                         + "Best regards,\n"
                         + "The Learning Kart Team ");
-        model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
-        model.addAttribute("success", "User registered successfully.");
+//        model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
+//        model.addAttribute("success", "User registered successfully.");
         log.info("User "+ dbUser.getName() + " successfully Registered.");
         return "index";
     }
