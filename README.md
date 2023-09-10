@@ -32,6 +32,31 @@ Learning Kart is developed using a combination of web technologies, including bu
 - Back-end:  Java, SpringBoot
 - Database: MYSQL
 
+## Snapshots
+<img width="750" alt="Screenshot 2023-08-17 001717" src="https://github.com/arehman1711/online-course/assets/115952882/c79405c7-c43c-4378-87f7-95b9a1355bda">
+<img width="750" alt="Screenshot 2023-08-17 000330" src="https://github.com/arehman1711/online-course/assets/115952882/2c58ea25-3025-4594-9ecf-7af74601f836">
+<img width="750" alt="Screenshot 2023-08-17 000407" src="https://github.com/arehman1711/online-course/assets/115952882/6b22d8b2-2828-4b51-9bfd-7a1a0f414515">
+<img width="750" alt="Screenshot 2023-08-17 000426" src="https://github.com/arehman1711/online-course/assets/115952882/efcf6ce9-1fca-4554-b05c-f3dbbd54e4e4">
+<img width="750" alt="Screenshot 2023-08-17 000515" src="https://github.com/arehman1711/online-course/assets/115952882/d1677550-cab4-4722-ba01-055f50f34cbc">
+<img width="750" alt="Screenshot 2023-08-17 000520" src="https://github.com/arehman1711/online-course/assets/115952882/33088db1-f08f-4fe0-ad81-74b4b5f01c93">
+<img width="750" alt="Screenshot 2023-08-17 000433" src="https://github.com/arehman1711/online-course/assets/115952882/4a27f7f1-6f87-4f0f-aa2b-d971080f7f02">
+<img width="750" alt="Screenshot 2023-07-19 172802" src="https://github.com/arehman1711/online-course/assets/115952882/5cf8663a-ccba-4c26-8e03-4aa036e1cab0">
+<img width="750" alt="Screenshot 2023-07-19 171841" src="https://github.com/arehman1711/online-course/assets/115952882/d4a9ed14-cc74-47c9-8a46-648d7f02fed9">
+<img width="750" alt="Screenshot 2023-08-17 002219" src="https://github.com/arehman1711/online-course/assets/115952882/299aaae8-de9c-49d3-a62d-006c09d3105b">
+<img width="750" alt="Screenshot 2023-07-19 171858" src="https://github.com/arehman1711/online-course/assets/115952882/58769a2f-d851-4e07-83d7-d03359699cf0">
+
+
+<img width="750" alt="Screenshot 2023-07-19 171446" src="https://github.com/arehman1711/online-course/assets/115952882/f941183b-bb84-4fd8-910a-db0de69e2dc2">
+<img width="750" alt="Screenshot 2023-07-19 171500" src="https://github.com/arehman1711/online-course/assets/115952882/7eb7a876-70d5-4837-953a-e5891422a258">
+
+
+
+
+
+
+
+
+
 ## Project Setup
 
 1. Clone the Learning Kart repository from GitHub.
