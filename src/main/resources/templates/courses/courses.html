@@ -18,6 +18,9 @@
     <span th:if="${message}">
     <h1 style="text-align: center; padding-bottom:200px;color: #4B5563;" th:text="${message}"></h1>
     </span>
+    <span th:if="!${message}">
+    <h1 style="text-align: center;color: #4B5563;" th:text="${title}"></h1>
+    </span>
     <!-- Courses -->
     <div class="container">
         <div class="row">
