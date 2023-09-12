@@ -85,6 +85,3 @@ Learning Kart is an ongoing project, and there are many opportunities for future
 
 Your contributions can make Learning Kart an even better learning platform!
 
----
-
-Please note that the above README is a general template and may require further customization based on the actual implementation and specific technologies used in the Learning Kart project. Additionally, it is essential to adhere to any legal and privacy-related considerations when developing an online learning platform.
