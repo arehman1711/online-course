@@ -29,7 +29,7 @@ Learning Kart is an online learning platform that offers free courses for studen
 Learning Kart is developed using a combination of web technologies, including but not limited to:
 
 - Front-end: HTML, CSS, JavaScript, Bootstrap, Thymeleaf
-- Back-end:  Java, SpringBoot
+- Back-end:  Java, SpringBoot, Lombok, Slf4j, microservices, Liquibase , JPA
 - Database: MYSQL
 
 ## Snapshots
