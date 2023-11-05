@@ -10,9 +10,9 @@
 	</parent>
 	
 	<groupId>com.onlinecourse</groupId>
-	<artifactId>onlinecourse</artifactId>
+	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>onlinecourse</name>
+	<name>demo</name>
 	<description>first Spring Boot project</description>
 	
 	<properties>
@@ -123,8 +123,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
+
+
+
 
 </project>
