@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'Learningkart'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_86B16389539A4D4CBD63F150B159B974 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_68C374200E5E42A796F11DCC679146F1 }}
           package: '*.jar'
