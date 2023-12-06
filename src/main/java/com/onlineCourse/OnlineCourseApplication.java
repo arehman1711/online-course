@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @EnableAsync
 @EnableJpaRepositories(basePackages = { "com.onlineCourse.repository"})
 @ComponentScan(basePackages = { "com.onlineCourse.*" })

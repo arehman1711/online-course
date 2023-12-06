@@ -17,12 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Lazy(value = false)
-@Table(name = "user")
 @JsonIdentityInfo(
 		generator = ObjectIdGenerators.PropertyGenerator.class,
 		property = "id",
 		scope= User.class)
 @AllArgsConstructor
+@Table(name = "app_user") // Specify a different table name
 @Builder
 public class User {
 	
