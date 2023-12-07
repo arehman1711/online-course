@@ -17,4 +17,5 @@ public class Configuration {
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         return mapper;
     }
+
 }
