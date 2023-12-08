@@ -1,12 +1,9 @@
- CREATE TABLE "app_user" (
+ CREATE TABLE "users" (
                         id int NOT NULL,
                         email varchar(255) DEFAULT NULL,
                         name varchar(255) DEFAULT NULL,
                         password varchar(255) DEFAULT NULL,
                         role varchar(255) DEFAULT NULL,
-                        image varchar(255) DEFAULT NULL,
-                        token_expiry_time datetime(6) DEFAULT NULL,
-                        verification_token varchar(255) DEFAULT NULL,
                          PRIMARY KEY (id)
 );
 

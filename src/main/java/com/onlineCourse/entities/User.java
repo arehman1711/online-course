@@ -22,12 +22,12 @@ import java.util.List;
 		property = "id",
 		scope= User.class)
 @AllArgsConstructor
-@Table(name = "app_user") // Specify a different table name
+@Table(name = "users") // Specify a different table name
 @Builder
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Integer id;
 
